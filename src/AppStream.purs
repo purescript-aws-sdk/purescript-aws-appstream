@@ -20,172 +20,236 @@ import Data.StrMap as StrMap
 import AWS.Request as Request
 import AWS.Request.Types as Types
 
-serviceName = "AppStream" :: String
-
 
 -- | <p>Associates the specified fleet with the specified stack.</p>
 associateFleet :: forall eff. AssociateFleetRequest -> Aff (exception :: EXCEPTION | eff) AssociateFleetResult
-associateFleet = Request.request serviceName "associateFleet" 
+associateFleet = Request.request service method  where
+    service = Request.ServiceName "AppStream"
+    method = Request.MethodName "associateFleet"
 
 
 -- | <p>Copies the image within the same region or to a new region within the same AWS account. Note that any tags you added to the image will not be copied.</p>
 copyImage :: forall eff. CopyImageRequest -> Aff (exception :: EXCEPTION | eff) CopyImageResponse
-copyImage = Request.request serviceName "copyImage" 
+copyImage = Request.request service method  where
+    service = Request.ServiceName "AppStream"
+    method = Request.MethodName "copyImage"
 
 
 -- | <p>Creates a directory configuration.</p>
 createDirectoryConfig :: forall eff. CreateDirectoryConfigRequest -> Aff (exception :: EXCEPTION | eff) CreateDirectoryConfigResult
-createDirectoryConfig = Request.request serviceName "createDirectoryConfig" 
+createDirectoryConfig = Request.request service method  where
+    service = Request.ServiceName "AppStream"
+    method = Request.MethodName "createDirectoryConfig"
 
 
 -- | <p>Creates a fleet.</p>
 createFleet :: forall eff. CreateFleetRequest -> Aff (exception :: EXCEPTION | eff) CreateFleetResult
-createFleet = Request.request serviceName "createFleet" 
+createFleet = Request.request service method  where
+    service = Request.ServiceName "AppStream"
+    method = Request.MethodName "createFleet"
 
 
 -- | <p>Creates an image builder.</p> <p>The initial state of the builder is <code>PENDING</code>. When it is ready, the state is <code>RUNNING</code>.</p>
 createImageBuilder :: forall eff. CreateImageBuilderRequest -> Aff (exception :: EXCEPTION | eff) CreateImageBuilderResult
-createImageBuilder = Request.request serviceName "createImageBuilder" 
+createImageBuilder = Request.request service method  where
+    service = Request.ServiceName "AppStream"
+    method = Request.MethodName "createImageBuilder"
 
 
 -- | <p>Creates a URL to start an image builder streaming session.</p>
 createImageBuilderStreamingURL :: forall eff. CreateImageBuilderStreamingURLRequest -> Aff (exception :: EXCEPTION | eff) CreateImageBuilderStreamingURLResult
-createImageBuilderStreamingURL = Request.request serviceName "createImageBuilderStreamingURL" 
+createImageBuilderStreamingURL = Request.request service method  where
+    service = Request.ServiceName "AppStream"
+    method = Request.MethodName "createImageBuilderStreamingURL"
 
 
 -- | <p>Creates a stack.</p>
 createStack :: forall eff. CreateStackRequest -> Aff (exception :: EXCEPTION | eff) CreateStackResult
-createStack = Request.request serviceName "createStack" 
+createStack = Request.request service method  where
+    service = Request.ServiceName "AppStream"
+    method = Request.MethodName "createStack"
 
 
 -- | <p>Creates a URL to start a streaming session for the specified user.</p>
 createStreamingURL :: forall eff. CreateStreamingURLRequest -> Aff (exception :: EXCEPTION | eff) CreateStreamingURLResult
-createStreamingURL = Request.request serviceName "createStreamingURL" 
+createStreamingURL = Request.request service method  where
+    service = Request.ServiceName "AppStream"
+    method = Request.MethodName "createStreamingURL"
 
 
 -- | <p>Deletes the specified directory configuration.</p>
 deleteDirectoryConfig :: forall eff. DeleteDirectoryConfigRequest -> Aff (exception :: EXCEPTION | eff) DeleteDirectoryConfigResult
-deleteDirectoryConfig = Request.request serviceName "deleteDirectoryConfig" 
+deleteDirectoryConfig = Request.request service method  where
+    service = Request.ServiceName "AppStream"
+    method = Request.MethodName "deleteDirectoryConfig"
 
 
 -- | <p>Deletes the specified fleet.</p>
 deleteFleet :: forall eff. DeleteFleetRequest -> Aff (exception :: EXCEPTION | eff) DeleteFleetResult
-deleteFleet = Request.request serviceName "deleteFleet" 
+deleteFleet = Request.request service method  where
+    service = Request.ServiceName "AppStream"
+    method = Request.MethodName "deleteFleet"
 
 
 -- | <p>Deletes the specified image. You cannot delete an image that is currently in use. After you delete an image, you cannot provision new capacity using the image.</p>
 deleteImage :: forall eff. DeleteImageRequest -> Aff (exception :: EXCEPTION | eff) DeleteImageResult
-deleteImage = Request.request serviceName "deleteImage" 
+deleteImage = Request.request service method  where
+    service = Request.ServiceName "AppStream"
+    method = Request.MethodName "deleteImage"
 
 
 -- | <p>Deletes the specified image builder and releases the capacity.</p>
 deleteImageBuilder :: forall eff. DeleteImageBuilderRequest -> Aff (exception :: EXCEPTION | eff) DeleteImageBuilderResult
-deleteImageBuilder = Request.request serviceName "deleteImageBuilder" 
+deleteImageBuilder = Request.request service method  where
+    service = Request.ServiceName "AppStream"
+    method = Request.MethodName "deleteImageBuilder"
 
 
 -- | <p>Deletes the specified stack. After this operation completes, the environment can no longer be activated and any reservations made for the stack are released.</p>
 deleteStack :: forall eff. DeleteStackRequest -> Aff (exception :: EXCEPTION | eff) DeleteStackResult
-deleteStack = Request.request serviceName "deleteStack" 
+deleteStack = Request.request service method  where
+    service = Request.ServiceName "AppStream"
+    method = Request.MethodName "deleteStack"
 
 
 -- | <p>Describes the specified directory configurations. Note that although the response syntax in this topic includes the account password, this password is not returned in the actual response. </p>
 describeDirectoryConfigs :: forall eff. DescribeDirectoryConfigsRequest -> Aff (exception :: EXCEPTION | eff) DescribeDirectoryConfigsResult
-describeDirectoryConfigs = Request.request serviceName "describeDirectoryConfigs" 
+describeDirectoryConfigs = Request.request service method  where
+    service = Request.ServiceName "AppStream"
+    method = Request.MethodName "describeDirectoryConfigs"
 
 
 -- | <p>Describes the specified fleets or all fleets in the account.</p>
 describeFleets :: forall eff. DescribeFleetsRequest -> Aff (exception :: EXCEPTION | eff) DescribeFleetsResult
-describeFleets = Request.request serviceName "describeFleets" 
+describeFleets = Request.request service method  where
+    service = Request.ServiceName "AppStream"
+    method = Request.MethodName "describeFleets"
 
 
 -- | <p>Describes the specified image builders or all image builders in the account.</p>
 describeImageBuilders :: forall eff. DescribeImageBuildersRequest -> Aff (exception :: EXCEPTION | eff) DescribeImageBuildersResult
-describeImageBuilders = Request.request serviceName "describeImageBuilders" 
+describeImageBuilders = Request.request service method  where
+    service = Request.ServiceName "AppStream"
+    method = Request.MethodName "describeImageBuilders"
 
 
 -- | <p>Describes the specified images or all images in the account.</p>
 describeImages :: forall eff. DescribeImagesRequest -> Aff (exception :: EXCEPTION | eff) DescribeImagesResult
-describeImages = Request.request serviceName "describeImages" 
+describeImages = Request.request service method  where
+    service = Request.ServiceName "AppStream"
+    method = Request.MethodName "describeImages"
 
 
 -- | <p>Describes the streaming sessions for the specified stack and fleet. If a user ID is provided, only the streaming sessions for only that user are returned. If an authentication type is not provided, the default is to authenticate users using a streaming URL.</p>
 describeSessions :: forall eff. DescribeSessionsRequest -> Aff (exception :: EXCEPTION | eff) DescribeSessionsResult
-describeSessions = Request.request serviceName "describeSessions" 
+describeSessions = Request.request service method  where
+    service = Request.ServiceName "AppStream"
+    method = Request.MethodName "describeSessions"
 
 
 -- | <p>Describes the specified stacks or all stacks in the account.</p>
 describeStacks :: forall eff. DescribeStacksRequest -> Aff (exception :: EXCEPTION | eff) DescribeStacksResult
-describeStacks = Request.request serviceName "describeStacks" 
+describeStacks = Request.request service method  where
+    service = Request.ServiceName "AppStream"
+    method = Request.MethodName "describeStacks"
 
 
 -- | <p>Disassociates the specified fleet from the specified stack.</p>
 disassociateFleet :: forall eff. DisassociateFleetRequest -> Aff (exception :: EXCEPTION | eff) DisassociateFleetResult
-disassociateFleet = Request.request serviceName "disassociateFleet" 
+disassociateFleet = Request.request service method  where
+    service = Request.ServiceName "AppStream"
+    method = Request.MethodName "disassociateFleet"
 
 
 -- | <p>Stops the specified streaming session.</p>
 expireSession :: forall eff. ExpireSessionRequest -> Aff (exception :: EXCEPTION | eff) ExpireSessionResult
-expireSession = Request.request serviceName "expireSession" 
+expireSession = Request.request service method  where
+    service = Request.ServiceName "AppStream"
+    method = Request.MethodName "expireSession"
 
 
 -- | <p>Lists the fleets associated with the specified stack.</p>
 listAssociatedFleets :: forall eff. ListAssociatedFleetsRequest -> Aff (exception :: EXCEPTION | eff) ListAssociatedFleetsResult
-listAssociatedFleets = Request.request serviceName "listAssociatedFleets" 
+listAssociatedFleets = Request.request service method  where
+    service = Request.ServiceName "AppStream"
+    method = Request.MethodName "listAssociatedFleets"
 
 
 -- | <p>Lists the stacks associated with the specified fleet.</p>
 listAssociatedStacks :: forall eff. ListAssociatedStacksRequest -> Aff (exception :: EXCEPTION | eff) ListAssociatedStacksResult
-listAssociatedStacks = Request.request serviceName "listAssociatedStacks" 
+listAssociatedStacks = Request.request service method  where
+    service = Request.ServiceName "AppStream"
+    method = Request.MethodName "listAssociatedStacks"
 
 
 -- | <p>Lists the tags for the specified AppStream 2.0 resource. You can tag AppStream 2.0 image builders, images, fleets, and stacks.</p> <p>For more information about tags, see <a href="http://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>
 listTagsForResource :: forall eff. ListTagsForResourceRequest -> Aff (exception :: EXCEPTION | eff) ListTagsForResourceResponse
-listTagsForResource = Request.request serviceName "listTagsForResource" 
+listTagsForResource = Request.request service method  where
+    service = Request.ServiceName "AppStream"
+    method = Request.MethodName "listTagsForResource"
 
 
 -- | <p>Starts the specified fleet.</p>
 startFleet :: forall eff. StartFleetRequest -> Aff (exception :: EXCEPTION | eff) StartFleetResult
-startFleet = Request.request serviceName "startFleet" 
+startFleet = Request.request service method  where
+    service = Request.ServiceName "AppStream"
+    method = Request.MethodName "startFleet"
 
 
 -- | <p>Starts the specified image builder.</p>
 startImageBuilder :: forall eff. StartImageBuilderRequest -> Aff (exception :: EXCEPTION | eff) StartImageBuilderResult
-startImageBuilder = Request.request serviceName "startImageBuilder" 
+startImageBuilder = Request.request service method  where
+    service = Request.ServiceName "AppStream"
+    method = Request.MethodName "startImageBuilder"
 
 
 -- | <p>Stops the specified fleet.</p>
 stopFleet :: forall eff. StopFleetRequest -> Aff (exception :: EXCEPTION | eff) StopFleetResult
-stopFleet = Request.request serviceName "stopFleet" 
+stopFleet = Request.request service method  where
+    service = Request.ServiceName "AppStream"
+    method = Request.MethodName "stopFleet"
 
 
 -- | <p>Stops the specified image builder.</p>
 stopImageBuilder :: forall eff. StopImageBuilderRequest -> Aff (exception :: EXCEPTION | eff) StopImageBuilderResult
-stopImageBuilder = Request.request serviceName "stopImageBuilder" 
+stopImageBuilder = Request.request service method  where
+    service = Request.ServiceName "AppStream"
+    method = Request.MethodName "stopImageBuilder"
 
 
 -- | <p>Adds or overwrites one or more tags for the specified AppStream 2.0 resource. You can tag AppStream 2.0 image builders, images, fleets, and stacks.</p> <p>Each tag consists of a key and an optional value. If a resource already has a tag with the same key, this operation updates its value.</p> <p>To list the current tags for your resources, use <a>ListTagsForResource</a>. To disassociate tags from your resources, use <a>UntagResource</a>.</p> <p>For more information about tags, see <a href="http://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>
 tagResource :: forall eff. TagResourceRequest -> Aff (exception :: EXCEPTION | eff) TagResourceResponse
-tagResource = Request.request serviceName "tagResource" 
+tagResource = Request.request service method  where
+    service = Request.ServiceName "AppStream"
+    method = Request.MethodName "tagResource"
 
 
 -- | <p>Disassociates the specified tags from the specified AppStream 2.0 resource.</p> <p>To list the current tags for your resources, use <a>ListTagsForResource</a>.</p> <p>For more information about tags, see <a href="http://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>
 untagResource :: forall eff. UntagResourceRequest -> Aff (exception :: EXCEPTION | eff) UntagResourceResponse
-untagResource = Request.request serviceName "untagResource" 
+untagResource = Request.request service method  where
+    service = Request.ServiceName "AppStream"
+    method = Request.MethodName "untagResource"
 
 
 -- | <p>Updates the specified directory configuration.</p>
 updateDirectoryConfig :: forall eff. UpdateDirectoryConfigRequest -> Aff (exception :: EXCEPTION | eff) UpdateDirectoryConfigResult
-updateDirectoryConfig = Request.request serviceName "updateDirectoryConfig" 
+updateDirectoryConfig = Request.request service method  where
+    service = Request.ServiceName "AppStream"
+    method = Request.MethodName "updateDirectoryConfig"
 
 
 -- | <p>Updates the specified fleet.</p> <p>If the fleet is in the <code>STOPPED</code> state, you can update any attribute except the fleet name. If the fleet is in the <code>RUNNING</code> state, you can update the <code>DisplayName</code> and <code>ComputeCapacity</code> attributes. If the fleet is in the <code>STARTING</code> or <code>STOPPING</code> state, you can't update it.</p>
 updateFleet :: forall eff. UpdateFleetRequest -> Aff (exception :: EXCEPTION | eff) UpdateFleetResult
-updateFleet = Request.request serviceName "updateFleet" 
+updateFleet = Request.request service method  where
+    service = Request.ServiceName "AppStream"
+    method = Request.MethodName "updateFleet"
 
 
 -- | <p>Updates the specified stack.</p>
 updateStack :: forall eff. UpdateStackRequest -> Aff (exception :: EXCEPTION | eff) UpdateStackResult
-updateStack = Request.request serviceName "updateStack" 
+updateStack = Request.request service method  where
+    service = Request.ServiceName "AppStream"
+    method = Request.MethodName "updateStack"
 
 
 newtype AccountName = AccountName String
