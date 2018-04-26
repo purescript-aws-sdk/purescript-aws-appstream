@@ -42,7 +42,7 @@ Encode AccountPassword
 
 ``` purescript
 newtype Application
-  = Application { "Name" :: NullOrUndefined (String), "DisplayName" :: NullOrUndefined (String), "IconURL" :: NullOrUndefined (String), "LaunchPath" :: NullOrUndefined (String), "LaunchParameters" :: NullOrUndefined (String), "Enabled" :: NullOrUndefined (Boolean), "Metadata" :: NullOrUndefined (Metadata) }
+  = Application { "Name" :: Maybe (String), "DisplayName" :: Maybe (String), "IconURL" :: Maybe (String), "LaunchPath" :: Maybe (String), "LaunchParameters" :: Maybe (String), "Enabled" :: Maybe (Boolean), "Metadata" :: Maybe (Metadata) }
 ```
 
 <p>Describes an application in the application catalog.</p>
@@ -67,7 +67,7 @@ Constructs Application from required parameters
 #### `newApplication'`
 
 ``` purescript
-newApplication' :: ({ "Name" :: NullOrUndefined (String), "DisplayName" :: NullOrUndefined (String), "IconURL" :: NullOrUndefined (String), "LaunchPath" :: NullOrUndefined (String), "LaunchParameters" :: NullOrUndefined (String), "Enabled" :: NullOrUndefined (Boolean), "Metadata" :: NullOrUndefined (Metadata) } -> { "Name" :: NullOrUndefined (String), "DisplayName" :: NullOrUndefined (String), "IconURL" :: NullOrUndefined (String), "LaunchPath" :: NullOrUndefined (String), "LaunchParameters" :: NullOrUndefined (String), "Enabled" :: NullOrUndefined (Boolean), "Metadata" :: NullOrUndefined (Metadata) }) -> Application
+newApplication' :: ({ "Name" :: Maybe (String), "DisplayName" :: Maybe (String), "IconURL" :: Maybe (String), "LaunchPath" :: Maybe (String), "LaunchParameters" :: Maybe (String), "Enabled" :: Maybe (Boolean), "Metadata" :: Maybe (Metadata) } -> { "Name" :: Maybe (String), "DisplayName" :: Maybe (String), "IconURL" :: Maybe (String), "LaunchPath" :: Maybe (String), "LaunchParameters" :: Maybe (String), "Enabled" :: Maybe (Boolean), "Metadata" :: Maybe (Metadata) }) -> Application
 ```
 
 Constructs Application's fields from required parameters
@@ -238,7 +238,7 @@ Constructs ComputeCapacity's fields from required parameters
 
 ``` purescript
 newtype ComputeCapacityStatus
-  = ComputeCapacityStatus { "Desired" :: Int, "Running" :: NullOrUndefined (Int), "InUse" :: NullOrUndefined (Int), "Available" :: NullOrUndefined (Int) }
+  = ComputeCapacityStatus { "Desired" :: Int, "Running" :: Maybe (Int), "InUse" :: Maybe (Int), "Available" :: Maybe (Int) }
 ```
 
 <p>Describes the capacity status for a fleet.</p>
@@ -263,7 +263,7 @@ Constructs ComputeCapacityStatus from required parameters
 #### `newComputeCapacityStatus'`
 
 ``` purescript
-newComputeCapacityStatus' :: Int -> ({ "Desired" :: Int, "Running" :: NullOrUndefined (Int), "InUse" :: NullOrUndefined (Int), "Available" :: NullOrUndefined (Int) } -> { "Desired" :: Int, "Running" :: NullOrUndefined (Int), "InUse" :: NullOrUndefined (Int), "Available" :: NullOrUndefined (Int) }) -> ComputeCapacityStatus
+newComputeCapacityStatus' :: Int -> ({ "Desired" :: Int, "Running" :: Maybe (Int), "InUse" :: Maybe (Int), "Available" :: Maybe (Int) } -> { "Desired" :: Int, "Running" :: Maybe (Int), "InUse" :: Maybe (Int), "Available" :: Maybe (Int) }) -> ComputeCapacityStatus
 ```
 
 Constructs ComputeCapacityStatus's fields from required parameters
@@ -272,7 +272,7 @@ Constructs ComputeCapacityStatus's fields from required parameters
 
 ``` purescript
 newtype ConcurrentModificationException
-  = ConcurrentModificationException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = ConcurrentModificationException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>An API error occurred. Wait a few minutes and try again.</p>
@@ -297,7 +297,7 @@ Constructs ConcurrentModificationException from required parameters
 #### `newConcurrentModificationException'`
 
 ``` purescript
-newConcurrentModificationException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> ConcurrentModificationException
+newConcurrentModificationException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> ConcurrentModificationException
 ```
 
 Constructs ConcurrentModificationException's fields from required parameters
@@ -306,7 +306,7 @@ Constructs ConcurrentModificationException's fields from required parameters
 
 ``` purescript
 newtype CopyImageRequest
-  = CopyImageRequest { "SourceImageName" :: Name, "DestinationImageName" :: Name, "DestinationRegion" :: RegionName, "DestinationImageDescription" :: NullOrUndefined (Description) }
+  = CopyImageRequest { "SourceImageName" :: Name, "DestinationImageName" :: Name, "DestinationRegion" :: RegionName, "DestinationImageDescription" :: Maybe (Description) }
 ```
 
 ##### Instances
@@ -329,7 +329,7 @@ Constructs CopyImageRequest from required parameters
 #### `newCopyImageRequest'`
 
 ``` purescript
-newCopyImageRequest' :: Name -> RegionName -> Name -> ({ "SourceImageName" :: Name, "DestinationImageName" :: Name, "DestinationRegion" :: RegionName, "DestinationImageDescription" :: NullOrUndefined (Description) } -> { "SourceImageName" :: Name, "DestinationImageName" :: Name, "DestinationRegion" :: RegionName, "DestinationImageDescription" :: NullOrUndefined (Description) }) -> CopyImageRequest
+newCopyImageRequest' :: Name -> RegionName -> Name -> ({ "SourceImageName" :: Name, "DestinationImageName" :: Name, "DestinationRegion" :: RegionName, "DestinationImageDescription" :: Maybe (Description) } -> { "SourceImageName" :: Name, "DestinationImageName" :: Name, "DestinationRegion" :: RegionName, "DestinationImageDescription" :: Maybe (Description) }) -> CopyImageRequest
 ```
 
 Constructs CopyImageRequest's fields from required parameters
@@ -338,7 +338,7 @@ Constructs CopyImageRequest's fields from required parameters
 
 ``` purescript
 newtype CopyImageResponse
-  = CopyImageResponse { "DestinationImageName" :: NullOrUndefined (Name) }
+  = CopyImageResponse { "DestinationImageName" :: Maybe (Name) }
 ```
 
 ##### Instances
@@ -361,7 +361,7 @@ Constructs CopyImageResponse from required parameters
 #### `newCopyImageResponse'`
 
 ``` purescript
-newCopyImageResponse' :: ({ "DestinationImageName" :: NullOrUndefined (Name) } -> { "DestinationImageName" :: NullOrUndefined (Name) }) -> CopyImageResponse
+newCopyImageResponse' :: ({ "DestinationImageName" :: Maybe (Name) } -> { "DestinationImageName" :: Maybe (Name) }) -> CopyImageResponse
 ```
 
 Constructs CopyImageResponse's fields from required parameters
@@ -402,7 +402,7 @@ Constructs CreateDirectoryConfigRequest's fields from required parameters
 
 ``` purescript
 newtype CreateDirectoryConfigResult
-  = CreateDirectoryConfigResult { "DirectoryConfig" :: NullOrUndefined (DirectoryConfig) }
+  = CreateDirectoryConfigResult { "DirectoryConfig" :: Maybe (DirectoryConfig) }
 ```
 
 ##### Instances
@@ -425,7 +425,7 @@ Constructs CreateDirectoryConfigResult from required parameters
 #### `newCreateDirectoryConfigResult'`
 
 ``` purescript
-newCreateDirectoryConfigResult' :: ({ "DirectoryConfig" :: NullOrUndefined (DirectoryConfig) } -> { "DirectoryConfig" :: NullOrUndefined (DirectoryConfig) }) -> CreateDirectoryConfigResult
+newCreateDirectoryConfigResult' :: ({ "DirectoryConfig" :: Maybe (DirectoryConfig) } -> { "DirectoryConfig" :: Maybe (DirectoryConfig) }) -> CreateDirectoryConfigResult
 ```
 
 Constructs CreateDirectoryConfigResult's fields from required parameters
@@ -434,7 +434,7 @@ Constructs CreateDirectoryConfigResult's fields from required parameters
 
 ``` purescript
 newtype CreateFleetRequest
-  = CreateFleetRequest { "Name" :: Name, "ImageName" :: String, "InstanceType" :: String, "FleetType" :: NullOrUndefined (FleetType), "ComputeCapacity" :: ComputeCapacity, "VpcConfig" :: NullOrUndefined (VpcConfig), "MaxUserDurationInSeconds" :: NullOrUndefined (Int), "DisconnectTimeoutInSeconds" :: NullOrUndefined (Int), "Description" :: NullOrUndefined (Description), "DisplayName" :: NullOrUndefined (DisplayName), "EnableDefaultInternetAccess" :: NullOrUndefined (BooleanObject), "DomainJoinInfo" :: NullOrUndefined (DomainJoinInfo) }
+  = CreateFleetRequest { "Name" :: Name, "ImageName" :: String, "InstanceType" :: String, "FleetType" :: Maybe (FleetType), "ComputeCapacity" :: ComputeCapacity, "VpcConfig" :: Maybe (VpcConfig), "MaxUserDurationInSeconds" :: Maybe (Int), "DisconnectTimeoutInSeconds" :: Maybe (Int), "Description" :: Maybe (Description), "DisplayName" :: Maybe (DisplayName), "EnableDefaultInternetAccess" :: Maybe (BooleanObject), "DomainJoinInfo" :: Maybe (DomainJoinInfo) }
 ```
 
 ##### Instances
@@ -457,7 +457,7 @@ Constructs CreateFleetRequest from required parameters
 #### `newCreateFleetRequest'`
 
 ``` purescript
-newCreateFleetRequest' :: ComputeCapacity -> String -> String -> Name -> ({ "Name" :: Name, "ImageName" :: String, "InstanceType" :: String, "FleetType" :: NullOrUndefined (FleetType), "ComputeCapacity" :: ComputeCapacity, "VpcConfig" :: NullOrUndefined (VpcConfig), "MaxUserDurationInSeconds" :: NullOrUndefined (Int), "DisconnectTimeoutInSeconds" :: NullOrUndefined (Int), "Description" :: NullOrUndefined (Description), "DisplayName" :: NullOrUndefined (DisplayName), "EnableDefaultInternetAccess" :: NullOrUndefined (BooleanObject), "DomainJoinInfo" :: NullOrUndefined (DomainJoinInfo) } -> { "Name" :: Name, "ImageName" :: String, "InstanceType" :: String, "FleetType" :: NullOrUndefined (FleetType), "ComputeCapacity" :: ComputeCapacity, "VpcConfig" :: NullOrUndefined (VpcConfig), "MaxUserDurationInSeconds" :: NullOrUndefined (Int), "DisconnectTimeoutInSeconds" :: NullOrUndefined (Int), "Description" :: NullOrUndefined (Description), "DisplayName" :: NullOrUndefined (DisplayName), "EnableDefaultInternetAccess" :: NullOrUndefined (BooleanObject), "DomainJoinInfo" :: NullOrUndefined (DomainJoinInfo) }) -> CreateFleetRequest
+newCreateFleetRequest' :: ComputeCapacity -> String -> String -> Name -> ({ "Name" :: Name, "ImageName" :: String, "InstanceType" :: String, "FleetType" :: Maybe (FleetType), "ComputeCapacity" :: ComputeCapacity, "VpcConfig" :: Maybe (VpcConfig), "MaxUserDurationInSeconds" :: Maybe (Int), "DisconnectTimeoutInSeconds" :: Maybe (Int), "Description" :: Maybe (Description), "DisplayName" :: Maybe (DisplayName), "EnableDefaultInternetAccess" :: Maybe (BooleanObject), "DomainJoinInfo" :: Maybe (DomainJoinInfo) } -> { "Name" :: Name, "ImageName" :: String, "InstanceType" :: String, "FleetType" :: Maybe (FleetType), "ComputeCapacity" :: ComputeCapacity, "VpcConfig" :: Maybe (VpcConfig), "MaxUserDurationInSeconds" :: Maybe (Int), "DisconnectTimeoutInSeconds" :: Maybe (Int), "Description" :: Maybe (Description), "DisplayName" :: Maybe (DisplayName), "EnableDefaultInternetAccess" :: Maybe (BooleanObject), "DomainJoinInfo" :: Maybe (DomainJoinInfo) }) -> CreateFleetRequest
 ```
 
 Constructs CreateFleetRequest's fields from required parameters
@@ -466,7 +466,7 @@ Constructs CreateFleetRequest's fields from required parameters
 
 ``` purescript
 newtype CreateFleetResult
-  = CreateFleetResult { "Fleet" :: NullOrUndefined (Fleet) }
+  = CreateFleetResult { "Fleet" :: Maybe (Fleet) }
 ```
 
 ##### Instances
@@ -489,7 +489,7 @@ Constructs CreateFleetResult from required parameters
 #### `newCreateFleetResult'`
 
 ``` purescript
-newCreateFleetResult' :: ({ "Fleet" :: NullOrUndefined (Fleet) } -> { "Fleet" :: NullOrUndefined (Fleet) }) -> CreateFleetResult
+newCreateFleetResult' :: ({ "Fleet" :: Maybe (Fleet) } -> { "Fleet" :: Maybe (Fleet) }) -> CreateFleetResult
 ```
 
 Constructs CreateFleetResult's fields from required parameters
@@ -498,7 +498,7 @@ Constructs CreateFleetResult's fields from required parameters
 
 ``` purescript
 newtype CreateImageBuilderRequest
-  = CreateImageBuilderRequest { "Name" :: Name, "ImageName" :: String, "InstanceType" :: String, "Description" :: NullOrUndefined (Description), "DisplayName" :: NullOrUndefined (DisplayName), "VpcConfig" :: NullOrUndefined (VpcConfig), "EnableDefaultInternetAccess" :: NullOrUndefined (BooleanObject), "DomainJoinInfo" :: NullOrUndefined (DomainJoinInfo), "AppstreamAgentVersion" :: NullOrUndefined (AppstreamAgentVersion) }
+  = CreateImageBuilderRequest { "Name" :: Name, "ImageName" :: String, "InstanceType" :: String, "Description" :: Maybe (Description), "DisplayName" :: Maybe (DisplayName), "VpcConfig" :: Maybe (VpcConfig), "EnableDefaultInternetAccess" :: Maybe (BooleanObject), "DomainJoinInfo" :: Maybe (DomainJoinInfo), "AppstreamAgentVersion" :: Maybe (AppstreamAgentVersion) }
 ```
 
 ##### Instances
@@ -521,7 +521,7 @@ Constructs CreateImageBuilderRequest from required parameters
 #### `newCreateImageBuilderRequest'`
 
 ``` purescript
-newCreateImageBuilderRequest' :: String -> String -> Name -> ({ "Name" :: Name, "ImageName" :: String, "InstanceType" :: String, "Description" :: NullOrUndefined (Description), "DisplayName" :: NullOrUndefined (DisplayName), "VpcConfig" :: NullOrUndefined (VpcConfig), "EnableDefaultInternetAccess" :: NullOrUndefined (BooleanObject), "DomainJoinInfo" :: NullOrUndefined (DomainJoinInfo), "AppstreamAgentVersion" :: NullOrUndefined (AppstreamAgentVersion) } -> { "Name" :: Name, "ImageName" :: String, "InstanceType" :: String, "Description" :: NullOrUndefined (Description), "DisplayName" :: NullOrUndefined (DisplayName), "VpcConfig" :: NullOrUndefined (VpcConfig), "EnableDefaultInternetAccess" :: NullOrUndefined (BooleanObject), "DomainJoinInfo" :: NullOrUndefined (DomainJoinInfo), "AppstreamAgentVersion" :: NullOrUndefined (AppstreamAgentVersion) }) -> CreateImageBuilderRequest
+newCreateImageBuilderRequest' :: String -> String -> Name -> ({ "Name" :: Name, "ImageName" :: String, "InstanceType" :: String, "Description" :: Maybe (Description), "DisplayName" :: Maybe (DisplayName), "VpcConfig" :: Maybe (VpcConfig), "EnableDefaultInternetAccess" :: Maybe (BooleanObject), "DomainJoinInfo" :: Maybe (DomainJoinInfo), "AppstreamAgentVersion" :: Maybe (AppstreamAgentVersion) } -> { "Name" :: Name, "ImageName" :: String, "InstanceType" :: String, "Description" :: Maybe (Description), "DisplayName" :: Maybe (DisplayName), "VpcConfig" :: Maybe (VpcConfig), "EnableDefaultInternetAccess" :: Maybe (BooleanObject), "DomainJoinInfo" :: Maybe (DomainJoinInfo), "AppstreamAgentVersion" :: Maybe (AppstreamAgentVersion) }) -> CreateImageBuilderRequest
 ```
 
 Constructs CreateImageBuilderRequest's fields from required parameters
@@ -530,7 +530,7 @@ Constructs CreateImageBuilderRequest's fields from required parameters
 
 ``` purescript
 newtype CreateImageBuilderResult
-  = CreateImageBuilderResult { "ImageBuilder" :: NullOrUndefined (ImageBuilder) }
+  = CreateImageBuilderResult { "ImageBuilder" :: Maybe (ImageBuilder) }
 ```
 
 ##### Instances
@@ -553,7 +553,7 @@ Constructs CreateImageBuilderResult from required parameters
 #### `newCreateImageBuilderResult'`
 
 ``` purescript
-newCreateImageBuilderResult' :: ({ "ImageBuilder" :: NullOrUndefined (ImageBuilder) } -> { "ImageBuilder" :: NullOrUndefined (ImageBuilder) }) -> CreateImageBuilderResult
+newCreateImageBuilderResult' :: ({ "ImageBuilder" :: Maybe (ImageBuilder) } -> { "ImageBuilder" :: Maybe (ImageBuilder) }) -> CreateImageBuilderResult
 ```
 
 Constructs CreateImageBuilderResult's fields from required parameters
@@ -562,7 +562,7 @@ Constructs CreateImageBuilderResult's fields from required parameters
 
 ``` purescript
 newtype CreateImageBuilderStreamingURLRequest
-  = CreateImageBuilderStreamingURLRequest { "Name" :: String, "Validity" :: NullOrUndefined (Number) }
+  = CreateImageBuilderStreamingURLRequest { "Name" :: String, "Validity" :: Maybe (Number) }
 ```
 
 ##### Instances
@@ -585,7 +585,7 @@ Constructs CreateImageBuilderStreamingURLRequest from required parameters
 #### `newCreateImageBuilderStreamingURLRequest'`
 
 ``` purescript
-newCreateImageBuilderStreamingURLRequest' :: String -> ({ "Name" :: String, "Validity" :: NullOrUndefined (Number) } -> { "Name" :: String, "Validity" :: NullOrUndefined (Number) }) -> CreateImageBuilderStreamingURLRequest
+newCreateImageBuilderStreamingURLRequest' :: String -> ({ "Name" :: String, "Validity" :: Maybe (Number) } -> { "Name" :: String, "Validity" :: Maybe (Number) }) -> CreateImageBuilderStreamingURLRequest
 ```
 
 Constructs CreateImageBuilderStreamingURLRequest's fields from required parameters
@@ -594,7 +594,7 @@ Constructs CreateImageBuilderStreamingURLRequest's fields from required paramete
 
 ``` purescript
 newtype CreateImageBuilderStreamingURLResult
-  = CreateImageBuilderStreamingURLResult { "StreamingURL" :: NullOrUndefined (String), "Expires" :: NullOrUndefined (Timestamp) }
+  = CreateImageBuilderStreamingURLResult { "StreamingURL" :: Maybe (String), "Expires" :: Maybe (Timestamp) }
 ```
 
 ##### Instances
@@ -617,7 +617,7 @@ Constructs CreateImageBuilderStreamingURLResult from required parameters
 #### `newCreateImageBuilderStreamingURLResult'`
 
 ``` purescript
-newCreateImageBuilderStreamingURLResult' :: ({ "StreamingURL" :: NullOrUndefined (String), "Expires" :: NullOrUndefined (Timestamp) } -> { "StreamingURL" :: NullOrUndefined (String), "Expires" :: NullOrUndefined (Timestamp) }) -> CreateImageBuilderStreamingURLResult
+newCreateImageBuilderStreamingURLResult' :: ({ "StreamingURL" :: Maybe (String), "Expires" :: Maybe (Timestamp) } -> { "StreamingURL" :: Maybe (String), "Expires" :: Maybe (Timestamp) }) -> CreateImageBuilderStreamingURLResult
 ```
 
 Constructs CreateImageBuilderStreamingURLResult's fields from required parameters
@@ -626,7 +626,7 @@ Constructs CreateImageBuilderStreamingURLResult's fields from required parameter
 
 ``` purescript
 newtype CreateStackRequest
-  = CreateStackRequest { "Name" :: String, "Description" :: NullOrUndefined (Description), "DisplayName" :: NullOrUndefined (DisplayName), "StorageConnectors" :: NullOrUndefined (StorageConnectorList), "RedirectURL" :: NullOrUndefined (RedirectURL) }
+  = CreateStackRequest { "Name" :: String, "Description" :: Maybe (Description), "DisplayName" :: Maybe (DisplayName), "StorageConnectors" :: Maybe (StorageConnectorList), "RedirectURL" :: Maybe (RedirectURL) }
 ```
 
 ##### Instances
@@ -649,7 +649,7 @@ Constructs CreateStackRequest from required parameters
 #### `newCreateStackRequest'`
 
 ``` purescript
-newCreateStackRequest' :: String -> ({ "Name" :: String, "Description" :: NullOrUndefined (Description), "DisplayName" :: NullOrUndefined (DisplayName), "StorageConnectors" :: NullOrUndefined (StorageConnectorList), "RedirectURL" :: NullOrUndefined (RedirectURL) } -> { "Name" :: String, "Description" :: NullOrUndefined (Description), "DisplayName" :: NullOrUndefined (DisplayName), "StorageConnectors" :: NullOrUndefined (StorageConnectorList), "RedirectURL" :: NullOrUndefined (RedirectURL) }) -> CreateStackRequest
+newCreateStackRequest' :: String -> ({ "Name" :: String, "Description" :: Maybe (Description), "DisplayName" :: Maybe (DisplayName), "StorageConnectors" :: Maybe (StorageConnectorList), "RedirectURL" :: Maybe (RedirectURL) } -> { "Name" :: String, "Description" :: Maybe (Description), "DisplayName" :: Maybe (DisplayName), "StorageConnectors" :: Maybe (StorageConnectorList), "RedirectURL" :: Maybe (RedirectURL) }) -> CreateStackRequest
 ```
 
 Constructs CreateStackRequest's fields from required parameters
@@ -658,7 +658,7 @@ Constructs CreateStackRequest's fields from required parameters
 
 ``` purescript
 newtype CreateStackResult
-  = CreateStackResult { "Stack" :: NullOrUndefined (Stack) }
+  = CreateStackResult { "Stack" :: Maybe (Stack) }
 ```
 
 ##### Instances
@@ -681,7 +681,7 @@ Constructs CreateStackResult from required parameters
 #### `newCreateStackResult'`
 
 ``` purescript
-newCreateStackResult' :: ({ "Stack" :: NullOrUndefined (Stack) } -> { "Stack" :: NullOrUndefined (Stack) }) -> CreateStackResult
+newCreateStackResult' :: ({ "Stack" :: Maybe (Stack) } -> { "Stack" :: Maybe (Stack) }) -> CreateStackResult
 ```
 
 Constructs CreateStackResult's fields from required parameters
@@ -690,7 +690,7 @@ Constructs CreateStackResult's fields from required parameters
 
 ``` purescript
 newtype CreateStreamingURLRequest
-  = CreateStreamingURLRequest { "StackName" :: String, "FleetName" :: String, "UserId" :: StreamingUrlUserId, "ApplicationId" :: NullOrUndefined (String), "Validity" :: NullOrUndefined (Number), "SessionContext" :: NullOrUndefined (String) }
+  = CreateStreamingURLRequest { "StackName" :: String, "FleetName" :: String, "UserId" :: StreamingUrlUserId, "ApplicationId" :: Maybe (String), "Validity" :: Maybe (Number), "SessionContext" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -713,7 +713,7 @@ Constructs CreateStreamingURLRequest from required parameters
 #### `newCreateStreamingURLRequest'`
 
 ``` purescript
-newCreateStreamingURLRequest' :: String -> String -> StreamingUrlUserId -> ({ "StackName" :: String, "FleetName" :: String, "UserId" :: StreamingUrlUserId, "ApplicationId" :: NullOrUndefined (String), "Validity" :: NullOrUndefined (Number), "SessionContext" :: NullOrUndefined (String) } -> { "StackName" :: String, "FleetName" :: String, "UserId" :: StreamingUrlUserId, "ApplicationId" :: NullOrUndefined (String), "Validity" :: NullOrUndefined (Number), "SessionContext" :: NullOrUndefined (String) }) -> CreateStreamingURLRequest
+newCreateStreamingURLRequest' :: String -> String -> StreamingUrlUserId -> ({ "StackName" :: String, "FleetName" :: String, "UserId" :: StreamingUrlUserId, "ApplicationId" :: Maybe (String), "Validity" :: Maybe (Number), "SessionContext" :: Maybe (String) } -> { "StackName" :: String, "FleetName" :: String, "UserId" :: StreamingUrlUserId, "ApplicationId" :: Maybe (String), "Validity" :: Maybe (Number), "SessionContext" :: Maybe (String) }) -> CreateStreamingURLRequest
 ```
 
 Constructs CreateStreamingURLRequest's fields from required parameters
@@ -722,7 +722,7 @@ Constructs CreateStreamingURLRequest's fields from required parameters
 
 ``` purescript
 newtype CreateStreamingURLResult
-  = CreateStreamingURLResult { "StreamingURL" :: NullOrUndefined (String), "Expires" :: NullOrUndefined (Timestamp) }
+  = CreateStreamingURLResult { "StreamingURL" :: Maybe (String), "Expires" :: Maybe (Timestamp) }
 ```
 
 ##### Instances
@@ -745,7 +745,7 @@ Constructs CreateStreamingURLResult from required parameters
 #### `newCreateStreamingURLResult'`
 
 ``` purescript
-newCreateStreamingURLResult' :: ({ "StreamingURL" :: NullOrUndefined (String), "Expires" :: NullOrUndefined (Timestamp) } -> { "StreamingURL" :: NullOrUndefined (String), "Expires" :: NullOrUndefined (Timestamp) }) -> CreateStreamingURLResult
+newCreateStreamingURLResult' :: ({ "StreamingURL" :: Maybe (String), "Expires" :: Maybe (Timestamp) } -> { "StreamingURL" :: Maybe (String), "Expires" :: Maybe (Timestamp) }) -> CreateStreamingURLResult
 ```
 
 Constructs CreateStreamingURLResult's fields from required parameters
@@ -882,7 +882,7 @@ Constructs DeleteImageBuilderRequest's fields from required parameters
 
 ``` purescript
 newtype DeleteImageBuilderResult
-  = DeleteImageBuilderResult { "ImageBuilder" :: NullOrUndefined (ImageBuilder) }
+  = DeleteImageBuilderResult { "ImageBuilder" :: Maybe (ImageBuilder) }
 ```
 
 ##### Instances
@@ -905,7 +905,7 @@ Constructs DeleteImageBuilderResult from required parameters
 #### `newDeleteImageBuilderResult'`
 
 ``` purescript
-newDeleteImageBuilderResult' :: ({ "ImageBuilder" :: NullOrUndefined (ImageBuilder) } -> { "ImageBuilder" :: NullOrUndefined (ImageBuilder) }) -> DeleteImageBuilderResult
+newDeleteImageBuilderResult' :: ({ "ImageBuilder" :: Maybe (ImageBuilder) } -> { "ImageBuilder" :: Maybe (ImageBuilder) }) -> DeleteImageBuilderResult
 ```
 
 Constructs DeleteImageBuilderResult's fields from required parameters
@@ -946,7 +946,7 @@ Constructs DeleteImageRequest's fields from required parameters
 
 ``` purescript
 newtype DeleteImageResult
-  = DeleteImageResult { "Image" :: NullOrUndefined (Image) }
+  = DeleteImageResult { "Image" :: Maybe (Image) }
 ```
 
 ##### Instances
@@ -969,7 +969,7 @@ Constructs DeleteImageResult from required parameters
 #### `newDeleteImageResult'`
 
 ``` purescript
-newDeleteImageResult' :: ({ "Image" :: NullOrUndefined (Image) } -> { "Image" :: NullOrUndefined (Image) }) -> DeleteImageResult
+newDeleteImageResult' :: ({ "Image" :: Maybe (Image) } -> { "Image" :: Maybe (Image) }) -> DeleteImageResult
 ```
 
 Constructs DeleteImageResult's fields from required parameters
@@ -1026,7 +1026,7 @@ Encode DeleteStackResult
 
 ``` purescript
 newtype DescribeDirectoryConfigsRequest
-  = DescribeDirectoryConfigsRequest { "DirectoryNames" :: NullOrUndefined (DirectoryNameList), "MaxResults" :: NullOrUndefined (Int), "NextToken" :: NullOrUndefined (String) }
+  = DescribeDirectoryConfigsRequest { "DirectoryNames" :: Maybe (DirectoryNameList), "MaxResults" :: Maybe (Int), "NextToken" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -1049,7 +1049,7 @@ Constructs DescribeDirectoryConfigsRequest from required parameters
 #### `newDescribeDirectoryConfigsRequest'`
 
 ``` purescript
-newDescribeDirectoryConfigsRequest' :: ({ "DirectoryNames" :: NullOrUndefined (DirectoryNameList), "MaxResults" :: NullOrUndefined (Int), "NextToken" :: NullOrUndefined (String) } -> { "DirectoryNames" :: NullOrUndefined (DirectoryNameList), "MaxResults" :: NullOrUndefined (Int), "NextToken" :: NullOrUndefined (String) }) -> DescribeDirectoryConfigsRequest
+newDescribeDirectoryConfigsRequest' :: ({ "DirectoryNames" :: Maybe (DirectoryNameList), "MaxResults" :: Maybe (Int), "NextToken" :: Maybe (String) } -> { "DirectoryNames" :: Maybe (DirectoryNameList), "MaxResults" :: Maybe (Int), "NextToken" :: Maybe (String) }) -> DescribeDirectoryConfigsRequest
 ```
 
 Constructs DescribeDirectoryConfigsRequest's fields from required parameters
@@ -1058,7 +1058,7 @@ Constructs DescribeDirectoryConfigsRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeDirectoryConfigsResult
-  = DescribeDirectoryConfigsResult { "DirectoryConfigs" :: NullOrUndefined (DirectoryConfigList), "NextToken" :: NullOrUndefined (String) }
+  = DescribeDirectoryConfigsResult { "DirectoryConfigs" :: Maybe (DirectoryConfigList), "NextToken" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -1081,7 +1081,7 @@ Constructs DescribeDirectoryConfigsResult from required parameters
 #### `newDescribeDirectoryConfigsResult'`
 
 ``` purescript
-newDescribeDirectoryConfigsResult' :: ({ "DirectoryConfigs" :: NullOrUndefined (DirectoryConfigList), "NextToken" :: NullOrUndefined (String) } -> { "DirectoryConfigs" :: NullOrUndefined (DirectoryConfigList), "NextToken" :: NullOrUndefined (String) }) -> DescribeDirectoryConfigsResult
+newDescribeDirectoryConfigsResult' :: ({ "DirectoryConfigs" :: Maybe (DirectoryConfigList), "NextToken" :: Maybe (String) } -> { "DirectoryConfigs" :: Maybe (DirectoryConfigList), "NextToken" :: Maybe (String) }) -> DescribeDirectoryConfigsResult
 ```
 
 Constructs DescribeDirectoryConfigsResult's fields from required parameters
@@ -1090,7 +1090,7 @@ Constructs DescribeDirectoryConfigsResult's fields from required parameters
 
 ``` purescript
 newtype DescribeFleetsRequest
-  = DescribeFleetsRequest { "Names" :: NullOrUndefined (StringList), "NextToken" :: NullOrUndefined (String) }
+  = DescribeFleetsRequest { "Names" :: Maybe (StringList), "NextToken" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -1113,7 +1113,7 @@ Constructs DescribeFleetsRequest from required parameters
 #### `newDescribeFleetsRequest'`
 
 ``` purescript
-newDescribeFleetsRequest' :: ({ "Names" :: NullOrUndefined (StringList), "NextToken" :: NullOrUndefined (String) } -> { "Names" :: NullOrUndefined (StringList), "NextToken" :: NullOrUndefined (String) }) -> DescribeFleetsRequest
+newDescribeFleetsRequest' :: ({ "Names" :: Maybe (StringList), "NextToken" :: Maybe (String) } -> { "Names" :: Maybe (StringList), "NextToken" :: Maybe (String) }) -> DescribeFleetsRequest
 ```
 
 Constructs DescribeFleetsRequest's fields from required parameters
@@ -1122,7 +1122,7 @@ Constructs DescribeFleetsRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeFleetsResult
-  = DescribeFleetsResult { "Fleets" :: NullOrUndefined (FleetList), "NextToken" :: NullOrUndefined (String) }
+  = DescribeFleetsResult { "Fleets" :: Maybe (FleetList), "NextToken" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -1145,7 +1145,7 @@ Constructs DescribeFleetsResult from required parameters
 #### `newDescribeFleetsResult'`
 
 ``` purescript
-newDescribeFleetsResult' :: ({ "Fleets" :: NullOrUndefined (FleetList), "NextToken" :: NullOrUndefined (String) } -> { "Fleets" :: NullOrUndefined (FleetList), "NextToken" :: NullOrUndefined (String) }) -> DescribeFleetsResult
+newDescribeFleetsResult' :: ({ "Fleets" :: Maybe (FleetList), "NextToken" :: Maybe (String) } -> { "Fleets" :: Maybe (FleetList), "NextToken" :: Maybe (String) }) -> DescribeFleetsResult
 ```
 
 Constructs DescribeFleetsResult's fields from required parameters
@@ -1154,7 +1154,7 @@ Constructs DescribeFleetsResult's fields from required parameters
 
 ``` purescript
 newtype DescribeImageBuildersRequest
-  = DescribeImageBuildersRequest { "Names" :: NullOrUndefined (StringList), "MaxResults" :: NullOrUndefined (Int), "NextToken" :: NullOrUndefined (String) }
+  = DescribeImageBuildersRequest { "Names" :: Maybe (StringList), "MaxResults" :: Maybe (Int), "NextToken" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -1177,7 +1177,7 @@ Constructs DescribeImageBuildersRequest from required parameters
 #### `newDescribeImageBuildersRequest'`
 
 ``` purescript
-newDescribeImageBuildersRequest' :: ({ "Names" :: NullOrUndefined (StringList), "MaxResults" :: NullOrUndefined (Int), "NextToken" :: NullOrUndefined (String) } -> { "Names" :: NullOrUndefined (StringList), "MaxResults" :: NullOrUndefined (Int), "NextToken" :: NullOrUndefined (String) }) -> DescribeImageBuildersRequest
+newDescribeImageBuildersRequest' :: ({ "Names" :: Maybe (StringList), "MaxResults" :: Maybe (Int), "NextToken" :: Maybe (String) } -> { "Names" :: Maybe (StringList), "MaxResults" :: Maybe (Int), "NextToken" :: Maybe (String) }) -> DescribeImageBuildersRequest
 ```
 
 Constructs DescribeImageBuildersRequest's fields from required parameters
@@ -1186,7 +1186,7 @@ Constructs DescribeImageBuildersRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeImageBuildersResult
-  = DescribeImageBuildersResult { "ImageBuilders" :: NullOrUndefined (ImageBuilderList), "NextToken" :: NullOrUndefined (String) }
+  = DescribeImageBuildersResult { "ImageBuilders" :: Maybe (ImageBuilderList), "NextToken" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -1209,7 +1209,7 @@ Constructs DescribeImageBuildersResult from required parameters
 #### `newDescribeImageBuildersResult'`
 
 ``` purescript
-newDescribeImageBuildersResult' :: ({ "ImageBuilders" :: NullOrUndefined (ImageBuilderList), "NextToken" :: NullOrUndefined (String) } -> { "ImageBuilders" :: NullOrUndefined (ImageBuilderList), "NextToken" :: NullOrUndefined (String) }) -> DescribeImageBuildersResult
+newDescribeImageBuildersResult' :: ({ "ImageBuilders" :: Maybe (ImageBuilderList), "NextToken" :: Maybe (String) } -> { "ImageBuilders" :: Maybe (ImageBuilderList), "NextToken" :: Maybe (String) }) -> DescribeImageBuildersResult
 ```
 
 Constructs DescribeImageBuildersResult's fields from required parameters
@@ -1218,7 +1218,7 @@ Constructs DescribeImageBuildersResult's fields from required parameters
 
 ``` purescript
 newtype DescribeImagesRequest
-  = DescribeImagesRequest { "Names" :: NullOrUndefined (StringList) }
+  = DescribeImagesRequest { "Names" :: Maybe (StringList) }
 ```
 
 ##### Instances
@@ -1241,7 +1241,7 @@ Constructs DescribeImagesRequest from required parameters
 #### `newDescribeImagesRequest'`
 
 ``` purescript
-newDescribeImagesRequest' :: ({ "Names" :: NullOrUndefined (StringList) } -> { "Names" :: NullOrUndefined (StringList) }) -> DescribeImagesRequest
+newDescribeImagesRequest' :: ({ "Names" :: Maybe (StringList) } -> { "Names" :: Maybe (StringList) }) -> DescribeImagesRequest
 ```
 
 Constructs DescribeImagesRequest's fields from required parameters
@@ -1250,7 +1250,7 @@ Constructs DescribeImagesRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeImagesResult
-  = DescribeImagesResult { "Images" :: NullOrUndefined (ImageList) }
+  = DescribeImagesResult { "Images" :: Maybe (ImageList) }
 ```
 
 ##### Instances
@@ -1273,7 +1273,7 @@ Constructs DescribeImagesResult from required parameters
 #### `newDescribeImagesResult'`
 
 ``` purescript
-newDescribeImagesResult' :: ({ "Images" :: NullOrUndefined (ImageList) } -> { "Images" :: NullOrUndefined (ImageList) }) -> DescribeImagesResult
+newDescribeImagesResult' :: ({ "Images" :: Maybe (ImageList) } -> { "Images" :: Maybe (ImageList) }) -> DescribeImagesResult
 ```
 
 Constructs DescribeImagesResult's fields from required parameters
@@ -1282,7 +1282,7 @@ Constructs DescribeImagesResult's fields from required parameters
 
 ``` purescript
 newtype DescribeSessionsRequest
-  = DescribeSessionsRequest { "StackName" :: String, "FleetName" :: String, "UserId" :: NullOrUndefined (UserId), "NextToken" :: NullOrUndefined (String), "Limit" :: NullOrUndefined (Int), "AuthenticationType" :: NullOrUndefined (AuthenticationType) }
+  = DescribeSessionsRequest { "StackName" :: String, "FleetName" :: String, "UserId" :: Maybe (UserId), "NextToken" :: Maybe (String), "Limit" :: Maybe (Int), "AuthenticationType" :: Maybe (AuthenticationType) }
 ```
 
 ##### Instances
@@ -1305,7 +1305,7 @@ Constructs DescribeSessionsRequest from required parameters
 #### `newDescribeSessionsRequest'`
 
 ``` purescript
-newDescribeSessionsRequest' :: String -> String -> ({ "StackName" :: String, "FleetName" :: String, "UserId" :: NullOrUndefined (UserId), "NextToken" :: NullOrUndefined (String), "Limit" :: NullOrUndefined (Int), "AuthenticationType" :: NullOrUndefined (AuthenticationType) } -> { "StackName" :: String, "FleetName" :: String, "UserId" :: NullOrUndefined (UserId), "NextToken" :: NullOrUndefined (String), "Limit" :: NullOrUndefined (Int), "AuthenticationType" :: NullOrUndefined (AuthenticationType) }) -> DescribeSessionsRequest
+newDescribeSessionsRequest' :: String -> String -> ({ "StackName" :: String, "FleetName" :: String, "UserId" :: Maybe (UserId), "NextToken" :: Maybe (String), "Limit" :: Maybe (Int), "AuthenticationType" :: Maybe (AuthenticationType) } -> { "StackName" :: String, "FleetName" :: String, "UserId" :: Maybe (UserId), "NextToken" :: Maybe (String), "Limit" :: Maybe (Int), "AuthenticationType" :: Maybe (AuthenticationType) }) -> DescribeSessionsRequest
 ```
 
 Constructs DescribeSessionsRequest's fields from required parameters
@@ -1314,7 +1314,7 @@ Constructs DescribeSessionsRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeSessionsResult
-  = DescribeSessionsResult { "Sessions" :: NullOrUndefined (SessionList), "NextToken" :: NullOrUndefined (String) }
+  = DescribeSessionsResult { "Sessions" :: Maybe (SessionList), "NextToken" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -1337,7 +1337,7 @@ Constructs DescribeSessionsResult from required parameters
 #### `newDescribeSessionsResult'`
 
 ``` purescript
-newDescribeSessionsResult' :: ({ "Sessions" :: NullOrUndefined (SessionList), "NextToken" :: NullOrUndefined (String) } -> { "Sessions" :: NullOrUndefined (SessionList), "NextToken" :: NullOrUndefined (String) }) -> DescribeSessionsResult
+newDescribeSessionsResult' :: ({ "Sessions" :: Maybe (SessionList), "NextToken" :: Maybe (String) } -> { "Sessions" :: Maybe (SessionList), "NextToken" :: Maybe (String) }) -> DescribeSessionsResult
 ```
 
 Constructs DescribeSessionsResult's fields from required parameters
@@ -1346,7 +1346,7 @@ Constructs DescribeSessionsResult's fields from required parameters
 
 ``` purescript
 newtype DescribeStacksRequest
-  = DescribeStacksRequest { "Names" :: NullOrUndefined (StringList), "NextToken" :: NullOrUndefined (String) }
+  = DescribeStacksRequest { "Names" :: Maybe (StringList), "NextToken" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -1369,7 +1369,7 @@ Constructs DescribeStacksRequest from required parameters
 #### `newDescribeStacksRequest'`
 
 ``` purescript
-newDescribeStacksRequest' :: ({ "Names" :: NullOrUndefined (StringList), "NextToken" :: NullOrUndefined (String) } -> { "Names" :: NullOrUndefined (StringList), "NextToken" :: NullOrUndefined (String) }) -> DescribeStacksRequest
+newDescribeStacksRequest' :: ({ "Names" :: Maybe (StringList), "NextToken" :: Maybe (String) } -> { "Names" :: Maybe (StringList), "NextToken" :: Maybe (String) }) -> DescribeStacksRequest
 ```
 
 Constructs DescribeStacksRequest's fields from required parameters
@@ -1378,7 +1378,7 @@ Constructs DescribeStacksRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeStacksResult
-  = DescribeStacksResult { "Stacks" :: NullOrUndefined (StackList), "NextToken" :: NullOrUndefined (String) }
+  = DescribeStacksResult { "Stacks" :: Maybe (StackList), "NextToken" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -1401,7 +1401,7 @@ Constructs DescribeStacksResult from required parameters
 #### `newDescribeStacksResult'`
 
 ``` purescript
-newDescribeStacksResult' :: ({ "Stacks" :: NullOrUndefined (StackList), "NextToken" :: NullOrUndefined (String) } -> { "Stacks" :: NullOrUndefined (StackList), "NextToken" :: NullOrUndefined (String) }) -> DescribeStacksResult
+newDescribeStacksResult' :: ({ "Stacks" :: Maybe (StackList), "NextToken" :: Maybe (String) } -> { "Stacks" :: Maybe (StackList), "NextToken" :: Maybe (String) }) -> DescribeStacksResult
 ```
 
 Constructs DescribeStacksResult's fields from required parameters
@@ -1426,7 +1426,7 @@ Encode Description
 
 ``` purescript
 newtype DirectoryConfig
-  = DirectoryConfig { "DirectoryName" :: DirectoryName, "OrganizationalUnitDistinguishedNames" :: NullOrUndefined (OrganizationalUnitDistinguishedNamesList), "ServiceAccountCredentials" :: NullOrUndefined (ServiceAccountCredentials), "CreatedTime" :: NullOrUndefined (Timestamp) }
+  = DirectoryConfig { "DirectoryName" :: DirectoryName, "OrganizationalUnitDistinguishedNames" :: Maybe (OrganizationalUnitDistinguishedNamesList), "ServiceAccountCredentials" :: Maybe (ServiceAccountCredentials), "CreatedTime" :: Maybe (Timestamp) }
 ```
 
 <p>Configuration information for the directory used to join domains.</p>
@@ -1451,7 +1451,7 @@ Constructs DirectoryConfig from required parameters
 #### `newDirectoryConfig'`
 
 ``` purescript
-newDirectoryConfig' :: DirectoryName -> ({ "DirectoryName" :: DirectoryName, "OrganizationalUnitDistinguishedNames" :: NullOrUndefined (OrganizationalUnitDistinguishedNamesList), "ServiceAccountCredentials" :: NullOrUndefined (ServiceAccountCredentials), "CreatedTime" :: NullOrUndefined (Timestamp) } -> { "DirectoryName" :: DirectoryName, "OrganizationalUnitDistinguishedNames" :: NullOrUndefined (OrganizationalUnitDistinguishedNamesList), "ServiceAccountCredentials" :: NullOrUndefined (ServiceAccountCredentials), "CreatedTime" :: NullOrUndefined (Timestamp) }) -> DirectoryConfig
+newDirectoryConfig' :: DirectoryName -> ({ "DirectoryName" :: DirectoryName, "OrganizationalUnitDistinguishedNames" :: Maybe (OrganizationalUnitDistinguishedNamesList), "ServiceAccountCredentials" :: Maybe (ServiceAccountCredentials), "CreatedTime" :: Maybe (Timestamp) } -> { "DirectoryName" :: DirectoryName, "OrganizationalUnitDistinguishedNames" :: Maybe (OrganizationalUnitDistinguishedNamesList), "ServiceAccountCredentials" :: Maybe (ServiceAccountCredentials), "CreatedTime" :: Maybe (Timestamp) }) -> DirectoryConfig
 ```
 
 Constructs DirectoryConfig's fields from required parameters
@@ -1572,7 +1572,7 @@ Encode DisplayName
 
 ``` purescript
 newtype DomainJoinInfo
-  = DomainJoinInfo { "DirectoryName" :: NullOrUndefined (DirectoryName), "OrganizationalUnitDistinguishedName" :: NullOrUndefined (OrganizationalUnitDistinguishedName) }
+  = DomainJoinInfo { "DirectoryName" :: Maybe (DirectoryName), "OrganizationalUnitDistinguishedName" :: Maybe (OrganizationalUnitDistinguishedName) }
 ```
 
 <p>Contains the information needed to join a Microsoft Active Directory domain.</p>
@@ -1597,7 +1597,7 @@ Constructs DomainJoinInfo from required parameters
 #### `newDomainJoinInfo'`
 
 ``` purescript
-newDomainJoinInfo' :: ({ "DirectoryName" :: NullOrUndefined (DirectoryName), "OrganizationalUnitDistinguishedName" :: NullOrUndefined (OrganizationalUnitDistinguishedName) } -> { "DirectoryName" :: NullOrUndefined (DirectoryName), "OrganizationalUnitDistinguishedName" :: NullOrUndefined (OrganizationalUnitDistinguishedName) }) -> DomainJoinInfo
+newDomainJoinInfo' :: ({ "DirectoryName" :: Maybe (DirectoryName), "OrganizationalUnitDistinguishedName" :: Maybe (OrganizationalUnitDistinguishedName) } -> { "DirectoryName" :: Maybe (DirectoryName), "OrganizationalUnitDistinguishedName" :: Maybe (OrganizationalUnitDistinguishedName) }) -> DomainJoinInfo
 ```
 
 Constructs DomainJoinInfo's fields from required parameters
@@ -1672,7 +1672,7 @@ Encode ExpireSessionResult
 
 ``` purescript
 newtype Fleet
-  = Fleet { "Arn" :: Arn, "Name" :: String, "DisplayName" :: NullOrUndefined (String), "Description" :: NullOrUndefined (String), "ImageName" :: String, "InstanceType" :: String, "FleetType" :: NullOrUndefined (FleetType), "ComputeCapacityStatus" :: ComputeCapacityStatus, "MaxUserDurationInSeconds" :: NullOrUndefined (Int), "DisconnectTimeoutInSeconds" :: NullOrUndefined (Int), "State" :: FleetState, "VpcConfig" :: NullOrUndefined (VpcConfig), "CreatedTime" :: NullOrUndefined (Timestamp), "FleetErrors" :: NullOrUndefined (FleetErrors), "EnableDefaultInternetAccess" :: NullOrUndefined (BooleanObject), "DomainJoinInfo" :: NullOrUndefined (DomainJoinInfo) }
+  = Fleet { "Arn" :: Arn, "Name" :: String, "DisplayName" :: Maybe (String), "Description" :: Maybe (String), "ImageName" :: String, "InstanceType" :: String, "FleetType" :: Maybe (FleetType), "ComputeCapacityStatus" :: ComputeCapacityStatus, "MaxUserDurationInSeconds" :: Maybe (Int), "DisconnectTimeoutInSeconds" :: Maybe (Int), "State" :: FleetState, "VpcConfig" :: Maybe (VpcConfig), "CreatedTime" :: Maybe (Timestamp), "FleetErrors" :: Maybe (FleetErrors), "EnableDefaultInternetAccess" :: Maybe (BooleanObject), "DomainJoinInfo" :: Maybe (DomainJoinInfo) }
 ```
 
 <p>Contains the parameters for a fleet.</p>
@@ -1697,7 +1697,7 @@ Constructs Fleet from required parameters
 #### `newFleet'`
 
 ``` purescript
-newFleet' :: Arn -> ComputeCapacityStatus -> String -> String -> String -> FleetState -> ({ "Arn" :: Arn, "Name" :: String, "DisplayName" :: NullOrUndefined (String), "Description" :: NullOrUndefined (String), "ImageName" :: String, "InstanceType" :: String, "FleetType" :: NullOrUndefined (FleetType), "ComputeCapacityStatus" :: ComputeCapacityStatus, "MaxUserDurationInSeconds" :: NullOrUndefined (Int), "DisconnectTimeoutInSeconds" :: NullOrUndefined (Int), "State" :: FleetState, "VpcConfig" :: NullOrUndefined (VpcConfig), "CreatedTime" :: NullOrUndefined (Timestamp), "FleetErrors" :: NullOrUndefined (FleetErrors), "EnableDefaultInternetAccess" :: NullOrUndefined (BooleanObject), "DomainJoinInfo" :: NullOrUndefined (DomainJoinInfo) } -> { "Arn" :: Arn, "Name" :: String, "DisplayName" :: NullOrUndefined (String), "Description" :: NullOrUndefined (String), "ImageName" :: String, "InstanceType" :: String, "FleetType" :: NullOrUndefined (FleetType), "ComputeCapacityStatus" :: ComputeCapacityStatus, "MaxUserDurationInSeconds" :: NullOrUndefined (Int), "DisconnectTimeoutInSeconds" :: NullOrUndefined (Int), "State" :: FleetState, "VpcConfig" :: NullOrUndefined (VpcConfig), "CreatedTime" :: NullOrUndefined (Timestamp), "FleetErrors" :: NullOrUndefined (FleetErrors), "EnableDefaultInternetAccess" :: NullOrUndefined (BooleanObject), "DomainJoinInfo" :: NullOrUndefined (DomainJoinInfo) }) -> Fleet
+newFleet' :: Arn -> ComputeCapacityStatus -> String -> String -> String -> FleetState -> ({ "Arn" :: Arn, "Name" :: String, "DisplayName" :: Maybe (String), "Description" :: Maybe (String), "ImageName" :: String, "InstanceType" :: String, "FleetType" :: Maybe (FleetType), "ComputeCapacityStatus" :: ComputeCapacityStatus, "MaxUserDurationInSeconds" :: Maybe (Int), "DisconnectTimeoutInSeconds" :: Maybe (Int), "State" :: FleetState, "VpcConfig" :: Maybe (VpcConfig), "CreatedTime" :: Maybe (Timestamp), "FleetErrors" :: Maybe (FleetErrors), "EnableDefaultInternetAccess" :: Maybe (BooleanObject), "DomainJoinInfo" :: Maybe (DomainJoinInfo) } -> { "Arn" :: Arn, "Name" :: String, "DisplayName" :: Maybe (String), "Description" :: Maybe (String), "ImageName" :: String, "InstanceType" :: String, "FleetType" :: Maybe (FleetType), "ComputeCapacityStatus" :: ComputeCapacityStatus, "MaxUserDurationInSeconds" :: Maybe (Int), "DisconnectTimeoutInSeconds" :: Maybe (Int), "State" :: FleetState, "VpcConfig" :: Maybe (VpcConfig), "CreatedTime" :: Maybe (Timestamp), "FleetErrors" :: Maybe (FleetErrors), "EnableDefaultInternetAccess" :: Maybe (BooleanObject), "DomainJoinInfo" :: Maybe (DomainJoinInfo) }) -> Fleet
 ```
 
 Constructs Fleet's fields from required parameters
@@ -1742,7 +1742,7 @@ Encode FleetAttributes
 
 ``` purescript
 newtype FleetError
-  = FleetError { "ErrorCode" :: NullOrUndefined (FleetErrorCode), "ErrorMessage" :: NullOrUndefined (String) }
+  = FleetError { "ErrorCode" :: Maybe (FleetErrorCode), "ErrorMessage" :: Maybe (String) }
 ```
 
 <p>Describes a fleet error.</p>
@@ -1767,7 +1767,7 @@ Constructs FleetError from required parameters
 #### `newFleetError'`
 
 ``` purescript
-newFleetError' :: ({ "ErrorCode" :: NullOrUndefined (FleetErrorCode), "ErrorMessage" :: NullOrUndefined (String) } -> { "ErrorCode" :: NullOrUndefined (FleetErrorCode), "ErrorMessage" :: NullOrUndefined (String) }) -> FleetError
+newFleetError' :: ({ "ErrorCode" :: Maybe (FleetErrorCode), "ErrorMessage" :: Maybe (String) } -> { "ErrorCode" :: Maybe (FleetErrorCode), "ErrorMessage" :: Maybe (String) }) -> FleetError
 ```
 
 Constructs FleetError's fields from required parameters
@@ -1858,7 +1858,7 @@ Encode FleetType
 
 ``` purescript
 newtype Image
-  = Image { "Name" :: String, "Arn" :: NullOrUndefined (Arn), "BaseImageArn" :: NullOrUndefined (Arn), "DisplayName" :: NullOrUndefined (String), "State" :: NullOrUndefined (ImageState), "Visibility" :: NullOrUndefined (VisibilityType), "ImageBuilderSupported" :: NullOrUndefined (Boolean), "Platform" :: NullOrUndefined (PlatformType), "Description" :: NullOrUndefined (String), "StateChangeReason" :: NullOrUndefined (ImageStateChangeReason), "Applications" :: NullOrUndefined (Applications), "CreatedTime" :: NullOrUndefined (Timestamp), "PublicBaseImageReleasedDate" :: NullOrUndefined (Timestamp), "AppstreamAgentVersion" :: NullOrUndefined (AppstreamAgentVersion) }
+  = Image { "Name" :: String, "Arn" :: Maybe (Arn), "BaseImageArn" :: Maybe (Arn), "DisplayName" :: Maybe (String), "State" :: Maybe (ImageState), "Visibility" :: Maybe (VisibilityType), "ImageBuilderSupported" :: Maybe (Boolean), "Platform" :: Maybe (PlatformType), "Description" :: Maybe (String), "StateChangeReason" :: Maybe (ImageStateChangeReason), "Applications" :: Maybe (Applications), "CreatedTime" :: Maybe (Timestamp), "PublicBaseImageReleasedDate" :: Maybe (Timestamp), "AppstreamAgentVersion" :: Maybe (AppstreamAgentVersion) }
 ```
 
 <p>Describes an image.</p>
@@ -1883,7 +1883,7 @@ Constructs Image from required parameters
 #### `newImage'`
 
 ``` purescript
-newImage' :: String -> ({ "Name" :: String, "Arn" :: NullOrUndefined (Arn), "BaseImageArn" :: NullOrUndefined (Arn), "DisplayName" :: NullOrUndefined (String), "State" :: NullOrUndefined (ImageState), "Visibility" :: NullOrUndefined (VisibilityType), "ImageBuilderSupported" :: NullOrUndefined (Boolean), "Platform" :: NullOrUndefined (PlatformType), "Description" :: NullOrUndefined (String), "StateChangeReason" :: NullOrUndefined (ImageStateChangeReason), "Applications" :: NullOrUndefined (Applications), "CreatedTime" :: NullOrUndefined (Timestamp), "PublicBaseImageReleasedDate" :: NullOrUndefined (Timestamp), "AppstreamAgentVersion" :: NullOrUndefined (AppstreamAgentVersion) } -> { "Name" :: String, "Arn" :: NullOrUndefined (Arn), "BaseImageArn" :: NullOrUndefined (Arn), "DisplayName" :: NullOrUndefined (String), "State" :: NullOrUndefined (ImageState), "Visibility" :: NullOrUndefined (VisibilityType), "ImageBuilderSupported" :: NullOrUndefined (Boolean), "Platform" :: NullOrUndefined (PlatformType), "Description" :: NullOrUndefined (String), "StateChangeReason" :: NullOrUndefined (ImageStateChangeReason), "Applications" :: NullOrUndefined (Applications), "CreatedTime" :: NullOrUndefined (Timestamp), "PublicBaseImageReleasedDate" :: NullOrUndefined (Timestamp), "AppstreamAgentVersion" :: NullOrUndefined (AppstreamAgentVersion) }) -> Image
+newImage' :: String -> ({ "Name" :: String, "Arn" :: Maybe (Arn), "BaseImageArn" :: Maybe (Arn), "DisplayName" :: Maybe (String), "State" :: Maybe (ImageState), "Visibility" :: Maybe (VisibilityType), "ImageBuilderSupported" :: Maybe (Boolean), "Platform" :: Maybe (PlatformType), "Description" :: Maybe (String), "StateChangeReason" :: Maybe (ImageStateChangeReason), "Applications" :: Maybe (Applications), "CreatedTime" :: Maybe (Timestamp), "PublicBaseImageReleasedDate" :: Maybe (Timestamp), "AppstreamAgentVersion" :: Maybe (AppstreamAgentVersion) } -> { "Name" :: String, "Arn" :: Maybe (Arn), "BaseImageArn" :: Maybe (Arn), "DisplayName" :: Maybe (String), "State" :: Maybe (ImageState), "Visibility" :: Maybe (VisibilityType), "ImageBuilderSupported" :: Maybe (Boolean), "Platform" :: Maybe (PlatformType), "Description" :: Maybe (String), "StateChangeReason" :: Maybe (ImageStateChangeReason), "Applications" :: Maybe (Applications), "CreatedTime" :: Maybe (Timestamp), "PublicBaseImageReleasedDate" :: Maybe (Timestamp), "AppstreamAgentVersion" :: Maybe (AppstreamAgentVersion) }) -> Image
 ```
 
 Constructs Image's fields from required parameters
@@ -1892,7 +1892,7 @@ Constructs Image's fields from required parameters
 
 ``` purescript
 newtype ImageBuilder
-  = ImageBuilder { "Name" :: String, "Arn" :: NullOrUndefined (Arn), "ImageArn" :: NullOrUndefined (Arn), "Description" :: NullOrUndefined (String), "DisplayName" :: NullOrUndefined (String), "VpcConfig" :: NullOrUndefined (VpcConfig), "InstanceType" :: NullOrUndefined (String), "Platform" :: NullOrUndefined (PlatformType), "State" :: NullOrUndefined (ImageBuilderState), "StateChangeReason" :: NullOrUndefined (ImageBuilderStateChangeReason), "CreatedTime" :: NullOrUndefined (Timestamp), "EnableDefaultInternetAccess" :: NullOrUndefined (BooleanObject), "DomainJoinInfo" :: NullOrUndefined (DomainJoinInfo), "ImageBuilderErrors" :: NullOrUndefined (ResourceErrors), "AppstreamAgentVersion" :: NullOrUndefined (AppstreamAgentVersion) }
+  = ImageBuilder { "Name" :: String, "Arn" :: Maybe (Arn), "ImageArn" :: Maybe (Arn), "Description" :: Maybe (String), "DisplayName" :: Maybe (String), "VpcConfig" :: Maybe (VpcConfig), "InstanceType" :: Maybe (String), "Platform" :: Maybe (PlatformType), "State" :: Maybe (ImageBuilderState), "StateChangeReason" :: Maybe (ImageBuilderStateChangeReason), "CreatedTime" :: Maybe (Timestamp), "EnableDefaultInternetAccess" :: Maybe (BooleanObject), "DomainJoinInfo" :: Maybe (DomainJoinInfo), "ImageBuilderErrors" :: Maybe (ResourceErrors), "AppstreamAgentVersion" :: Maybe (AppstreamAgentVersion) }
 ```
 
 <p>Describes a streaming instance used for editing an image. New images are created from a snapshot through an image builder.</p>
@@ -1917,7 +1917,7 @@ Constructs ImageBuilder from required parameters
 #### `newImageBuilder'`
 
 ``` purescript
-newImageBuilder' :: String -> ({ "Name" :: String, "Arn" :: NullOrUndefined (Arn), "ImageArn" :: NullOrUndefined (Arn), "Description" :: NullOrUndefined (String), "DisplayName" :: NullOrUndefined (String), "VpcConfig" :: NullOrUndefined (VpcConfig), "InstanceType" :: NullOrUndefined (String), "Platform" :: NullOrUndefined (PlatformType), "State" :: NullOrUndefined (ImageBuilderState), "StateChangeReason" :: NullOrUndefined (ImageBuilderStateChangeReason), "CreatedTime" :: NullOrUndefined (Timestamp), "EnableDefaultInternetAccess" :: NullOrUndefined (BooleanObject), "DomainJoinInfo" :: NullOrUndefined (DomainJoinInfo), "ImageBuilderErrors" :: NullOrUndefined (ResourceErrors), "AppstreamAgentVersion" :: NullOrUndefined (AppstreamAgentVersion) } -> { "Name" :: String, "Arn" :: NullOrUndefined (Arn), "ImageArn" :: NullOrUndefined (Arn), "Description" :: NullOrUndefined (String), "DisplayName" :: NullOrUndefined (String), "VpcConfig" :: NullOrUndefined (VpcConfig), "InstanceType" :: NullOrUndefined (String), "Platform" :: NullOrUndefined (PlatformType), "State" :: NullOrUndefined (ImageBuilderState), "StateChangeReason" :: NullOrUndefined (ImageBuilderStateChangeReason), "CreatedTime" :: NullOrUndefined (Timestamp), "EnableDefaultInternetAccess" :: NullOrUndefined (BooleanObject), "DomainJoinInfo" :: NullOrUndefined (DomainJoinInfo), "ImageBuilderErrors" :: NullOrUndefined (ResourceErrors), "AppstreamAgentVersion" :: NullOrUndefined (AppstreamAgentVersion) }) -> ImageBuilder
+newImageBuilder' :: String -> ({ "Name" :: String, "Arn" :: Maybe (Arn), "ImageArn" :: Maybe (Arn), "Description" :: Maybe (String), "DisplayName" :: Maybe (String), "VpcConfig" :: Maybe (VpcConfig), "InstanceType" :: Maybe (String), "Platform" :: Maybe (PlatformType), "State" :: Maybe (ImageBuilderState), "StateChangeReason" :: Maybe (ImageBuilderStateChangeReason), "CreatedTime" :: Maybe (Timestamp), "EnableDefaultInternetAccess" :: Maybe (BooleanObject), "DomainJoinInfo" :: Maybe (DomainJoinInfo), "ImageBuilderErrors" :: Maybe (ResourceErrors), "AppstreamAgentVersion" :: Maybe (AppstreamAgentVersion) } -> { "Name" :: String, "Arn" :: Maybe (Arn), "ImageArn" :: Maybe (Arn), "Description" :: Maybe (String), "DisplayName" :: Maybe (String), "VpcConfig" :: Maybe (VpcConfig), "InstanceType" :: Maybe (String), "Platform" :: Maybe (PlatformType), "State" :: Maybe (ImageBuilderState), "StateChangeReason" :: Maybe (ImageBuilderStateChangeReason), "CreatedTime" :: Maybe (Timestamp), "EnableDefaultInternetAccess" :: Maybe (BooleanObject), "DomainJoinInfo" :: Maybe (DomainJoinInfo), "ImageBuilderErrors" :: Maybe (ResourceErrors), "AppstreamAgentVersion" :: Maybe (AppstreamAgentVersion) }) -> ImageBuilder
 ```
 
 Constructs ImageBuilder's fields from required parameters
@@ -1958,7 +1958,7 @@ Encode ImageBuilderState
 
 ``` purescript
 newtype ImageBuilderStateChangeReason
-  = ImageBuilderStateChangeReason { "Code" :: NullOrUndefined (ImageBuilderStateChangeReasonCode), "Message" :: NullOrUndefined (String) }
+  = ImageBuilderStateChangeReason { "Code" :: Maybe (ImageBuilderStateChangeReasonCode), "Message" :: Maybe (String) }
 ```
 
 <p>Describes the reason why the last image builder state change occurred.</p>
@@ -1983,7 +1983,7 @@ Constructs ImageBuilderStateChangeReason from required parameters
 #### `newImageBuilderStateChangeReason'`
 
 ``` purescript
-newImageBuilderStateChangeReason' :: ({ "Code" :: NullOrUndefined (ImageBuilderStateChangeReasonCode), "Message" :: NullOrUndefined (String) } -> { "Code" :: NullOrUndefined (ImageBuilderStateChangeReasonCode), "Message" :: NullOrUndefined (String) }) -> ImageBuilderStateChangeReason
+newImageBuilderStateChangeReason' :: ({ "Code" :: Maybe (ImageBuilderStateChangeReasonCode), "Message" :: Maybe (String) } -> { "Code" :: Maybe (ImageBuilderStateChangeReasonCode), "Message" :: Maybe (String) }) -> ImageBuilderStateChangeReason
 ```
 
 Constructs ImageBuilderStateChangeReason's fields from required parameters
@@ -2040,7 +2040,7 @@ Encode ImageState
 
 ``` purescript
 newtype ImageStateChangeReason
-  = ImageStateChangeReason { "Code" :: NullOrUndefined (ImageStateChangeReasonCode), "Message" :: NullOrUndefined (String) }
+  = ImageStateChangeReason { "Code" :: Maybe (ImageStateChangeReasonCode), "Message" :: Maybe (String) }
 ```
 
 <p>Describes the reason why the last image state change occurred.</p>
@@ -2065,7 +2065,7 @@ Constructs ImageStateChangeReason from required parameters
 #### `newImageStateChangeReason'`
 
 ``` purescript
-newImageStateChangeReason' :: ({ "Code" :: NullOrUndefined (ImageStateChangeReasonCode), "Message" :: NullOrUndefined (String) } -> { "Code" :: NullOrUndefined (ImageStateChangeReasonCode), "Message" :: NullOrUndefined (String) }) -> ImageStateChangeReason
+newImageStateChangeReason' :: ({ "Code" :: Maybe (ImageStateChangeReasonCode), "Message" :: Maybe (String) } -> { "Code" :: Maybe (ImageStateChangeReasonCode), "Message" :: Maybe (String) }) -> ImageStateChangeReason
 ```
 
 Constructs ImageStateChangeReason's fields from required parameters
@@ -2090,7 +2090,7 @@ Encode ImageStateChangeReasonCode
 
 ``` purescript
 newtype IncompatibleImageException
-  = IncompatibleImageException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = IncompatibleImageException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>The image does not support storage connectors.</p>
@@ -2115,7 +2115,7 @@ Constructs IncompatibleImageException from required parameters
 #### `newIncompatibleImageException'`
 
 ``` purescript
-newIncompatibleImageException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> IncompatibleImageException
+newIncompatibleImageException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> IncompatibleImageException
 ```
 
 Constructs IncompatibleImageException's fields from required parameters
@@ -2124,7 +2124,7 @@ Constructs IncompatibleImageException's fields from required parameters
 
 ``` purescript
 newtype InvalidParameterCombinationException
-  = InvalidParameterCombinationException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = InvalidParameterCombinationException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
@@ -2149,7 +2149,7 @@ Constructs InvalidParameterCombinationException from required parameters
 #### `newInvalidParameterCombinationException'`
 
 ``` purescript
-newInvalidParameterCombinationException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> InvalidParameterCombinationException
+newInvalidParameterCombinationException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> InvalidParameterCombinationException
 ```
 
 Constructs InvalidParameterCombinationException's fields from required parameters
@@ -2158,7 +2158,7 @@ Constructs InvalidParameterCombinationException's fields from required parameter
 
 ``` purescript
 newtype InvalidRoleException
-  = InvalidRoleException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = InvalidRoleException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>The specified role is invalid.</p>
@@ -2183,7 +2183,7 @@ Constructs InvalidRoleException from required parameters
 #### `newInvalidRoleException'`
 
 ``` purescript
-newInvalidRoleException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> InvalidRoleException
+newInvalidRoleException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> InvalidRoleException
 ```
 
 Constructs InvalidRoleException's fields from required parameters
@@ -2192,7 +2192,7 @@ Constructs InvalidRoleException's fields from required parameters
 
 ``` purescript
 newtype LimitExceededException
-  = LimitExceededException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = LimitExceededException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>The requested limit exceeds the permitted limit for an account.</p>
@@ -2217,7 +2217,7 @@ Constructs LimitExceededException from required parameters
 #### `newLimitExceededException'`
 
 ``` purescript
-newLimitExceededException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> LimitExceededException
+newLimitExceededException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> LimitExceededException
 ```
 
 Constructs LimitExceededException's fields from required parameters
@@ -2226,7 +2226,7 @@ Constructs LimitExceededException's fields from required parameters
 
 ``` purescript
 newtype ListAssociatedFleetsRequest
-  = ListAssociatedFleetsRequest { "StackName" :: String, "NextToken" :: NullOrUndefined (String) }
+  = ListAssociatedFleetsRequest { "StackName" :: String, "NextToken" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -2249,7 +2249,7 @@ Constructs ListAssociatedFleetsRequest from required parameters
 #### `newListAssociatedFleetsRequest'`
 
 ``` purescript
-newListAssociatedFleetsRequest' :: String -> ({ "StackName" :: String, "NextToken" :: NullOrUndefined (String) } -> { "StackName" :: String, "NextToken" :: NullOrUndefined (String) }) -> ListAssociatedFleetsRequest
+newListAssociatedFleetsRequest' :: String -> ({ "StackName" :: String, "NextToken" :: Maybe (String) } -> { "StackName" :: String, "NextToken" :: Maybe (String) }) -> ListAssociatedFleetsRequest
 ```
 
 Constructs ListAssociatedFleetsRequest's fields from required parameters
@@ -2258,7 +2258,7 @@ Constructs ListAssociatedFleetsRequest's fields from required parameters
 
 ``` purescript
 newtype ListAssociatedFleetsResult
-  = ListAssociatedFleetsResult { "Names" :: NullOrUndefined (StringList), "NextToken" :: NullOrUndefined (String) }
+  = ListAssociatedFleetsResult { "Names" :: Maybe (StringList), "NextToken" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -2281,7 +2281,7 @@ Constructs ListAssociatedFleetsResult from required parameters
 #### `newListAssociatedFleetsResult'`
 
 ``` purescript
-newListAssociatedFleetsResult' :: ({ "Names" :: NullOrUndefined (StringList), "NextToken" :: NullOrUndefined (String) } -> { "Names" :: NullOrUndefined (StringList), "NextToken" :: NullOrUndefined (String) }) -> ListAssociatedFleetsResult
+newListAssociatedFleetsResult' :: ({ "Names" :: Maybe (StringList), "NextToken" :: Maybe (String) } -> { "Names" :: Maybe (StringList), "NextToken" :: Maybe (String) }) -> ListAssociatedFleetsResult
 ```
 
 Constructs ListAssociatedFleetsResult's fields from required parameters
@@ -2290,7 +2290,7 @@ Constructs ListAssociatedFleetsResult's fields from required parameters
 
 ``` purescript
 newtype ListAssociatedStacksRequest
-  = ListAssociatedStacksRequest { "FleetName" :: String, "NextToken" :: NullOrUndefined (String) }
+  = ListAssociatedStacksRequest { "FleetName" :: String, "NextToken" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -2313,7 +2313,7 @@ Constructs ListAssociatedStacksRequest from required parameters
 #### `newListAssociatedStacksRequest'`
 
 ``` purescript
-newListAssociatedStacksRequest' :: String -> ({ "FleetName" :: String, "NextToken" :: NullOrUndefined (String) } -> { "FleetName" :: String, "NextToken" :: NullOrUndefined (String) }) -> ListAssociatedStacksRequest
+newListAssociatedStacksRequest' :: String -> ({ "FleetName" :: String, "NextToken" :: Maybe (String) } -> { "FleetName" :: String, "NextToken" :: Maybe (String) }) -> ListAssociatedStacksRequest
 ```
 
 Constructs ListAssociatedStacksRequest's fields from required parameters
@@ -2322,7 +2322,7 @@ Constructs ListAssociatedStacksRequest's fields from required parameters
 
 ``` purescript
 newtype ListAssociatedStacksResult
-  = ListAssociatedStacksResult { "Names" :: NullOrUndefined (StringList), "NextToken" :: NullOrUndefined (String) }
+  = ListAssociatedStacksResult { "Names" :: Maybe (StringList), "NextToken" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -2345,7 +2345,7 @@ Constructs ListAssociatedStacksResult from required parameters
 #### `newListAssociatedStacksResult'`
 
 ``` purescript
-newListAssociatedStacksResult' :: ({ "Names" :: NullOrUndefined (StringList), "NextToken" :: NullOrUndefined (String) } -> { "Names" :: NullOrUndefined (StringList), "NextToken" :: NullOrUndefined (String) }) -> ListAssociatedStacksResult
+newListAssociatedStacksResult' :: ({ "Names" :: Maybe (StringList), "NextToken" :: Maybe (String) } -> { "Names" :: Maybe (StringList), "NextToken" :: Maybe (String) }) -> ListAssociatedStacksResult
 ```
 
 Constructs ListAssociatedStacksResult's fields from required parameters
@@ -2386,7 +2386,7 @@ Constructs ListTagsForResourceRequest's fields from required parameters
 
 ``` purescript
 newtype ListTagsForResourceResponse
-  = ListTagsForResourceResponse { "Tags" :: NullOrUndefined (Tags) }
+  = ListTagsForResourceResponse { "Tags" :: Maybe (Tags) }
 ```
 
 ##### Instances
@@ -2409,7 +2409,7 @@ Constructs ListTagsForResourceResponse from required parameters
 #### `newListTagsForResourceResponse'`
 
 ``` purescript
-newListTagsForResourceResponse' :: ({ "Tags" :: NullOrUndefined (Tags) } -> { "Tags" :: NullOrUndefined (Tags) }) -> ListTagsForResourceResponse
+newListTagsForResourceResponse' :: ({ "Tags" :: Maybe (Tags) } -> { "Tags" :: Maybe (Tags) }) -> ListTagsForResourceResponse
 ```
 
 Constructs ListTagsForResourceResponse's fields from required parameters
@@ -2450,7 +2450,7 @@ Encode Name
 
 ``` purescript
 newtype OperationNotPermittedException
-  = OperationNotPermittedException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = OperationNotPermittedException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>The attempted operation is not permitted.</p>
@@ -2475,7 +2475,7 @@ Constructs OperationNotPermittedException from required parameters
 #### `newOperationNotPermittedException'`
 
 ``` purescript
-newOperationNotPermittedException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> OperationNotPermittedException
+newOperationNotPermittedException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> OperationNotPermittedException
 ```
 
 Constructs OperationNotPermittedException's fields from required parameters
@@ -2564,7 +2564,7 @@ Encode RegionName
 
 ``` purescript
 newtype ResourceAlreadyExistsException
-  = ResourceAlreadyExistsException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = ResourceAlreadyExistsException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>The specified resource already exists.</p>
@@ -2589,7 +2589,7 @@ Constructs ResourceAlreadyExistsException from required parameters
 #### `newResourceAlreadyExistsException'`
 
 ``` purescript
-newResourceAlreadyExistsException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> ResourceAlreadyExistsException
+newResourceAlreadyExistsException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> ResourceAlreadyExistsException
 ```
 
 Constructs ResourceAlreadyExistsException's fields from required parameters
@@ -2598,7 +2598,7 @@ Constructs ResourceAlreadyExistsException's fields from required parameters
 
 ``` purescript
 newtype ResourceError
-  = ResourceError { "ErrorCode" :: NullOrUndefined (FleetErrorCode), "ErrorMessage" :: NullOrUndefined (String), "ErrorTimestamp" :: NullOrUndefined (Timestamp) }
+  = ResourceError { "ErrorCode" :: Maybe (FleetErrorCode), "ErrorMessage" :: Maybe (String), "ErrorTimestamp" :: Maybe (Timestamp) }
 ```
 
 <p>Describes a resource error.</p>
@@ -2623,7 +2623,7 @@ Constructs ResourceError from required parameters
 #### `newResourceError'`
 
 ``` purescript
-newResourceError' :: ({ "ErrorCode" :: NullOrUndefined (FleetErrorCode), "ErrorMessage" :: NullOrUndefined (String), "ErrorTimestamp" :: NullOrUndefined (Timestamp) } -> { "ErrorCode" :: NullOrUndefined (FleetErrorCode), "ErrorMessage" :: NullOrUndefined (String), "ErrorTimestamp" :: NullOrUndefined (Timestamp) }) -> ResourceError
+newResourceError' :: ({ "ErrorCode" :: Maybe (FleetErrorCode), "ErrorMessage" :: Maybe (String), "ErrorTimestamp" :: Maybe (Timestamp) } -> { "ErrorCode" :: Maybe (FleetErrorCode), "ErrorMessage" :: Maybe (String), "ErrorTimestamp" :: Maybe (Timestamp) }) -> ResourceError
 ```
 
 Constructs ResourceError's fields from required parameters
@@ -2666,7 +2666,7 @@ Encode ResourceIdentifier
 
 ``` purescript
 newtype ResourceInUseException
-  = ResourceInUseException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = ResourceInUseException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>The specified resource is in use.</p>
@@ -2691,7 +2691,7 @@ Constructs ResourceInUseException from required parameters
 #### `newResourceInUseException'`
 
 ``` purescript
-newResourceInUseException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> ResourceInUseException
+newResourceInUseException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> ResourceInUseException
 ```
 
 Constructs ResourceInUseException's fields from required parameters
@@ -2700,7 +2700,7 @@ Constructs ResourceInUseException's fields from required parameters
 
 ``` purescript
 newtype ResourceNotAvailableException
-  = ResourceNotAvailableException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = ResourceNotAvailableException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>The specified resource exists and is not in use, but isn't available.</p>
@@ -2725,7 +2725,7 @@ Constructs ResourceNotAvailableException from required parameters
 #### `newResourceNotAvailableException'`
 
 ``` purescript
-newResourceNotAvailableException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> ResourceNotAvailableException
+newResourceNotAvailableException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> ResourceNotAvailableException
 ```
 
 Constructs ResourceNotAvailableException's fields from required parameters
@@ -2734,7 +2734,7 @@ Constructs ResourceNotAvailableException's fields from required parameters
 
 ``` purescript
 newtype ResourceNotFoundException
-  = ResourceNotFoundException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = ResourceNotFoundException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>The specified resource was not found.</p>
@@ -2759,7 +2759,7 @@ Constructs ResourceNotFoundException from required parameters
 #### `newResourceNotFoundException'`
 
 ``` purescript
-newResourceNotFoundException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> ResourceNotFoundException
+newResourceNotFoundException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> ResourceNotFoundException
 ```
 
 Constructs ResourceNotFoundException's fields from required parameters
@@ -2820,7 +2820,7 @@ Constructs ServiceAccountCredentials's fields from required parameters
 
 ``` purescript
 newtype Session
-  = Session { "Id" :: String, "UserId" :: UserId, "StackName" :: String, "FleetName" :: String, "State" :: SessionState, "AuthenticationType" :: NullOrUndefined (AuthenticationType) }
+  = Session { "Id" :: String, "UserId" :: UserId, "StackName" :: String, "FleetName" :: String, "State" :: SessionState, "AuthenticationType" :: Maybe (AuthenticationType) }
 ```
 
 <p>Describes a streaming session.</p>
@@ -2845,7 +2845,7 @@ Constructs Session from required parameters
 #### `newSession'`
 
 ``` purescript
-newSession' :: String -> String -> String -> SessionState -> UserId -> ({ "Id" :: String, "UserId" :: UserId, "StackName" :: String, "FleetName" :: String, "State" :: SessionState, "AuthenticationType" :: NullOrUndefined (AuthenticationType) } -> { "Id" :: String, "UserId" :: UserId, "StackName" :: String, "FleetName" :: String, "State" :: SessionState, "AuthenticationType" :: NullOrUndefined (AuthenticationType) }) -> Session
+newSession' :: String -> String -> String -> SessionState -> UserId -> ({ "Id" :: String, "UserId" :: UserId, "StackName" :: String, "FleetName" :: String, "State" :: SessionState, "AuthenticationType" :: Maybe (AuthenticationType) } -> { "Id" :: String, "UserId" :: UserId, "StackName" :: String, "FleetName" :: String, "State" :: SessionState, "AuthenticationType" :: Maybe (AuthenticationType) }) -> Session
 ```
 
 Constructs Session's fields from required parameters
@@ -2890,7 +2890,7 @@ Encode SessionState
 
 ``` purescript
 newtype Stack
-  = Stack { "Arn" :: NullOrUndefined (Arn), "Name" :: String, "Description" :: NullOrUndefined (String), "DisplayName" :: NullOrUndefined (String), "CreatedTime" :: NullOrUndefined (Timestamp), "StorageConnectors" :: NullOrUndefined (StorageConnectorList), "RedirectURL" :: NullOrUndefined (RedirectURL), "StackErrors" :: NullOrUndefined (StackErrors) }
+  = Stack { "Arn" :: Maybe (Arn), "Name" :: String, "Description" :: Maybe (String), "DisplayName" :: Maybe (String), "CreatedTime" :: Maybe (Timestamp), "StorageConnectors" :: Maybe (StorageConnectorList), "RedirectURL" :: Maybe (RedirectURL), "StackErrors" :: Maybe (StackErrors) }
 ```
 
 <p>Describes a stack.</p>
@@ -2915,7 +2915,7 @@ Constructs Stack from required parameters
 #### `newStack'`
 
 ``` purescript
-newStack' :: String -> ({ "Arn" :: NullOrUndefined (Arn), "Name" :: String, "Description" :: NullOrUndefined (String), "DisplayName" :: NullOrUndefined (String), "CreatedTime" :: NullOrUndefined (Timestamp), "StorageConnectors" :: NullOrUndefined (StorageConnectorList), "RedirectURL" :: NullOrUndefined (RedirectURL), "StackErrors" :: NullOrUndefined (StackErrors) } -> { "Arn" :: NullOrUndefined (Arn), "Name" :: String, "Description" :: NullOrUndefined (String), "DisplayName" :: NullOrUndefined (String), "CreatedTime" :: NullOrUndefined (Timestamp), "StorageConnectors" :: NullOrUndefined (StorageConnectorList), "RedirectURL" :: NullOrUndefined (RedirectURL), "StackErrors" :: NullOrUndefined (StackErrors) }) -> Stack
+newStack' :: String -> ({ "Arn" :: Maybe (Arn), "Name" :: String, "Description" :: Maybe (String), "DisplayName" :: Maybe (String), "CreatedTime" :: Maybe (Timestamp), "StorageConnectors" :: Maybe (StorageConnectorList), "RedirectURL" :: Maybe (RedirectURL), "StackErrors" :: Maybe (StackErrors) } -> { "Arn" :: Maybe (Arn), "Name" :: String, "Description" :: Maybe (String), "DisplayName" :: Maybe (String), "CreatedTime" :: Maybe (Timestamp), "StorageConnectors" :: Maybe (StorageConnectorList), "RedirectURL" :: Maybe (RedirectURL), "StackErrors" :: Maybe (StackErrors) }) -> Stack
 ```
 
 Constructs Stack's fields from required parameters
@@ -2956,7 +2956,7 @@ Encode StackAttributes
 
 ``` purescript
 newtype StackError
-  = StackError { "ErrorCode" :: NullOrUndefined (StackErrorCode), "ErrorMessage" :: NullOrUndefined (String) }
+  = StackError { "ErrorCode" :: Maybe (StackErrorCode), "ErrorMessage" :: Maybe (String) }
 ```
 
 <p>Describes a stack error.</p>
@@ -2981,7 +2981,7 @@ Constructs StackError from required parameters
 #### `newStackError'`
 
 ``` purescript
-newStackError' :: ({ "ErrorCode" :: NullOrUndefined (StackErrorCode), "ErrorMessage" :: NullOrUndefined (String) } -> { "ErrorCode" :: NullOrUndefined (StackErrorCode), "ErrorMessage" :: NullOrUndefined (String) }) -> StackError
+newStackError' :: ({ "ErrorCode" :: Maybe (StackErrorCode), "ErrorMessage" :: Maybe (String) } -> { "ErrorCode" :: Maybe (StackErrorCode), "ErrorMessage" :: Maybe (String) }) -> StackError
 ```
 
 Constructs StackError's fields from required parameters
@@ -3090,7 +3090,7 @@ Encode StartFleetResult
 
 ``` purescript
 newtype StartImageBuilderRequest
-  = StartImageBuilderRequest { "Name" :: String, "AppstreamAgentVersion" :: NullOrUndefined (AppstreamAgentVersion) }
+  = StartImageBuilderRequest { "Name" :: String, "AppstreamAgentVersion" :: Maybe (AppstreamAgentVersion) }
 ```
 
 ##### Instances
@@ -3113,7 +3113,7 @@ Constructs StartImageBuilderRequest from required parameters
 #### `newStartImageBuilderRequest'`
 
 ``` purescript
-newStartImageBuilderRequest' :: String -> ({ "Name" :: String, "AppstreamAgentVersion" :: NullOrUndefined (AppstreamAgentVersion) } -> { "Name" :: String, "AppstreamAgentVersion" :: NullOrUndefined (AppstreamAgentVersion) }) -> StartImageBuilderRequest
+newStartImageBuilderRequest' :: String -> ({ "Name" :: String, "AppstreamAgentVersion" :: Maybe (AppstreamAgentVersion) } -> { "Name" :: String, "AppstreamAgentVersion" :: Maybe (AppstreamAgentVersion) }) -> StartImageBuilderRequest
 ```
 
 Constructs StartImageBuilderRequest's fields from required parameters
@@ -3122,7 +3122,7 @@ Constructs StartImageBuilderRequest's fields from required parameters
 
 ``` purescript
 newtype StartImageBuilderResult
-  = StartImageBuilderResult { "ImageBuilder" :: NullOrUndefined (ImageBuilder) }
+  = StartImageBuilderResult { "ImageBuilder" :: Maybe (ImageBuilder) }
 ```
 
 ##### Instances
@@ -3145,7 +3145,7 @@ Constructs StartImageBuilderResult from required parameters
 #### `newStartImageBuilderResult'`
 
 ``` purescript
-newStartImageBuilderResult' :: ({ "ImageBuilder" :: NullOrUndefined (ImageBuilder) } -> { "ImageBuilder" :: NullOrUndefined (ImageBuilder) }) -> StartImageBuilderResult
+newStartImageBuilderResult' :: ({ "ImageBuilder" :: Maybe (ImageBuilder) } -> { "ImageBuilder" :: Maybe (ImageBuilder) }) -> StartImageBuilderResult
 ```
 
 Constructs StartImageBuilderResult's fields from required parameters
@@ -3234,7 +3234,7 @@ Constructs StopImageBuilderRequest's fields from required parameters
 
 ``` purescript
 newtype StopImageBuilderResult
-  = StopImageBuilderResult { "ImageBuilder" :: NullOrUndefined (ImageBuilder) }
+  = StopImageBuilderResult { "ImageBuilder" :: Maybe (ImageBuilder) }
 ```
 
 ##### Instances
@@ -3257,7 +3257,7 @@ Constructs StopImageBuilderResult from required parameters
 #### `newStopImageBuilderResult'`
 
 ``` purescript
-newStopImageBuilderResult' :: ({ "ImageBuilder" :: NullOrUndefined (ImageBuilder) } -> { "ImageBuilder" :: NullOrUndefined (ImageBuilder) }) -> StopImageBuilderResult
+newStopImageBuilderResult' :: ({ "ImageBuilder" :: Maybe (ImageBuilder) } -> { "ImageBuilder" :: Maybe (ImageBuilder) }) -> StopImageBuilderResult
 ```
 
 Constructs StopImageBuilderResult's fields from required parameters
@@ -3266,7 +3266,7 @@ Constructs StopImageBuilderResult's fields from required parameters
 
 ``` purescript
 newtype StorageConnector
-  = StorageConnector { "ConnectorType" :: StorageConnectorType, "ResourceIdentifier" :: NullOrUndefined (ResourceIdentifier) }
+  = StorageConnector { "ConnectorType" :: StorageConnectorType, "ResourceIdentifier" :: Maybe (ResourceIdentifier) }
 ```
 
 <p>Describes a storage connector.</p>
@@ -3291,7 +3291,7 @@ Constructs StorageConnector from required parameters
 #### `newStorageConnector'`
 
 ``` purescript
-newStorageConnector' :: StorageConnectorType -> ({ "ConnectorType" :: StorageConnectorType, "ResourceIdentifier" :: NullOrUndefined (ResourceIdentifier) } -> { "ConnectorType" :: StorageConnectorType, "ResourceIdentifier" :: NullOrUndefined (ResourceIdentifier) }) -> StorageConnector
+newStorageConnector' :: StorageConnectorType -> ({ "ConnectorType" :: StorageConnectorType, "ResourceIdentifier" :: Maybe (ResourceIdentifier) } -> { "ConnectorType" :: StorageConnectorType, "ResourceIdentifier" :: Maybe (ResourceIdentifier) }) -> StorageConnector
 ```
 
 Constructs StorageConnector's fields from required parameters
@@ -3546,7 +3546,7 @@ Encode UntagResourceResponse
 
 ``` purescript
 newtype UpdateDirectoryConfigRequest
-  = UpdateDirectoryConfigRequest { "DirectoryName" :: DirectoryName, "OrganizationalUnitDistinguishedNames" :: NullOrUndefined (OrganizationalUnitDistinguishedNamesList), "ServiceAccountCredentials" :: NullOrUndefined (ServiceAccountCredentials) }
+  = UpdateDirectoryConfigRequest { "DirectoryName" :: DirectoryName, "OrganizationalUnitDistinguishedNames" :: Maybe (OrganizationalUnitDistinguishedNamesList), "ServiceAccountCredentials" :: Maybe (ServiceAccountCredentials) }
 ```
 
 ##### Instances
@@ -3569,7 +3569,7 @@ Constructs UpdateDirectoryConfigRequest from required parameters
 #### `newUpdateDirectoryConfigRequest'`
 
 ``` purescript
-newUpdateDirectoryConfigRequest' :: DirectoryName -> ({ "DirectoryName" :: DirectoryName, "OrganizationalUnitDistinguishedNames" :: NullOrUndefined (OrganizationalUnitDistinguishedNamesList), "ServiceAccountCredentials" :: NullOrUndefined (ServiceAccountCredentials) } -> { "DirectoryName" :: DirectoryName, "OrganizationalUnitDistinguishedNames" :: NullOrUndefined (OrganizationalUnitDistinguishedNamesList), "ServiceAccountCredentials" :: NullOrUndefined (ServiceAccountCredentials) }) -> UpdateDirectoryConfigRequest
+newUpdateDirectoryConfigRequest' :: DirectoryName -> ({ "DirectoryName" :: DirectoryName, "OrganizationalUnitDistinguishedNames" :: Maybe (OrganizationalUnitDistinguishedNamesList), "ServiceAccountCredentials" :: Maybe (ServiceAccountCredentials) } -> { "DirectoryName" :: DirectoryName, "OrganizationalUnitDistinguishedNames" :: Maybe (OrganizationalUnitDistinguishedNamesList), "ServiceAccountCredentials" :: Maybe (ServiceAccountCredentials) }) -> UpdateDirectoryConfigRequest
 ```
 
 Constructs UpdateDirectoryConfigRequest's fields from required parameters
@@ -3578,7 +3578,7 @@ Constructs UpdateDirectoryConfigRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateDirectoryConfigResult
-  = UpdateDirectoryConfigResult { "DirectoryConfig" :: NullOrUndefined (DirectoryConfig) }
+  = UpdateDirectoryConfigResult { "DirectoryConfig" :: Maybe (DirectoryConfig) }
 ```
 
 ##### Instances
@@ -3601,7 +3601,7 @@ Constructs UpdateDirectoryConfigResult from required parameters
 #### `newUpdateDirectoryConfigResult'`
 
 ``` purescript
-newUpdateDirectoryConfigResult' :: ({ "DirectoryConfig" :: NullOrUndefined (DirectoryConfig) } -> { "DirectoryConfig" :: NullOrUndefined (DirectoryConfig) }) -> UpdateDirectoryConfigResult
+newUpdateDirectoryConfigResult' :: ({ "DirectoryConfig" :: Maybe (DirectoryConfig) } -> { "DirectoryConfig" :: Maybe (DirectoryConfig) }) -> UpdateDirectoryConfigResult
 ```
 
 Constructs UpdateDirectoryConfigResult's fields from required parameters
@@ -3610,7 +3610,7 @@ Constructs UpdateDirectoryConfigResult's fields from required parameters
 
 ``` purescript
 newtype UpdateFleetRequest
-  = UpdateFleetRequest { "ImageName" :: NullOrUndefined (String), "Name" :: String, "InstanceType" :: NullOrUndefined (String), "ComputeCapacity" :: NullOrUndefined (ComputeCapacity), "VpcConfig" :: NullOrUndefined (VpcConfig), "MaxUserDurationInSeconds" :: NullOrUndefined (Int), "DisconnectTimeoutInSeconds" :: NullOrUndefined (Int), "DeleteVpcConfig" :: NullOrUndefined (Boolean), "Description" :: NullOrUndefined (Description), "DisplayName" :: NullOrUndefined (DisplayName), "EnableDefaultInternetAccess" :: NullOrUndefined (BooleanObject), "DomainJoinInfo" :: NullOrUndefined (DomainJoinInfo), "AttributesToDelete" :: NullOrUndefined (FleetAttributes) }
+  = UpdateFleetRequest { "ImageName" :: Maybe (String), "Name" :: String, "InstanceType" :: Maybe (String), "ComputeCapacity" :: Maybe (ComputeCapacity), "VpcConfig" :: Maybe (VpcConfig), "MaxUserDurationInSeconds" :: Maybe (Int), "DisconnectTimeoutInSeconds" :: Maybe (Int), "DeleteVpcConfig" :: Maybe (Boolean), "Description" :: Maybe (Description), "DisplayName" :: Maybe (DisplayName), "EnableDefaultInternetAccess" :: Maybe (BooleanObject), "DomainJoinInfo" :: Maybe (DomainJoinInfo), "AttributesToDelete" :: Maybe (FleetAttributes) }
 ```
 
 ##### Instances
@@ -3633,7 +3633,7 @@ Constructs UpdateFleetRequest from required parameters
 #### `newUpdateFleetRequest'`
 
 ``` purescript
-newUpdateFleetRequest' :: String -> ({ "ImageName" :: NullOrUndefined (String), "Name" :: String, "InstanceType" :: NullOrUndefined (String), "ComputeCapacity" :: NullOrUndefined (ComputeCapacity), "VpcConfig" :: NullOrUndefined (VpcConfig), "MaxUserDurationInSeconds" :: NullOrUndefined (Int), "DisconnectTimeoutInSeconds" :: NullOrUndefined (Int), "DeleteVpcConfig" :: NullOrUndefined (Boolean), "Description" :: NullOrUndefined (Description), "DisplayName" :: NullOrUndefined (DisplayName), "EnableDefaultInternetAccess" :: NullOrUndefined (BooleanObject), "DomainJoinInfo" :: NullOrUndefined (DomainJoinInfo), "AttributesToDelete" :: NullOrUndefined (FleetAttributes) } -> { "ImageName" :: NullOrUndefined (String), "Name" :: String, "InstanceType" :: NullOrUndefined (String), "ComputeCapacity" :: NullOrUndefined (ComputeCapacity), "VpcConfig" :: NullOrUndefined (VpcConfig), "MaxUserDurationInSeconds" :: NullOrUndefined (Int), "DisconnectTimeoutInSeconds" :: NullOrUndefined (Int), "DeleteVpcConfig" :: NullOrUndefined (Boolean), "Description" :: NullOrUndefined (Description), "DisplayName" :: NullOrUndefined (DisplayName), "EnableDefaultInternetAccess" :: NullOrUndefined (BooleanObject), "DomainJoinInfo" :: NullOrUndefined (DomainJoinInfo), "AttributesToDelete" :: NullOrUndefined (FleetAttributes) }) -> UpdateFleetRequest
+newUpdateFleetRequest' :: String -> ({ "ImageName" :: Maybe (String), "Name" :: String, "InstanceType" :: Maybe (String), "ComputeCapacity" :: Maybe (ComputeCapacity), "VpcConfig" :: Maybe (VpcConfig), "MaxUserDurationInSeconds" :: Maybe (Int), "DisconnectTimeoutInSeconds" :: Maybe (Int), "DeleteVpcConfig" :: Maybe (Boolean), "Description" :: Maybe (Description), "DisplayName" :: Maybe (DisplayName), "EnableDefaultInternetAccess" :: Maybe (BooleanObject), "DomainJoinInfo" :: Maybe (DomainJoinInfo), "AttributesToDelete" :: Maybe (FleetAttributes) } -> { "ImageName" :: Maybe (String), "Name" :: String, "InstanceType" :: Maybe (String), "ComputeCapacity" :: Maybe (ComputeCapacity), "VpcConfig" :: Maybe (VpcConfig), "MaxUserDurationInSeconds" :: Maybe (Int), "DisconnectTimeoutInSeconds" :: Maybe (Int), "DeleteVpcConfig" :: Maybe (Boolean), "Description" :: Maybe (Description), "DisplayName" :: Maybe (DisplayName), "EnableDefaultInternetAccess" :: Maybe (BooleanObject), "DomainJoinInfo" :: Maybe (DomainJoinInfo), "AttributesToDelete" :: Maybe (FleetAttributes) }) -> UpdateFleetRequest
 ```
 
 Constructs UpdateFleetRequest's fields from required parameters
@@ -3642,7 +3642,7 @@ Constructs UpdateFleetRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateFleetResult
-  = UpdateFleetResult { "Fleet" :: NullOrUndefined (Fleet) }
+  = UpdateFleetResult { "Fleet" :: Maybe (Fleet) }
 ```
 
 ##### Instances
@@ -3665,7 +3665,7 @@ Constructs UpdateFleetResult from required parameters
 #### `newUpdateFleetResult'`
 
 ``` purescript
-newUpdateFleetResult' :: ({ "Fleet" :: NullOrUndefined (Fleet) } -> { "Fleet" :: NullOrUndefined (Fleet) }) -> UpdateFleetResult
+newUpdateFleetResult' :: ({ "Fleet" :: Maybe (Fleet) } -> { "Fleet" :: Maybe (Fleet) }) -> UpdateFleetResult
 ```
 
 Constructs UpdateFleetResult's fields from required parameters
@@ -3674,7 +3674,7 @@ Constructs UpdateFleetResult's fields from required parameters
 
 ``` purescript
 newtype UpdateStackRequest
-  = UpdateStackRequest { "DisplayName" :: NullOrUndefined (DisplayName), "Description" :: NullOrUndefined (Description), "Name" :: String, "StorageConnectors" :: NullOrUndefined (StorageConnectorList), "DeleteStorageConnectors" :: NullOrUndefined (Boolean), "RedirectURL" :: NullOrUndefined (RedirectURL), "AttributesToDelete" :: NullOrUndefined (StackAttributes) }
+  = UpdateStackRequest { "DisplayName" :: Maybe (DisplayName), "Description" :: Maybe (Description), "Name" :: String, "StorageConnectors" :: Maybe (StorageConnectorList), "DeleteStorageConnectors" :: Maybe (Boolean), "RedirectURL" :: Maybe (RedirectURL), "AttributesToDelete" :: Maybe (StackAttributes) }
 ```
 
 ##### Instances
@@ -3697,7 +3697,7 @@ Constructs UpdateStackRequest from required parameters
 #### `newUpdateStackRequest'`
 
 ``` purescript
-newUpdateStackRequest' :: String -> ({ "DisplayName" :: NullOrUndefined (DisplayName), "Description" :: NullOrUndefined (Description), "Name" :: String, "StorageConnectors" :: NullOrUndefined (StorageConnectorList), "DeleteStorageConnectors" :: NullOrUndefined (Boolean), "RedirectURL" :: NullOrUndefined (RedirectURL), "AttributesToDelete" :: NullOrUndefined (StackAttributes) } -> { "DisplayName" :: NullOrUndefined (DisplayName), "Description" :: NullOrUndefined (Description), "Name" :: String, "StorageConnectors" :: NullOrUndefined (StorageConnectorList), "DeleteStorageConnectors" :: NullOrUndefined (Boolean), "RedirectURL" :: NullOrUndefined (RedirectURL), "AttributesToDelete" :: NullOrUndefined (StackAttributes) }) -> UpdateStackRequest
+newUpdateStackRequest' :: String -> ({ "DisplayName" :: Maybe (DisplayName), "Description" :: Maybe (Description), "Name" :: String, "StorageConnectors" :: Maybe (StorageConnectorList), "DeleteStorageConnectors" :: Maybe (Boolean), "RedirectURL" :: Maybe (RedirectURL), "AttributesToDelete" :: Maybe (StackAttributes) } -> { "DisplayName" :: Maybe (DisplayName), "Description" :: Maybe (Description), "Name" :: String, "StorageConnectors" :: Maybe (StorageConnectorList), "DeleteStorageConnectors" :: Maybe (Boolean), "RedirectURL" :: Maybe (RedirectURL), "AttributesToDelete" :: Maybe (StackAttributes) }) -> UpdateStackRequest
 ```
 
 Constructs UpdateStackRequest's fields from required parameters
@@ -3706,7 +3706,7 @@ Constructs UpdateStackRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateStackResult
-  = UpdateStackResult { "Stack" :: NullOrUndefined (Stack) }
+  = UpdateStackResult { "Stack" :: Maybe (Stack) }
 ```
 
 ##### Instances
@@ -3729,7 +3729,7 @@ Constructs UpdateStackResult from required parameters
 #### `newUpdateStackResult'`
 
 ``` purescript
-newUpdateStackResult' :: ({ "Stack" :: NullOrUndefined (Stack) } -> { "Stack" :: NullOrUndefined (Stack) }) -> UpdateStackResult
+newUpdateStackResult' :: ({ "Stack" :: Maybe (Stack) } -> { "Stack" :: Maybe (Stack) }) -> UpdateStackResult
 ```
 
 Constructs UpdateStackResult's fields from required parameters
@@ -3770,7 +3770,7 @@ Encode VisibilityType
 
 ``` purescript
 newtype VpcConfig
-  = VpcConfig { "SubnetIds" :: NullOrUndefined (SubnetIdList), "SecurityGroupIds" :: NullOrUndefined (SecurityGroupIdList) }
+  = VpcConfig { "SubnetIds" :: Maybe (SubnetIdList), "SecurityGroupIds" :: Maybe (SecurityGroupIdList) }
 ```
 
 <p>Describes VPC configuration information.</p>
@@ -3795,7 +3795,7 @@ Constructs VpcConfig from required parameters
 #### `newVpcConfig'`
 
 ``` purescript
-newVpcConfig' :: ({ "SubnetIds" :: NullOrUndefined (SubnetIdList), "SecurityGroupIds" :: NullOrUndefined (SecurityGroupIdList) } -> { "SubnetIds" :: NullOrUndefined (SubnetIdList), "SecurityGroupIds" :: NullOrUndefined (SecurityGroupIdList) }) -> VpcConfig
+newVpcConfig' :: ({ "SubnetIds" :: Maybe (SubnetIdList), "SecurityGroupIds" :: Maybe (SecurityGroupIdList) } -> { "SubnetIds" :: Maybe (SubnetIdList), "SecurityGroupIds" :: Maybe (SecurityGroupIdList) }) -> VpcConfig
 ```
 
 Constructs VpcConfig's fields from required parameters

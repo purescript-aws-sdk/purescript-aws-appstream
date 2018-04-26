@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -38,13 +37,13 @@ instance encodeAccountPassword :: Encode AccountPassword where encode = genericE
 
 -- | <p>Describes an application in the application catalog.</p>
 newtype Application = Application 
-  { "Name" :: NullOrUndefined (String)
-  , "DisplayName" :: NullOrUndefined (String)
-  , "IconURL" :: NullOrUndefined (String)
-  , "LaunchPath" :: NullOrUndefined (String)
-  , "LaunchParameters" :: NullOrUndefined (String)
-  , "Enabled" :: NullOrUndefined (Boolean)
-  , "Metadata" :: NullOrUndefined (Metadata)
+  { "Name" :: Maybe (String)
+  , "DisplayName" :: Maybe (String)
+  , "IconURL" :: Maybe (String)
+  , "LaunchPath" :: Maybe (String)
+  , "LaunchParameters" :: Maybe (String)
+  , "Enabled" :: Maybe (Boolean)
+  , "Metadata" :: Maybe (Metadata)
   }
 derive instance newtypeApplication :: Newtype Application _
 derive instance repGenericApplication :: Generic Application _
@@ -54,12 +53,12 @@ instance encodeApplication :: Encode Application where encode = genericEncode op
 
 -- | Constructs Application from required parameters
 newApplication :: Application
-newApplication  = Application { "DisplayName": (NullOrUndefined Nothing), "Enabled": (NullOrUndefined Nothing), "IconURL": (NullOrUndefined Nothing), "LaunchParameters": (NullOrUndefined Nothing), "LaunchPath": (NullOrUndefined Nothing), "Metadata": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing) }
+newApplication  = Application { "DisplayName": Nothing, "Enabled": Nothing, "IconURL": Nothing, "LaunchParameters": Nothing, "LaunchPath": Nothing, "Metadata": Nothing, "Name": Nothing }
 
 -- | Constructs Application's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newApplication' :: ( { "Name" :: NullOrUndefined (String) , "DisplayName" :: NullOrUndefined (String) , "IconURL" :: NullOrUndefined (String) , "LaunchPath" :: NullOrUndefined (String) , "LaunchParameters" :: NullOrUndefined (String) , "Enabled" :: NullOrUndefined (Boolean) , "Metadata" :: NullOrUndefined (Metadata) } -> {"Name" :: NullOrUndefined (String) , "DisplayName" :: NullOrUndefined (String) , "IconURL" :: NullOrUndefined (String) , "LaunchPath" :: NullOrUndefined (String) , "LaunchParameters" :: NullOrUndefined (String) , "Enabled" :: NullOrUndefined (Boolean) , "Metadata" :: NullOrUndefined (Metadata) } ) -> Application
-newApplication'  customize = (Application <<< customize) { "DisplayName": (NullOrUndefined Nothing), "Enabled": (NullOrUndefined Nothing), "IconURL": (NullOrUndefined Nothing), "LaunchParameters": (NullOrUndefined Nothing), "LaunchPath": (NullOrUndefined Nothing), "Metadata": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing) }
+newApplication' :: ( { "Name" :: Maybe (String) , "DisplayName" :: Maybe (String) , "IconURL" :: Maybe (String) , "LaunchPath" :: Maybe (String) , "LaunchParameters" :: Maybe (String) , "Enabled" :: Maybe (Boolean) , "Metadata" :: Maybe (Metadata) } -> {"Name" :: Maybe (String) , "DisplayName" :: Maybe (String) , "IconURL" :: Maybe (String) , "LaunchPath" :: Maybe (String) , "LaunchParameters" :: Maybe (String) , "Enabled" :: Maybe (Boolean) , "Metadata" :: Maybe (Metadata) } ) -> Application
+newApplication'  customize = (Application <<< customize) { "DisplayName": Nothing, "Enabled": Nothing, "IconURL": Nothing, "LaunchParameters": Nothing, "LaunchPath": Nothing, "Metadata": Nothing, "Name": Nothing }
 
 
 
@@ -162,9 +161,9 @@ newComputeCapacity' _DesiredInstances customize = (ComputeCapacity <<< customize
 -- | <p>Describes the capacity status for a fleet.</p>
 newtype ComputeCapacityStatus = ComputeCapacityStatus 
   { "Desired" :: (Int)
-  , "Running" :: NullOrUndefined (Int)
-  , "InUse" :: NullOrUndefined (Int)
-  , "Available" :: NullOrUndefined (Int)
+  , "Running" :: Maybe (Int)
+  , "InUse" :: Maybe (Int)
+  , "Available" :: Maybe (Int)
   }
 derive instance newtypeComputeCapacityStatus :: Newtype ComputeCapacityStatus _
 derive instance repGenericComputeCapacityStatus :: Generic ComputeCapacityStatus _
@@ -174,18 +173,18 @@ instance encodeComputeCapacityStatus :: Encode ComputeCapacityStatus where encod
 
 -- | Constructs ComputeCapacityStatus from required parameters
 newComputeCapacityStatus :: Int -> ComputeCapacityStatus
-newComputeCapacityStatus _Desired = ComputeCapacityStatus { "Desired": _Desired, "Available": (NullOrUndefined Nothing), "InUse": (NullOrUndefined Nothing), "Running": (NullOrUndefined Nothing) }
+newComputeCapacityStatus _Desired = ComputeCapacityStatus { "Desired": _Desired, "Available": Nothing, "InUse": Nothing, "Running": Nothing }
 
 -- | Constructs ComputeCapacityStatus's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newComputeCapacityStatus' :: Int -> ( { "Desired" :: (Int) , "Running" :: NullOrUndefined (Int) , "InUse" :: NullOrUndefined (Int) , "Available" :: NullOrUndefined (Int) } -> {"Desired" :: (Int) , "Running" :: NullOrUndefined (Int) , "InUse" :: NullOrUndefined (Int) , "Available" :: NullOrUndefined (Int) } ) -> ComputeCapacityStatus
-newComputeCapacityStatus' _Desired customize = (ComputeCapacityStatus <<< customize) { "Desired": _Desired, "Available": (NullOrUndefined Nothing), "InUse": (NullOrUndefined Nothing), "Running": (NullOrUndefined Nothing) }
+newComputeCapacityStatus' :: Int -> ( { "Desired" :: (Int) , "Running" :: Maybe (Int) , "InUse" :: Maybe (Int) , "Available" :: Maybe (Int) } -> {"Desired" :: (Int) , "Running" :: Maybe (Int) , "InUse" :: Maybe (Int) , "Available" :: Maybe (Int) } ) -> ComputeCapacityStatus
+newComputeCapacityStatus' _Desired customize = (ComputeCapacityStatus <<< customize) { "Desired": _Desired, "Available": Nothing, "InUse": Nothing, "Running": Nothing }
 
 
 
 -- | <p>An API error occurred. Wait a few minutes and try again.</p>
 newtype ConcurrentModificationException = ConcurrentModificationException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeConcurrentModificationException :: Newtype ConcurrentModificationException _
 derive instance repGenericConcurrentModificationException :: Generic ConcurrentModificationException _
@@ -195,12 +194,12 @@ instance encodeConcurrentModificationException :: Encode ConcurrentModificationE
 
 -- | Constructs ConcurrentModificationException from required parameters
 newConcurrentModificationException :: ConcurrentModificationException
-newConcurrentModificationException  = ConcurrentModificationException { "Message": (NullOrUndefined Nothing) }
+newConcurrentModificationException  = ConcurrentModificationException { "Message": Nothing }
 
 -- | Constructs ConcurrentModificationException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newConcurrentModificationException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> ConcurrentModificationException
-newConcurrentModificationException'  customize = (ConcurrentModificationException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newConcurrentModificationException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> ConcurrentModificationException
+newConcurrentModificationException'  customize = (ConcurrentModificationException <<< customize) { "Message": Nothing }
 
 
 
@@ -208,7 +207,7 @@ newtype CopyImageRequest = CopyImageRequest
   { "SourceImageName" :: (Name)
   , "DestinationImageName" :: (Name)
   , "DestinationRegion" :: (RegionName)
-  , "DestinationImageDescription" :: NullOrUndefined (Description)
+  , "DestinationImageDescription" :: Maybe (Description)
   }
 derive instance newtypeCopyImageRequest :: Newtype CopyImageRequest _
 derive instance repGenericCopyImageRequest :: Generic CopyImageRequest _
@@ -218,17 +217,17 @@ instance encodeCopyImageRequest :: Encode CopyImageRequest where encode = generi
 
 -- | Constructs CopyImageRequest from required parameters
 newCopyImageRequest :: Name -> RegionName -> Name -> CopyImageRequest
-newCopyImageRequest _DestinationImageName _DestinationRegion _SourceImageName = CopyImageRequest { "DestinationImageName": _DestinationImageName, "DestinationRegion": _DestinationRegion, "SourceImageName": _SourceImageName, "DestinationImageDescription": (NullOrUndefined Nothing) }
+newCopyImageRequest _DestinationImageName _DestinationRegion _SourceImageName = CopyImageRequest { "DestinationImageName": _DestinationImageName, "DestinationRegion": _DestinationRegion, "SourceImageName": _SourceImageName, "DestinationImageDescription": Nothing }
 
 -- | Constructs CopyImageRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCopyImageRequest' :: Name -> RegionName -> Name -> ( { "SourceImageName" :: (Name) , "DestinationImageName" :: (Name) , "DestinationRegion" :: (RegionName) , "DestinationImageDescription" :: NullOrUndefined (Description) } -> {"SourceImageName" :: (Name) , "DestinationImageName" :: (Name) , "DestinationRegion" :: (RegionName) , "DestinationImageDescription" :: NullOrUndefined (Description) } ) -> CopyImageRequest
-newCopyImageRequest' _DestinationImageName _DestinationRegion _SourceImageName customize = (CopyImageRequest <<< customize) { "DestinationImageName": _DestinationImageName, "DestinationRegion": _DestinationRegion, "SourceImageName": _SourceImageName, "DestinationImageDescription": (NullOrUndefined Nothing) }
+newCopyImageRequest' :: Name -> RegionName -> Name -> ( { "SourceImageName" :: (Name) , "DestinationImageName" :: (Name) , "DestinationRegion" :: (RegionName) , "DestinationImageDescription" :: Maybe (Description) } -> {"SourceImageName" :: (Name) , "DestinationImageName" :: (Name) , "DestinationRegion" :: (RegionName) , "DestinationImageDescription" :: Maybe (Description) } ) -> CopyImageRequest
+newCopyImageRequest' _DestinationImageName _DestinationRegion _SourceImageName customize = (CopyImageRequest <<< customize) { "DestinationImageName": _DestinationImageName, "DestinationRegion": _DestinationRegion, "SourceImageName": _SourceImageName, "DestinationImageDescription": Nothing }
 
 
 
 newtype CopyImageResponse = CopyImageResponse 
-  { "DestinationImageName" :: NullOrUndefined (Name)
+  { "DestinationImageName" :: Maybe (Name)
   }
 derive instance newtypeCopyImageResponse :: Newtype CopyImageResponse _
 derive instance repGenericCopyImageResponse :: Generic CopyImageResponse _
@@ -238,12 +237,12 @@ instance encodeCopyImageResponse :: Encode CopyImageResponse where encode = gene
 
 -- | Constructs CopyImageResponse from required parameters
 newCopyImageResponse :: CopyImageResponse
-newCopyImageResponse  = CopyImageResponse { "DestinationImageName": (NullOrUndefined Nothing) }
+newCopyImageResponse  = CopyImageResponse { "DestinationImageName": Nothing }
 
 -- | Constructs CopyImageResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCopyImageResponse' :: ( { "DestinationImageName" :: NullOrUndefined (Name) } -> {"DestinationImageName" :: NullOrUndefined (Name) } ) -> CopyImageResponse
-newCopyImageResponse'  customize = (CopyImageResponse <<< customize) { "DestinationImageName": (NullOrUndefined Nothing) }
+newCopyImageResponse' :: ( { "DestinationImageName" :: Maybe (Name) } -> {"DestinationImageName" :: Maybe (Name) } ) -> CopyImageResponse
+newCopyImageResponse'  customize = (CopyImageResponse <<< customize) { "DestinationImageName": Nothing }
 
 
 
@@ -270,7 +269,7 @@ newCreateDirectoryConfigRequest' _DirectoryName _OrganizationalUnitDistinguished
 
 
 newtype CreateDirectoryConfigResult = CreateDirectoryConfigResult 
-  { "DirectoryConfig" :: NullOrUndefined (DirectoryConfig)
+  { "DirectoryConfig" :: Maybe (DirectoryConfig)
   }
 derive instance newtypeCreateDirectoryConfigResult :: Newtype CreateDirectoryConfigResult _
 derive instance repGenericCreateDirectoryConfigResult :: Generic CreateDirectoryConfigResult _
@@ -280,12 +279,12 @@ instance encodeCreateDirectoryConfigResult :: Encode CreateDirectoryConfigResult
 
 -- | Constructs CreateDirectoryConfigResult from required parameters
 newCreateDirectoryConfigResult :: CreateDirectoryConfigResult
-newCreateDirectoryConfigResult  = CreateDirectoryConfigResult { "DirectoryConfig": (NullOrUndefined Nothing) }
+newCreateDirectoryConfigResult  = CreateDirectoryConfigResult { "DirectoryConfig": Nothing }
 
 -- | Constructs CreateDirectoryConfigResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateDirectoryConfigResult' :: ( { "DirectoryConfig" :: NullOrUndefined (DirectoryConfig) } -> {"DirectoryConfig" :: NullOrUndefined (DirectoryConfig) } ) -> CreateDirectoryConfigResult
-newCreateDirectoryConfigResult'  customize = (CreateDirectoryConfigResult <<< customize) { "DirectoryConfig": (NullOrUndefined Nothing) }
+newCreateDirectoryConfigResult' :: ( { "DirectoryConfig" :: Maybe (DirectoryConfig) } -> {"DirectoryConfig" :: Maybe (DirectoryConfig) } ) -> CreateDirectoryConfigResult
+newCreateDirectoryConfigResult'  customize = (CreateDirectoryConfigResult <<< customize) { "DirectoryConfig": Nothing }
 
 
 
@@ -293,15 +292,15 @@ newtype CreateFleetRequest = CreateFleetRequest
   { "Name" :: (Name)
   , "ImageName" :: (String)
   , "InstanceType" :: (String)
-  , "FleetType" :: NullOrUndefined (FleetType)
+  , "FleetType" :: Maybe (FleetType)
   , "ComputeCapacity" :: (ComputeCapacity)
-  , "VpcConfig" :: NullOrUndefined (VpcConfig)
-  , "MaxUserDurationInSeconds" :: NullOrUndefined (Int)
-  , "DisconnectTimeoutInSeconds" :: NullOrUndefined (Int)
-  , "Description" :: NullOrUndefined (Description)
-  , "DisplayName" :: NullOrUndefined (DisplayName)
-  , "EnableDefaultInternetAccess" :: NullOrUndefined (BooleanObject)
-  , "DomainJoinInfo" :: NullOrUndefined (DomainJoinInfo)
+  , "VpcConfig" :: Maybe (VpcConfig)
+  , "MaxUserDurationInSeconds" :: Maybe (Int)
+  , "DisconnectTimeoutInSeconds" :: Maybe (Int)
+  , "Description" :: Maybe (Description)
+  , "DisplayName" :: Maybe (DisplayName)
+  , "EnableDefaultInternetAccess" :: Maybe (BooleanObject)
+  , "DomainJoinInfo" :: Maybe (DomainJoinInfo)
   }
 derive instance newtypeCreateFleetRequest :: Newtype CreateFleetRequest _
 derive instance repGenericCreateFleetRequest :: Generic CreateFleetRequest _
@@ -311,17 +310,17 @@ instance encodeCreateFleetRequest :: Encode CreateFleetRequest where encode = ge
 
 -- | Constructs CreateFleetRequest from required parameters
 newCreateFleetRequest :: ComputeCapacity -> String -> String -> Name -> CreateFleetRequest
-newCreateFleetRequest _ComputeCapacity _ImageName _InstanceType _Name = CreateFleetRequest { "ComputeCapacity": _ComputeCapacity, "ImageName": _ImageName, "InstanceType": _InstanceType, "Name": _Name, "Description": (NullOrUndefined Nothing), "DisconnectTimeoutInSeconds": (NullOrUndefined Nothing), "DisplayName": (NullOrUndefined Nothing), "DomainJoinInfo": (NullOrUndefined Nothing), "EnableDefaultInternetAccess": (NullOrUndefined Nothing), "FleetType": (NullOrUndefined Nothing), "MaxUserDurationInSeconds": (NullOrUndefined Nothing), "VpcConfig": (NullOrUndefined Nothing) }
+newCreateFleetRequest _ComputeCapacity _ImageName _InstanceType _Name = CreateFleetRequest { "ComputeCapacity": _ComputeCapacity, "ImageName": _ImageName, "InstanceType": _InstanceType, "Name": _Name, "Description": Nothing, "DisconnectTimeoutInSeconds": Nothing, "DisplayName": Nothing, "DomainJoinInfo": Nothing, "EnableDefaultInternetAccess": Nothing, "FleetType": Nothing, "MaxUserDurationInSeconds": Nothing, "VpcConfig": Nothing }
 
 -- | Constructs CreateFleetRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateFleetRequest' :: ComputeCapacity -> String -> String -> Name -> ( { "Name" :: (Name) , "ImageName" :: (String) , "InstanceType" :: (String) , "FleetType" :: NullOrUndefined (FleetType) , "ComputeCapacity" :: (ComputeCapacity) , "VpcConfig" :: NullOrUndefined (VpcConfig) , "MaxUserDurationInSeconds" :: NullOrUndefined (Int) , "DisconnectTimeoutInSeconds" :: NullOrUndefined (Int) , "Description" :: NullOrUndefined (Description) , "DisplayName" :: NullOrUndefined (DisplayName) , "EnableDefaultInternetAccess" :: NullOrUndefined (BooleanObject) , "DomainJoinInfo" :: NullOrUndefined (DomainJoinInfo) } -> {"Name" :: (Name) , "ImageName" :: (String) , "InstanceType" :: (String) , "FleetType" :: NullOrUndefined (FleetType) , "ComputeCapacity" :: (ComputeCapacity) , "VpcConfig" :: NullOrUndefined (VpcConfig) , "MaxUserDurationInSeconds" :: NullOrUndefined (Int) , "DisconnectTimeoutInSeconds" :: NullOrUndefined (Int) , "Description" :: NullOrUndefined (Description) , "DisplayName" :: NullOrUndefined (DisplayName) , "EnableDefaultInternetAccess" :: NullOrUndefined (BooleanObject) , "DomainJoinInfo" :: NullOrUndefined (DomainJoinInfo) } ) -> CreateFleetRequest
-newCreateFleetRequest' _ComputeCapacity _ImageName _InstanceType _Name customize = (CreateFleetRequest <<< customize) { "ComputeCapacity": _ComputeCapacity, "ImageName": _ImageName, "InstanceType": _InstanceType, "Name": _Name, "Description": (NullOrUndefined Nothing), "DisconnectTimeoutInSeconds": (NullOrUndefined Nothing), "DisplayName": (NullOrUndefined Nothing), "DomainJoinInfo": (NullOrUndefined Nothing), "EnableDefaultInternetAccess": (NullOrUndefined Nothing), "FleetType": (NullOrUndefined Nothing), "MaxUserDurationInSeconds": (NullOrUndefined Nothing), "VpcConfig": (NullOrUndefined Nothing) }
+newCreateFleetRequest' :: ComputeCapacity -> String -> String -> Name -> ( { "Name" :: (Name) , "ImageName" :: (String) , "InstanceType" :: (String) , "FleetType" :: Maybe (FleetType) , "ComputeCapacity" :: (ComputeCapacity) , "VpcConfig" :: Maybe (VpcConfig) , "MaxUserDurationInSeconds" :: Maybe (Int) , "DisconnectTimeoutInSeconds" :: Maybe (Int) , "Description" :: Maybe (Description) , "DisplayName" :: Maybe (DisplayName) , "EnableDefaultInternetAccess" :: Maybe (BooleanObject) , "DomainJoinInfo" :: Maybe (DomainJoinInfo) } -> {"Name" :: (Name) , "ImageName" :: (String) , "InstanceType" :: (String) , "FleetType" :: Maybe (FleetType) , "ComputeCapacity" :: (ComputeCapacity) , "VpcConfig" :: Maybe (VpcConfig) , "MaxUserDurationInSeconds" :: Maybe (Int) , "DisconnectTimeoutInSeconds" :: Maybe (Int) , "Description" :: Maybe (Description) , "DisplayName" :: Maybe (DisplayName) , "EnableDefaultInternetAccess" :: Maybe (BooleanObject) , "DomainJoinInfo" :: Maybe (DomainJoinInfo) } ) -> CreateFleetRequest
+newCreateFleetRequest' _ComputeCapacity _ImageName _InstanceType _Name customize = (CreateFleetRequest <<< customize) { "ComputeCapacity": _ComputeCapacity, "ImageName": _ImageName, "InstanceType": _InstanceType, "Name": _Name, "Description": Nothing, "DisconnectTimeoutInSeconds": Nothing, "DisplayName": Nothing, "DomainJoinInfo": Nothing, "EnableDefaultInternetAccess": Nothing, "FleetType": Nothing, "MaxUserDurationInSeconds": Nothing, "VpcConfig": Nothing }
 
 
 
 newtype CreateFleetResult = CreateFleetResult 
-  { "Fleet" :: NullOrUndefined (Fleet)
+  { "Fleet" :: Maybe (Fleet)
   }
 derive instance newtypeCreateFleetResult :: Newtype CreateFleetResult _
 derive instance repGenericCreateFleetResult :: Generic CreateFleetResult _
@@ -331,12 +330,12 @@ instance encodeCreateFleetResult :: Encode CreateFleetResult where encode = gene
 
 -- | Constructs CreateFleetResult from required parameters
 newCreateFleetResult :: CreateFleetResult
-newCreateFleetResult  = CreateFleetResult { "Fleet": (NullOrUndefined Nothing) }
+newCreateFleetResult  = CreateFleetResult { "Fleet": Nothing }
 
 -- | Constructs CreateFleetResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateFleetResult' :: ( { "Fleet" :: NullOrUndefined (Fleet) } -> {"Fleet" :: NullOrUndefined (Fleet) } ) -> CreateFleetResult
-newCreateFleetResult'  customize = (CreateFleetResult <<< customize) { "Fleet": (NullOrUndefined Nothing) }
+newCreateFleetResult' :: ( { "Fleet" :: Maybe (Fleet) } -> {"Fleet" :: Maybe (Fleet) } ) -> CreateFleetResult
+newCreateFleetResult'  customize = (CreateFleetResult <<< customize) { "Fleet": Nothing }
 
 
 
@@ -344,12 +343,12 @@ newtype CreateImageBuilderRequest = CreateImageBuilderRequest
   { "Name" :: (Name)
   , "ImageName" :: (String)
   , "InstanceType" :: (String)
-  , "Description" :: NullOrUndefined (Description)
-  , "DisplayName" :: NullOrUndefined (DisplayName)
-  , "VpcConfig" :: NullOrUndefined (VpcConfig)
-  , "EnableDefaultInternetAccess" :: NullOrUndefined (BooleanObject)
-  , "DomainJoinInfo" :: NullOrUndefined (DomainJoinInfo)
-  , "AppstreamAgentVersion" :: NullOrUndefined (AppstreamAgentVersion)
+  , "Description" :: Maybe (Description)
+  , "DisplayName" :: Maybe (DisplayName)
+  , "VpcConfig" :: Maybe (VpcConfig)
+  , "EnableDefaultInternetAccess" :: Maybe (BooleanObject)
+  , "DomainJoinInfo" :: Maybe (DomainJoinInfo)
+  , "AppstreamAgentVersion" :: Maybe (AppstreamAgentVersion)
   }
 derive instance newtypeCreateImageBuilderRequest :: Newtype CreateImageBuilderRequest _
 derive instance repGenericCreateImageBuilderRequest :: Generic CreateImageBuilderRequest _
@@ -359,17 +358,17 @@ instance encodeCreateImageBuilderRequest :: Encode CreateImageBuilderRequest whe
 
 -- | Constructs CreateImageBuilderRequest from required parameters
 newCreateImageBuilderRequest :: String -> String -> Name -> CreateImageBuilderRequest
-newCreateImageBuilderRequest _ImageName _InstanceType _Name = CreateImageBuilderRequest { "ImageName": _ImageName, "InstanceType": _InstanceType, "Name": _Name, "AppstreamAgentVersion": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "DisplayName": (NullOrUndefined Nothing), "DomainJoinInfo": (NullOrUndefined Nothing), "EnableDefaultInternetAccess": (NullOrUndefined Nothing), "VpcConfig": (NullOrUndefined Nothing) }
+newCreateImageBuilderRequest _ImageName _InstanceType _Name = CreateImageBuilderRequest { "ImageName": _ImageName, "InstanceType": _InstanceType, "Name": _Name, "AppstreamAgentVersion": Nothing, "Description": Nothing, "DisplayName": Nothing, "DomainJoinInfo": Nothing, "EnableDefaultInternetAccess": Nothing, "VpcConfig": Nothing }
 
 -- | Constructs CreateImageBuilderRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateImageBuilderRequest' :: String -> String -> Name -> ( { "Name" :: (Name) , "ImageName" :: (String) , "InstanceType" :: (String) , "Description" :: NullOrUndefined (Description) , "DisplayName" :: NullOrUndefined (DisplayName) , "VpcConfig" :: NullOrUndefined (VpcConfig) , "EnableDefaultInternetAccess" :: NullOrUndefined (BooleanObject) , "DomainJoinInfo" :: NullOrUndefined (DomainJoinInfo) , "AppstreamAgentVersion" :: NullOrUndefined (AppstreamAgentVersion) } -> {"Name" :: (Name) , "ImageName" :: (String) , "InstanceType" :: (String) , "Description" :: NullOrUndefined (Description) , "DisplayName" :: NullOrUndefined (DisplayName) , "VpcConfig" :: NullOrUndefined (VpcConfig) , "EnableDefaultInternetAccess" :: NullOrUndefined (BooleanObject) , "DomainJoinInfo" :: NullOrUndefined (DomainJoinInfo) , "AppstreamAgentVersion" :: NullOrUndefined (AppstreamAgentVersion) } ) -> CreateImageBuilderRequest
-newCreateImageBuilderRequest' _ImageName _InstanceType _Name customize = (CreateImageBuilderRequest <<< customize) { "ImageName": _ImageName, "InstanceType": _InstanceType, "Name": _Name, "AppstreamAgentVersion": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "DisplayName": (NullOrUndefined Nothing), "DomainJoinInfo": (NullOrUndefined Nothing), "EnableDefaultInternetAccess": (NullOrUndefined Nothing), "VpcConfig": (NullOrUndefined Nothing) }
+newCreateImageBuilderRequest' :: String -> String -> Name -> ( { "Name" :: (Name) , "ImageName" :: (String) , "InstanceType" :: (String) , "Description" :: Maybe (Description) , "DisplayName" :: Maybe (DisplayName) , "VpcConfig" :: Maybe (VpcConfig) , "EnableDefaultInternetAccess" :: Maybe (BooleanObject) , "DomainJoinInfo" :: Maybe (DomainJoinInfo) , "AppstreamAgentVersion" :: Maybe (AppstreamAgentVersion) } -> {"Name" :: (Name) , "ImageName" :: (String) , "InstanceType" :: (String) , "Description" :: Maybe (Description) , "DisplayName" :: Maybe (DisplayName) , "VpcConfig" :: Maybe (VpcConfig) , "EnableDefaultInternetAccess" :: Maybe (BooleanObject) , "DomainJoinInfo" :: Maybe (DomainJoinInfo) , "AppstreamAgentVersion" :: Maybe (AppstreamAgentVersion) } ) -> CreateImageBuilderRequest
+newCreateImageBuilderRequest' _ImageName _InstanceType _Name customize = (CreateImageBuilderRequest <<< customize) { "ImageName": _ImageName, "InstanceType": _InstanceType, "Name": _Name, "AppstreamAgentVersion": Nothing, "Description": Nothing, "DisplayName": Nothing, "DomainJoinInfo": Nothing, "EnableDefaultInternetAccess": Nothing, "VpcConfig": Nothing }
 
 
 
 newtype CreateImageBuilderResult = CreateImageBuilderResult 
-  { "ImageBuilder" :: NullOrUndefined (ImageBuilder)
+  { "ImageBuilder" :: Maybe (ImageBuilder)
   }
 derive instance newtypeCreateImageBuilderResult :: Newtype CreateImageBuilderResult _
 derive instance repGenericCreateImageBuilderResult :: Generic CreateImageBuilderResult _
@@ -379,18 +378,18 @@ instance encodeCreateImageBuilderResult :: Encode CreateImageBuilderResult where
 
 -- | Constructs CreateImageBuilderResult from required parameters
 newCreateImageBuilderResult :: CreateImageBuilderResult
-newCreateImageBuilderResult  = CreateImageBuilderResult { "ImageBuilder": (NullOrUndefined Nothing) }
+newCreateImageBuilderResult  = CreateImageBuilderResult { "ImageBuilder": Nothing }
 
 -- | Constructs CreateImageBuilderResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateImageBuilderResult' :: ( { "ImageBuilder" :: NullOrUndefined (ImageBuilder) } -> {"ImageBuilder" :: NullOrUndefined (ImageBuilder) } ) -> CreateImageBuilderResult
-newCreateImageBuilderResult'  customize = (CreateImageBuilderResult <<< customize) { "ImageBuilder": (NullOrUndefined Nothing) }
+newCreateImageBuilderResult' :: ( { "ImageBuilder" :: Maybe (ImageBuilder) } -> {"ImageBuilder" :: Maybe (ImageBuilder) } ) -> CreateImageBuilderResult
+newCreateImageBuilderResult'  customize = (CreateImageBuilderResult <<< customize) { "ImageBuilder": Nothing }
 
 
 
 newtype CreateImageBuilderStreamingURLRequest = CreateImageBuilderStreamingURLRequest 
   { "Name" :: (String)
-  , "Validity" :: NullOrUndefined (Number)
+  , "Validity" :: Maybe (Number)
   }
 derive instance newtypeCreateImageBuilderStreamingURLRequest :: Newtype CreateImageBuilderStreamingURLRequest _
 derive instance repGenericCreateImageBuilderStreamingURLRequest :: Generic CreateImageBuilderStreamingURLRequest _
@@ -400,18 +399,18 @@ instance encodeCreateImageBuilderStreamingURLRequest :: Encode CreateImageBuilde
 
 -- | Constructs CreateImageBuilderStreamingURLRequest from required parameters
 newCreateImageBuilderStreamingURLRequest :: String -> CreateImageBuilderStreamingURLRequest
-newCreateImageBuilderStreamingURLRequest _Name = CreateImageBuilderStreamingURLRequest { "Name": _Name, "Validity": (NullOrUndefined Nothing) }
+newCreateImageBuilderStreamingURLRequest _Name = CreateImageBuilderStreamingURLRequest { "Name": _Name, "Validity": Nothing }
 
 -- | Constructs CreateImageBuilderStreamingURLRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateImageBuilderStreamingURLRequest' :: String -> ( { "Name" :: (String) , "Validity" :: NullOrUndefined (Number) } -> {"Name" :: (String) , "Validity" :: NullOrUndefined (Number) } ) -> CreateImageBuilderStreamingURLRequest
-newCreateImageBuilderStreamingURLRequest' _Name customize = (CreateImageBuilderStreamingURLRequest <<< customize) { "Name": _Name, "Validity": (NullOrUndefined Nothing) }
+newCreateImageBuilderStreamingURLRequest' :: String -> ( { "Name" :: (String) , "Validity" :: Maybe (Number) } -> {"Name" :: (String) , "Validity" :: Maybe (Number) } ) -> CreateImageBuilderStreamingURLRequest
+newCreateImageBuilderStreamingURLRequest' _Name customize = (CreateImageBuilderStreamingURLRequest <<< customize) { "Name": _Name, "Validity": Nothing }
 
 
 
 newtype CreateImageBuilderStreamingURLResult = CreateImageBuilderStreamingURLResult 
-  { "StreamingURL" :: NullOrUndefined (String)
-  , "Expires" :: NullOrUndefined (Types.Timestamp)
+  { "StreamingURL" :: Maybe (String)
+  , "Expires" :: Maybe (Types.Timestamp)
   }
 derive instance newtypeCreateImageBuilderStreamingURLResult :: Newtype CreateImageBuilderStreamingURLResult _
 derive instance repGenericCreateImageBuilderStreamingURLResult :: Generic CreateImageBuilderStreamingURLResult _
@@ -421,21 +420,21 @@ instance encodeCreateImageBuilderStreamingURLResult :: Encode CreateImageBuilder
 
 -- | Constructs CreateImageBuilderStreamingURLResult from required parameters
 newCreateImageBuilderStreamingURLResult :: CreateImageBuilderStreamingURLResult
-newCreateImageBuilderStreamingURLResult  = CreateImageBuilderStreamingURLResult { "Expires": (NullOrUndefined Nothing), "StreamingURL": (NullOrUndefined Nothing) }
+newCreateImageBuilderStreamingURLResult  = CreateImageBuilderStreamingURLResult { "Expires": Nothing, "StreamingURL": Nothing }
 
 -- | Constructs CreateImageBuilderStreamingURLResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateImageBuilderStreamingURLResult' :: ( { "StreamingURL" :: NullOrUndefined (String) , "Expires" :: NullOrUndefined (Types.Timestamp) } -> {"StreamingURL" :: NullOrUndefined (String) , "Expires" :: NullOrUndefined (Types.Timestamp) } ) -> CreateImageBuilderStreamingURLResult
-newCreateImageBuilderStreamingURLResult'  customize = (CreateImageBuilderStreamingURLResult <<< customize) { "Expires": (NullOrUndefined Nothing), "StreamingURL": (NullOrUndefined Nothing) }
+newCreateImageBuilderStreamingURLResult' :: ( { "StreamingURL" :: Maybe (String) , "Expires" :: Maybe (Types.Timestamp) } -> {"StreamingURL" :: Maybe (String) , "Expires" :: Maybe (Types.Timestamp) } ) -> CreateImageBuilderStreamingURLResult
+newCreateImageBuilderStreamingURLResult'  customize = (CreateImageBuilderStreamingURLResult <<< customize) { "Expires": Nothing, "StreamingURL": Nothing }
 
 
 
 newtype CreateStackRequest = CreateStackRequest 
   { "Name" :: (String)
-  , "Description" :: NullOrUndefined (Description)
-  , "DisplayName" :: NullOrUndefined (DisplayName)
-  , "StorageConnectors" :: NullOrUndefined (StorageConnectorList)
-  , "RedirectURL" :: NullOrUndefined (RedirectURL)
+  , "Description" :: Maybe (Description)
+  , "DisplayName" :: Maybe (DisplayName)
+  , "StorageConnectors" :: Maybe (StorageConnectorList)
+  , "RedirectURL" :: Maybe (RedirectURL)
   }
 derive instance newtypeCreateStackRequest :: Newtype CreateStackRequest _
 derive instance repGenericCreateStackRequest :: Generic CreateStackRequest _
@@ -445,17 +444,17 @@ instance encodeCreateStackRequest :: Encode CreateStackRequest where encode = ge
 
 -- | Constructs CreateStackRequest from required parameters
 newCreateStackRequest :: String -> CreateStackRequest
-newCreateStackRequest _Name = CreateStackRequest { "Name": _Name, "Description": (NullOrUndefined Nothing), "DisplayName": (NullOrUndefined Nothing), "RedirectURL": (NullOrUndefined Nothing), "StorageConnectors": (NullOrUndefined Nothing) }
+newCreateStackRequest _Name = CreateStackRequest { "Name": _Name, "Description": Nothing, "DisplayName": Nothing, "RedirectURL": Nothing, "StorageConnectors": Nothing }
 
 -- | Constructs CreateStackRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateStackRequest' :: String -> ( { "Name" :: (String) , "Description" :: NullOrUndefined (Description) , "DisplayName" :: NullOrUndefined (DisplayName) , "StorageConnectors" :: NullOrUndefined (StorageConnectorList) , "RedirectURL" :: NullOrUndefined (RedirectURL) } -> {"Name" :: (String) , "Description" :: NullOrUndefined (Description) , "DisplayName" :: NullOrUndefined (DisplayName) , "StorageConnectors" :: NullOrUndefined (StorageConnectorList) , "RedirectURL" :: NullOrUndefined (RedirectURL) } ) -> CreateStackRequest
-newCreateStackRequest' _Name customize = (CreateStackRequest <<< customize) { "Name": _Name, "Description": (NullOrUndefined Nothing), "DisplayName": (NullOrUndefined Nothing), "RedirectURL": (NullOrUndefined Nothing), "StorageConnectors": (NullOrUndefined Nothing) }
+newCreateStackRequest' :: String -> ( { "Name" :: (String) , "Description" :: Maybe (Description) , "DisplayName" :: Maybe (DisplayName) , "StorageConnectors" :: Maybe (StorageConnectorList) , "RedirectURL" :: Maybe (RedirectURL) } -> {"Name" :: (String) , "Description" :: Maybe (Description) , "DisplayName" :: Maybe (DisplayName) , "StorageConnectors" :: Maybe (StorageConnectorList) , "RedirectURL" :: Maybe (RedirectURL) } ) -> CreateStackRequest
+newCreateStackRequest' _Name customize = (CreateStackRequest <<< customize) { "Name": _Name, "Description": Nothing, "DisplayName": Nothing, "RedirectURL": Nothing, "StorageConnectors": Nothing }
 
 
 
 newtype CreateStackResult = CreateStackResult 
-  { "Stack" :: NullOrUndefined (Stack)
+  { "Stack" :: Maybe (Stack)
   }
 derive instance newtypeCreateStackResult :: Newtype CreateStackResult _
 derive instance repGenericCreateStackResult :: Generic CreateStackResult _
@@ -465,12 +464,12 @@ instance encodeCreateStackResult :: Encode CreateStackResult where encode = gene
 
 -- | Constructs CreateStackResult from required parameters
 newCreateStackResult :: CreateStackResult
-newCreateStackResult  = CreateStackResult { "Stack": (NullOrUndefined Nothing) }
+newCreateStackResult  = CreateStackResult { "Stack": Nothing }
 
 -- | Constructs CreateStackResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateStackResult' :: ( { "Stack" :: NullOrUndefined (Stack) } -> {"Stack" :: NullOrUndefined (Stack) } ) -> CreateStackResult
-newCreateStackResult'  customize = (CreateStackResult <<< customize) { "Stack": (NullOrUndefined Nothing) }
+newCreateStackResult' :: ( { "Stack" :: Maybe (Stack) } -> {"Stack" :: Maybe (Stack) } ) -> CreateStackResult
+newCreateStackResult'  customize = (CreateStackResult <<< customize) { "Stack": Nothing }
 
 
 
@@ -478,9 +477,9 @@ newtype CreateStreamingURLRequest = CreateStreamingURLRequest
   { "StackName" :: (String)
   , "FleetName" :: (String)
   , "UserId" :: (StreamingUrlUserId)
-  , "ApplicationId" :: NullOrUndefined (String)
-  , "Validity" :: NullOrUndefined (Number)
-  , "SessionContext" :: NullOrUndefined (String)
+  , "ApplicationId" :: Maybe (String)
+  , "Validity" :: Maybe (Number)
+  , "SessionContext" :: Maybe (String)
   }
 derive instance newtypeCreateStreamingURLRequest :: Newtype CreateStreamingURLRequest _
 derive instance repGenericCreateStreamingURLRequest :: Generic CreateStreamingURLRequest _
@@ -490,18 +489,18 @@ instance encodeCreateStreamingURLRequest :: Encode CreateStreamingURLRequest whe
 
 -- | Constructs CreateStreamingURLRequest from required parameters
 newCreateStreamingURLRequest :: String -> String -> StreamingUrlUserId -> CreateStreamingURLRequest
-newCreateStreamingURLRequest _FleetName _StackName _UserId = CreateStreamingURLRequest { "FleetName": _FleetName, "StackName": _StackName, "UserId": _UserId, "ApplicationId": (NullOrUndefined Nothing), "SessionContext": (NullOrUndefined Nothing), "Validity": (NullOrUndefined Nothing) }
+newCreateStreamingURLRequest _FleetName _StackName _UserId = CreateStreamingURLRequest { "FleetName": _FleetName, "StackName": _StackName, "UserId": _UserId, "ApplicationId": Nothing, "SessionContext": Nothing, "Validity": Nothing }
 
 -- | Constructs CreateStreamingURLRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateStreamingURLRequest' :: String -> String -> StreamingUrlUserId -> ( { "StackName" :: (String) , "FleetName" :: (String) , "UserId" :: (StreamingUrlUserId) , "ApplicationId" :: NullOrUndefined (String) , "Validity" :: NullOrUndefined (Number) , "SessionContext" :: NullOrUndefined (String) } -> {"StackName" :: (String) , "FleetName" :: (String) , "UserId" :: (StreamingUrlUserId) , "ApplicationId" :: NullOrUndefined (String) , "Validity" :: NullOrUndefined (Number) , "SessionContext" :: NullOrUndefined (String) } ) -> CreateStreamingURLRequest
-newCreateStreamingURLRequest' _FleetName _StackName _UserId customize = (CreateStreamingURLRequest <<< customize) { "FleetName": _FleetName, "StackName": _StackName, "UserId": _UserId, "ApplicationId": (NullOrUndefined Nothing), "SessionContext": (NullOrUndefined Nothing), "Validity": (NullOrUndefined Nothing) }
+newCreateStreamingURLRequest' :: String -> String -> StreamingUrlUserId -> ( { "StackName" :: (String) , "FleetName" :: (String) , "UserId" :: (StreamingUrlUserId) , "ApplicationId" :: Maybe (String) , "Validity" :: Maybe (Number) , "SessionContext" :: Maybe (String) } -> {"StackName" :: (String) , "FleetName" :: (String) , "UserId" :: (StreamingUrlUserId) , "ApplicationId" :: Maybe (String) , "Validity" :: Maybe (Number) , "SessionContext" :: Maybe (String) } ) -> CreateStreamingURLRequest
+newCreateStreamingURLRequest' _FleetName _StackName _UserId customize = (CreateStreamingURLRequest <<< customize) { "FleetName": _FleetName, "StackName": _StackName, "UserId": _UserId, "ApplicationId": Nothing, "SessionContext": Nothing, "Validity": Nothing }
 
 
 
 newtype CreateStreamingURLResult = CreateStreamingURLResult 
-  { "StreamingURL" :: NullOrUndefined (String)
-  , "Expires" :: NullOrUndefined (Types.Timestamp)
+  { "StreamingURL" :: Maybe (String)
+  , "Expires" :: Maybe (Types.Timestamp)
   }
 derive instance newtypeCreateStreamingURLResult :: Newtype CreateStreamingURLResult _
 derive instance repGenericCreateStreamingURLResult :: Generic CreateStreamingURLResult _
@@ -511,12 +510,12 @@ instance encodeCreateStreamingURLResult :: Encode CreateStreamingURLResult where
 
 -- | Constructs CreateStreamingURLResult from required parameters
 newCreateStreamingURLResult :: CreateStreamingURLResult
-newCreateStreamingURLResult  = CreateStreamingURLResult { "Expires": (NullOrUndefined Nothing), "StreamingURL": (NullOrUndefined Nothing) }
+newCreateStreamingURLResult  = CreateStreamingURLResult { "Expires": Nothing, "StreamingURL": Nothing }
 
 -- | Constructs CreateStreamingURLResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateStreamingURLResult' :: ( { "StreamingURL" :: NullOrUndefined (String) , "Expires" :: NullOrUndefined (Types.Timestamp) } -> {"StreamingURL" :: NullOrUndefined (String) , "Expires" :: NullOrUndefined (Types.Timestamp) } ) -> CreateStreamingURLResult
-newCreateStreamingURLResult'  customize = (CreateStreamingURLResult <<< customize) { "Expires": (NullOrUndefined Nothing), "StreamingURL": (NullOrUndefined Nothing) }
+newCreateStreamingURLResult' :: ( { "StreamingURL" :: Maybe (String) , "Expires" :: Maybe (Types.Timestamp) } -> {"StreamingURL" :: Maybe (String) , "Expires" :: Maybe (Types.Timestamp) } ) -> CreateStreamingURLResult
+newCreateStreamingURLResult'  customize = (CreateStreamingURLResult <<< customize) { "Expires": Nothing, "StreamingURL": Nothing }
 
 
 
@@ -599,7 +598,7 @@ newDeleteImageBuilderRequest' _Name customize = (DeleteImageBuilderRequest <<< c
 
 
 newtype DeleteImageBuilderResult = DeleteImageBuilderResult 
-  { "ImageBuilder" :: NullOrUndefined (ImageBuilder)
+  { "ImageBuilder" :: Maybe (ImageBuilder)
   }
 derive instance newtypeDeleteImageBuilderResult :: Newtype DeleteImageBuilderResult _
 derive instance repGenericDeleteImageBuilderResult :: Generic DeleteImageBuilderResult _
@@ -609,12 +608,12 @@ instance encodeDeleteImageBuilderResult :: Encode DeleteImageBuilderResult where
 
 -- | Constructs DeleteImageBuilderResult from required parameters
 newDeleteImageBuilderResult :: DeleteImageBuilderResult
-newDeleteImageBuilderResult  = DeleteImageBuilderResult { "ImageBuilder": (NullOrUndefined Nothing) }
+newDeleteImageBuilderResult  = DeleteImageBuilderResult { "ImageBuilder": Nothing }
 
 -- | Constructs DeleteImageBuilderResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeleteImageBuilderResult' :: ( { "ImageBuilder" :: NullOrUndefined (ImageBuilder) } -> {"ImageBuilder" :: NullOrUndefined (ImageBuilder) } ) -> DeleteImageBuilderResult
-newDeleteImageBuilderResult'  customize = (DeleteImageBuilderResult <<< customize) { "ImageBuilder": (NullOrUndefined Nothing) }
+newDeleteImageBuilderResult' :: ( { "ImageBuilder" :: Maybe (ImageBuilder) } -> {"ImageBuilder" :: Maybe (ImageBuilder) } ) -> DeleteImageBuilderResult
+newDeleteImageBuilderResult'  customize = (DeleteImageBuilderResult <<< customize) { "ImageBuilder": Nothing }
 
 
 
@@ -639,7 +638,7 @@ newDeleteImageRequest' _Name customize = (DeleteImageRequest <<< customize) { "N
 
 
 newtype DeleteImageResult = DeleteImageResult 
-  { "Image" :: NullOrUndefined (Image)
+  { "Image" :: Maybe (Image)
   }
 derive instance newtypeDeleteImageResult :: Newtype DeleteImageResult _
 derive instance repGenericDeleteImageResult :: Generic DeleteImageResult _
@@ -649,12 +648,12 @@ instance encodeDeleteImageResult :: Encode DeleteImageResult where encode = gene
 
 -- | Constructs DeleteImageResult from required parameters
 newDeleteImageResult :: DeleteImageResult
-newDeleteImageResult  = DeleteImageResult { "Image": (NullOrUndefined Nothing) }
+newDeleteImageResult  = DeleteImageResult { "Image": Nothing }
 
 -- | Constructs DeleteImageResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeleteImageResult' :: ( { "Image" :: NullOrUndefined (Image) } -> {"Image" :: NullOrUndefined (Image) } ) -> DeleteImageResult
-newDeleteImageResult'  customize = (DeleteImageResult <<< customize) { "Image": (NullOrUndefined Nothing) }
+newDeleteImageResult' :: ( { "Image" :: Maybe (Image) } -> {"Image" :: Maybe (Image) } ) -> DeleteImageResult
+newDeleteImageResult'  customize = (DeleteImageResult <<< customize) { "Image": Nothing }
 
 
 
@@ -688,9 +687,9 @@ instance encodeDeleteStackResult :: Encode DeleteStackResult where encode = gene
 
 
 newtype DescribeDirectoryConfigsRequest = DescribeDirectoryConfigsRequest 
-  { "DirectoryNames" :: NullOrUndefined (DirectoryNameList)
-  , "MaxResults" :: NullOrUndefined (Int)
-  , "NextToken" :: NullOrUndefined (String)
+  { "DirectoryNames" :: Maybe (DirectoryNameList)
+  , "MaxResults" :: Maybe (Int)
+  , "NextToken" :: Maybe (String)
   }
 derive instance newtypeDescribeDirectoryConfigsRequest :: Newtype DescribeDirectoryConfigsRequest _
 derive instance repGenericDescribeDirectoryConfigsRequest :: Generic DescribeDirectoryConfigsRequest _
@@ -700,18 +699,18 @@ instance encodeDescribeDirectoryConfigsRequest :: Encode DescribeDirectoryConfig
 
 -- | Constructs DescribeDirectoryConfigsRequest from required parameters
 newDescribeDirectoryConfigsRequest :: DescribeDirectoryConfigsRequest
-newDescribeDirectoryConfigsRequest  = DescribeDirectoryConfigsRequest { "DirectoryNames": (NullOrUndefined Nothing), "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeDirectoryConfigsRequest  = DescribeDirectoryConfigsRequest { "DirectoryNames": Nothing, "MaxResults": Nothing, "NextToken": Nothing }
 
 -- | Constructs DescribeDirectoryConfigsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeDirectoryConfigsRequest' :: ( { "DirectoryNames" :: NullOrUndefined (DirectoryNameList) , "MaxResults" :: NullOrUndefined (Int) , "NextToken" :: NullOrUndefined (String) } -> {"DirectoryNames" :: NullOrUndefined (DirectoryNameList) , "MaxResults" :: NullOrUndefined (Int) , "NextToken" :: NullOrUndefined (String) } ) -> DescribeDirectoryConfigsRequest
-newDescribeDirectoryConfigsRequest'  customize = (DescribeDirectoryConfigsRequest <<< customize) { "DirectoryNames": (NullOrUndefined Nothing), "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeDirectoryConfigsRequest' :: ( { "DirectoryNames" :: Maybe (DirectoryNameList) , "MaxResults" :: Maybe (Int) , "NextToken" :: Maybe (String) } -> {"DirectoryNames" :: Maybe (DirectoryNameList) , "MaxResults" :: Maybe (Int) , "NextToken" :: Maybe (String) } ) -> DescribeDirectoryConfigsRequest
+newDescribeDirectoryConfigsRequest'  customize = (DescribeDirectoryConfigsRequest <<< customize) { "DirectoryNames": Nothing, "MaxResults": Nothing, "NextToken": Nothing }
 
 
 
 newtype DescribeDirectoryConfigsResult = DescribeDirectoryConfigsResult 
-  { "DirectoryConfigs" :: NullOrUndefined (DirectoryConfigList)
-  , "NextToken" :: NullOrUndefined (String)
+  { "DirectoryConfigs" :: Maybe (DirectoryConfigList)
+  , "NextToken" :: Maybe (String)
   }
 derive instance newtypeDescribeDirectoryConfigsResult :: Newtype DescribeDirectoryConfigsResult _
 derive instance repGenericDescribeDirectoryConfigsResult :: Generic DescribeDirectoryConfigsResult _
@@ -721,18 +720,18 @@ instance encodeDescribeDirectoryConfigsResult :: Encode DescribeDirectoryConfigs
 
 -- | Constructs DescribeDirectoryConfigsResult from required parameters
 newDescribeDirectoryConfigsResult :: DescribeDirectoryConfigsResult
-newDescribeDirectoryConfigsResult  = DescribeDirectoryConfigsResult { "DirectoryConfigs": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeDirectoryConfigsResult  = DescribeDirectoryConfigsResult { "DirectoryConfigs": Nothing, "NextToken": Nothing }
 
 -- | Constructs DescribeDirectoryConfigsResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeDirectoryConfigsResult' :: ( { "DirectoryConfigs" :: NullOrUndefined (DirectoryConfigList) , "NextToken" :: NullOrUndefined (String) } -> {"DirectoryConfigs" :: NullOrUndefined (DirectoryConfigList) , "NextToken" :: NullOrUndefined (String) } ) -> DescribeDirectoryConfigsResult
-newDescribeDirectoryConfigsResult'  customize = (DescribeDirectoryConfigsResult <<< customize) { "DirectoryConfigs": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeDirectoryConfigsResult' :: ( { "DirectoryConfigs" :: Maybe (DirectoryConfigList) , "NextToken" :: Maybe (String) } -> {"DirectoryConfigs" :: Maybe (DirectoryConfigList) , "NextToken" :: Maybe (String) } ) -> DescribeDirectoryConfigsResult
+newDescribeDirectoryConfigsResult'  customize = (DescribeDirectoryConfigsResult <<< customize) { "DirectoryConfigs": Nothing, "NextToken": Nothing }
 
 
 
 newtype DescribeFleetsRequest = DescribeFleetsRequest 
-  { "Names" :: NullOrUndefined (StringList)
-  , "NextToken" :: NullOrUndefined (String)
+  { "Names" :: Maybe (StringList)
+  , "NextToken" :: Maybe (String)
   }
 derive instance newtypeDescribeFleetsRequest :: Newtype DescribeFleetsRequest _
 derive instance repGenericDescribeFleetsRequest :: Generic DescribeFleetsRequest _
@@ -742,18 +741,18 @@ instance encodeDescribeFleetsRequest :: Encode DescribeFleetsRequest where encod
 
 -- | Constructs DescribeFleetsRequest from required parameters
 newDescribeFleetsRequest :: DescribeFleetsRequest
-newDescribeFleetsRequest  = DescribeFleetsRequest { "Names": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeFleetsRequest  = DescribeFleetsRequest { "Names": Nothing, "NextToken": Nothing }
 
 -- | Constructs DescribeFleetsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeFleetsRequest' :: ( { "Names" :: NullOrUndefined (StringList) , "NextToken" :: NullOrUndefined (String) } -> {"Names" :: NullOrUndefined (StringList) , "NextToken" :: NullOrUndefined (String) } ) -> DescribeFleetsRequest
-newDescribeFleetsRequest'  customize = (DescribeFleetsRequest <<< customize) { "Names": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeFleetsRequest' :: ( { "Names" :: Maybe (StringList) , "NextToken" :: Maybe (String) } -> {"Names" :: Maybe (StringList) , "NextToken" :: Maybe (String) } ) -> DescribeFleetsRequest
+newDescribeFleetsRequest'  customize = (DescribeFleetsRequest <<< customize) { "Names": Nothing, "NextToken": Nothing }
 
 
 
 newtype DescribeFleetsResult = DescribeFleetsResult 
-  { "Fleets" :: NullOrUndefined (FleetList)
-  , "NextToken" :: NullOrUndefined (String)
+  { "Fleets" :: Maybe (FleetList)
+  , "NextToken" :: Maybe (String)
   }
 derive instance newtypeDescribeFleetsResult :: Newtype DescribeFleetsResult _
 derive instance repGenericDescribeFleetsResult :: Generic DescribeFleetsResult _
@@ -763,19 +762,19 @@ instance encodeDescribeFleetsResult :: Encode DescribeFleetsResult where encode 
 
 -- | Constructs DescribeFleetsResult from required parameters
 newDescribeFleetsResult :: DescribeFleetsResult
-newDescribeFleetsResult  = DescribeFleetsResult { "Fleets": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeFleetsResult  = DescribeFleetsResult { "Fleets": Nothing, "NextToken": Nothing }
 
 -- | Constructs DescribeFleetsResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeFleetsResult' :: ( { "Fleets" :: NullOrUndefined (FleetList) , "NextToken" :: NullOrUndefined (String) } -> {"Fleets" :: NullOrUndefined (FleetList) , "NextToken" :: NullOrUndefined (String) } ) -> DescribeFleetsResult
-newDescribeFleetsResult'  customize = (DescribeFleetsResult <<< customize) { "Fleets": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeFleetsResult' :: ( { "Fleets" :: Maybe (FleetList) , "NextToken" :: Maybe (String) } -> {"Fleets" :: Maybe (FleetList) , "NextToken" :: Maybe (String) } ) -> DescribeFleetsResult
+newDescribeFleetsResult'  customize = (DescribeFleetsResult <<< customize) { "Fleets": Nothing, "NextToken": Nothing }
 
 
 
 newtype DescribeImageBuildersRequest = DescribeImageBuildersRequest 
-  { "Names" :: NullOrUndefined (StringList)
-  , "MaxResults" :: NullOrUndefined (Int)
-  , "NextToken" :: NullOrUndefined (String)
+  { "Names" :: Maybe (StringList)
+  , "MaxResults" :: Maybe (Int)
+  , "NextToken" :: Maybe (String)
   }
 derive instance newtypeDescribeImageBuildersRequest :: Newtype DescribeImageBuildersRequest _
 derive instance repGenericDescribeImageBuildersRequest :: Generic DescribeImageBuildersRequest _
@@ -785,18 +784,18 @@ instance encodeDescribeImageBuildersRequest :: Encode DescribeImageBuildersReque
 
 -- | Constructs DescribeImageBuildersRequest from required parameters
 newDescribeImageBuildersRequest :: DescribeImageBuildersRequest
-newDescribeImageBuildersRequest  = DescribeImageBuildersRequest { "MaxResults": (NullOrUndefined Nothing), "Names": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeImageBuildersRequest  = DescribeImageBuildersRequest { "MaxResults": Nothing, "Names": Nothing, "NextToken": Nothing }
 
 -- | Constructs DescribeImageBuildersRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeImageBuildersRequest' :: ( { "Names" :: NullOrUndefined (StringList) , "MaxResults" :: NullOrUndefined (Int) , "NextToken" :: NullOrUndefined (String) } -> {"Names" :: NullOrUndefined (StringList) , "MaxResults" :: NullOrUndefined (Int) , "NextToken" :: NullOrUndefined (String) } ) -> DescribeImageBuildersRequest
-newDescribeImageBuildersRequest'  customize = (DescribeImageBuildersRequest <<< customize) { "MaxResults": (NullOrUndefined Nothing), "Names": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeImageBuildersRequest' :: ( { "Names" :: Maybe (StringList) , "MaxResults" :: Maybe (Int) , "NextToken" :: Maybe (String) } -> {"Names" :: Maybe (StringList) , "MaxResults" :: Maybe (Int) , "NextToken" :: Maybe (String) } ) -> DescribeImageBuildersRequest
+newDescribeImageBuildersRequest'  customize = (DescribeImageBuildersRequest <<< customize) { "MaxResults": Nothing, "Names": Nothing, "NextToken": Nothing }
 
 
 
 newtype DescribeImageBuildersResult = DescribeImageBuildersResult 
-  { "ImageBuilders" :: NullOrUndefined (ImageBuilderList)
-  , "NextToken" :: NullOrUndefined (String)
+  { "ImageBuilders" :: Maybe (ImageBuilderList)
+  , "NextToken" :: Maybe (String)
   }
 derive instance newtypeDescribeImageBuildersResult :: Newtype DescribeImageBuildersResult _
 derive instance repGenericDescribeImageBuildersResult :: Generic DescribeImageBuildersResult _
@@ -806,17 +805,17 @@ instance encodeDescribeImageBuildersResult :: Encode DescribeImageBuildersResult
 
 -- | Constructs DescribeImageBuildersResult from required parameters
 newDescribeImageBuildersResult :: DescribeImageBuildersResult
-newDescribeImageBuildersResult  = DescribeImageBuildersResult { "ImageBuilders": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeImageBuildersResult  = DescribeImageBuildersResult { "ImageBuilders": Nothing, "NextToken": Nothing }
 
 -- | Constructs DescribeImageBuildersResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeImageBuildersResult' :: ( { "ImageBuilders" :: NullOrUndefined (ImageBuilderList) , "NextToken" :: NullOrUndefined (String) } -> {"ImageBuilders" :: NullOrUndefined (ImageBuilderList) , "NextToken" :: NullOrUndefined (String) } ) -> DescribeImageBuildersResult
-newDescribeImageBuildersResult'  customize = (DescribeImageBuildersResult <<< customize) { "ImageBuilders": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeImageBuildersResult' :: ( { "ImageBuilders" :: Maybe (ImageBuilderList) , "NextToken" :: Maybe (String) } -> {"ImageBuilders" :: Maybe (ImageBuilderList) , "NextToken" :: Maybe (String) } ) -> DescribeImageBuildersResult
+newDescribeImageBuildersResult'  customize = (DescribeImageBuildersResult <<< customize) { "ImageBuilders": Nothing, "NextToken": Nothing }
 
 
 
 newtype DescribeImagesRequest = DescribeImagesRequest 
-  { "Names" :: NullOrUndefined (StringList)
+  { "Names" :: Maybe (StringList)
   }
 derive instance newtypeDescribeImagesRequest :: Newtype DescribeImagesRequest _
 derive instance repGenericDescribeImagesRequest :: Generic DescribeImagesRequest _
@@ -826,17 +825,17 @@ instance encodeDescribeImagesRequest :: Encode DescribeImagesRequest where encod
 
 -- | Constructs DescribeImagesRequest from required parameters
 newDescribeImagesRequest :: DescribeImagesRequest
-newDescribeImagesRequest  = DescribeImagesRequest { "Names": (NullOrUndefined Nothing) }
+newDescribeImagesRequest  = DescribeImagesRequest { "Names": Nothing }
 
 -- | Constructs DescribeImagesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeImagesRequest' :: ( { "Names" :: NullOrUndefined (StringList) } -> {"Names" :: NullOrUndefined (StringList) } ) -> DescribeImagesRequest
-newDescribeImagesRequest'  customize = (DescribeImagesRequest <<< customize) { "Names": (NullOrUndefined Nothing) }
+newDescribeImagesRequest' :: ( { "Names" :: Maybe (StringList) } -> {"Names" :: Maybe (StringList) } ) -> DescribeImagesRequest
+newDescribeImagesRequest'  customize = (DescribeImagesRequest <<< customize) { "Names": Nothing }
 
 
 
 newtype DescribeImagesResult = DescribeImagesResult 
-  { "Images" :: NullOrUndefined (ImageList)
+  { "Images" :: Maybe (ImageList)
   }
 derive instance newtypeDescribeImagesResult :: Newtype DescribeImagesResult _
 derive instance repGenericDescribeImagesResult :: Generic DescribeImagesResult _
@@ -846,22 +845,22 @@ instance encodeDescribeImagesResult :: Encode DescribeImagesResult where encode 
 
 -- | Constructs DescribeImagesResult from required parameters
 newDescribeImagesResult :: DescribeImagesResult
-newDescribeImagesResult  = DescribeImagesResult { "Images": (NullOrUndefined Nothing) }
+newDescribeImagesResult  = DescribeImagesResult { "Images": Nothing }
 
 -- | Constructs DescribeImagesResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeImagesResult' :: ( { "Images" :: NullOrUndefined (ImageList) } -> {"Images" :: NullOrUndefined (ImageList) } ) -> DescribeImagesResult
-newDescribeImagesResult'  customize = (DescribeImagesResult <<< customize) { "Images": (NullOrUndefined Nothing) }
+newDescribeImagesResult' :: ( { "Images" :: Maybe (ImageList) } -> {"Images" :: Maybe (ImageList) } ) -> DescribeImagesResult
+newDescribeImagesResult'  customize = (DescribeImagesResult <<< customize) { "Images": Nothing }
 
 
 
 newtype DescribeSessionsRequest = DescribeSessionsRequest 
   { "StackName" :: (String)
   , "FleetName" :: (String)
-  , "UserId" :: NullOrUndefined (UserId)
-  , "NextToken" :: NullOrUndefined (String)
-  , "Limit" :: NullOrUndefined (Int)
-  , "AuthenticationType" :: NullOrUndefined (AuthenticationType)
+  , "UserId" :: Maybe (UserId)
+  , "NextToken" :: Maybe (String)
+  , "Limit" :: Maybe (Int)
+  , "AuthenticationType" :: Maybe (AuthenticationType)
   }
 derive instance newtypeDescribeSessionsRequest :: Newtype DescribeSessionsRequest _
 derive instance repGenericDescribeSessionsRequest :: Generic DescribeSessionsRequest _
@@ -871,18 +870,18 @@ instance encodeDescribeSessionsRequest :: Encode DescribeSessionsRequest where e
 
 -- | Constructs DescribeSessionsRequest from required parameters
 newDescribeSessionsRequest :: String -> String -> DescribeSessionsRequest
-newDescribeSessionsRequest _FleetName _StackName = DescribeSessionsRequest { "FleetName": _FleetName, "StackName": _StackName, "AuthenticationType": (NullOrUndefined Nothing), "Limit": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "UserId": (NullOrUndefined Nothing) }
+newDescribeSessionsRequest _FleetName _StackName = DescribeSessionsRequest { "FleetName": _FleetName, "StackName": _StackName, "AuthenticationType": Nothing, "Limit": Nothing, "NextToken": Nothing, "UserId": Nothing }
 
 -- | Constructs DescribeSessionsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeSessionsRequest' :: String -> String -> ( { "StackName" :: (String) , "FleetName" :: (String) , "UserId" :: NullOrUndefined (UserId) , "NextToken" :: NullOrUndefined (String) , "Limit" :: NullOrUndefined (Int) , "AuthenticationType" :: NullOrUndefined (AuthenticationType) } -> {"StackName" :: (String) , "FleetName" :: (String) , "UserId" :: NullOrUndefined (UserId) , "NextToken" :: NullOrUndefined (String) , "Limit" :: NullOrUndefined (Int) , "AuthenticationType" :: NullOrUndefined (AuthenticationType) } ) -> DescribeSessionsRequest
-newDescribeSessionsRequest' _FleetName _StackName customize = (DescribeSessionsRequest <<< customize) { "FleetName": _FleetName, "StackName": _StackName, "AuthenticationType": (NullOrUndefined Nothing), "Limit": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "UserId": (NullOrUndefined Nothing) }
+newDescribeSessionsRequest' :: String -> String -> ( { "StackName" :: (String) , "FleetName" :: (String) , "UserId" :: Maybe (UserId) , "NextToken" :: Maybe (String) , "Limit" :: Maybe (Int) , "AuthenticationType" :: Maybe (AuthenticationType) } -> {"StackName" :: (String) , "FleetName" :: (String) , "UserId" :: Maybe (UserId) , "NextToken" :: Maybe (String) , "Limit" :: Maybe (Int) , "AuthenticationType" :: Maybe (AuthenticationType) } ) -> DescribeSessionsRequest
+newDescribeSessionsRequest' _FleetName _StackName customize = (DescribeSessionsRequest <<< customize) { "FleetName": _FleetName, "StackName": _StackName, "AuthenticationType": Nothing, "Limit": Nothing, "NextToken": Nothing, "UserId": Nothing }
 
 
 
 newtype DescribeSessionsResult = DescribeSessionsResult 
-  { "Sessions" :: NullOrUndefined (SessionList)
-  , "NextToken" :: NullOrUndefined (String)
+  { "Sessions" :: Maybe (SessionList)
+  , "NextToken" :: Maybe (String)
   }
 derive instance newtypeDescribeSessionsResult :: Newtype DescribeSessionsResult _
 derive instance repGenericDescribeSessionsResult :: Generic DescribeSessionsResult _
@@ -892,18 +891,18 @@ instance encodeDescribeSessionsResult :: Encode DescribeSessionsResult where enc
 
 -- | Constructs DescribeSessionsResult from required parameters
 newDescribeSessionsResult :: DescribeSessionsResult
-newDescribeSessionsResult  = DescribeSessionsResult { "NextToken": (NullOrUndefined Nothing), "Sessions": (NullOrUndefined Nothing) }
+newDescribeSessionsResult  = DescribeSessionsResult { "NextToken": Nothing, "Sessions": Nothing }
 
 -- | Constructs DescribeSessionsResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeSessionsResult' :: ( { "Sessions" :: NullOrUndefined (SessionList) , "NextToken" :: NullOrUndefined (String) } -> {"Sessions" :: NullOrUndefined (SessionList) , "NextToken" :: NullOrUndefined (String) } ) -> DescribeSessionsResult
-newDescribeSessionsResult'  customize = (DescribeSessionsResult <<< customize) { "NextToken": (NullOrUndefined Nothing), "Sessions": (NullOrUndefined Nothing) }
+newDescribeSessionsResult' :: ( { "Sessions" :: Maybe (SessionList) , "NextToken" :: Maybe (String) } -> {"Sessions" :: Maybe (SessionList) , "NextToken" :: Maybe (String) } ) -> DescribeSessionsResult
+newDescribeSessionsResult'  customize = (DescribeSessionsResult <<< customize) { "NextToken": Nothing, "Sessions": Nothing }
 
 
 
 newtype DescribeStacksRequest = DescribeStacksRequest 
-  { "Names" :: NullOrUndefined (StringList)
-  , "NextToken" :: NullOrUndefined (String)
+  { "Names" :: Maybe (StringList)
+  , "NextToken" :: Maybe (String)
   }
 derive instance newtypeDescribeStacksRequest :: Newtype DescribeStacksRequest _
 derive instance repGenericDescribeStacksRequest :: Generic DescribeStacksRequest _
@@ -913,18 +912,18 @@ instance encodeDescribeStacksRequest :: Encode DescribeStacksRequest where encod
 
 -- | Constructs DescribeStacksRequest from required parameters
 newDescribeStacksRequest :: DescribeStacksRequest
-newDescribeStacksRequest  = DescribeStacksRequest { "Names": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeStacksRequest  = DescribeStacksRequest { "Names": Nothing, "NextToken": Nothing }
 
 -- | Constructs DescribeStacksRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeStacksRequest' :: ( { "Names" :: NullOrUndefined (StringList) , "NextToken" :: NullOrUndefined (String) } -> {"Names" :: NullOrUndefined (StringList) , "NextToken" :: NullOrUndefined (String) } ) -> DescribeStacksRequest
-newDescribeStacksRequest'  customize = (DescribeStacksRequest <<< customize) { "Names": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeStacksRequest' :: ( { "Names" :: Maybe (StringList) , "NextToken" :: Maybe (String) } -> {"Names" :: Maybe (StringList) , "NextToken" :: Maybe (String) } ) -> DescribeStacksRequest
+newDescribeStacksRequest'  customize = (DescribeStacksRequest <<< customize) { "Names": Nothing, "NextToken": Nothing }
 
 
 
 newtype DescribeStacksResult = DescribeStacksResult 
-  { "Stacks" :: NullOrUndefined (StackList)
-  , "NextToken" :: NullOrUndefined (String)
+  { "Stacks" :: Maybe (StackList)
+  , "NextToken" :: Maybe (String)
   }
 derive instance newtypeDescribeStacksResult :: Newtype DescribeStacksResult _
 derive instance repGenericDescribeStacksResult :: Generic DescribeStacksResult _
@@ -934,12 +933,12 @@ instance encodeDescribeStacksResult :: Encode DescribeStacksResult where encode 
 
 -- | Constructs DescribeStacksResult from required parameters
 newDescribeStacksResult :: DescribeStacksResult
-newDescribeStacksResult  = DescribeStacksResult { "NextToken": (NullOrUndefined Nothing), "Stacks": (NullOrUndefined Nothing) }
+newDescribeStacksResult  = DescribeStacksResult { "NextToken": Nothing, "Stacks": Nothing }
 
 -- | Constructs DescribeStacksResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeStacksResult' :: ( { "Stacks" :: NullOrUndefined (StackList) , "NextToken" :: NullOrUndefined (String) } -> {"Stacks" :: NullOrUndefined (StackList) , "NextToken" :: NullOrUndefined (String) } ) -> DescribeStacksResult
-newDescribeStacksResult'  customize = (DescribeStacksResult <<< customize) { "NextToken": (NullOrUndefined Nothing), "Stacks": (NullOrUndefined Nothing) }
+newDescribeStacksResult' :: ( { "Stacks" :: Maybe (StackList) , "NextToken" :: Maybe (String) } -> {"Stacks" :: Maybe (StackList) , "NextToken" :: Maybe (String) } ) -> DescribeStacksResult
+newDescribeStacksResult'  customize = (DescribeStacksResult <<< customize) { "NextToken": Nothing, "Stacks": Nothing }
 
 
 
@@ -955,9 +954,9 @@ instance encodeDescription :: Encode Description where encode = genericEncode op
 -- | <p>Configuration information for the directory used to join domains.</p>
 newtype DirectoryConfig = DirectoryConfig 
   { "DirectoryName" :: (DirectoryName)
-  , "OrganizationalUnitDistinguishedNames" :: NullOrUndefined (OrganizationalUnitDistinguishedNamesList)
-  , "ServiceAccountCredentials" :: NullOrUndefined (ServiceAccountCredentials)
-  , "CreatedTime" :: NullOrUndefined (Types.Timestamp)
+  , "OrganizationalUnitDistinguishedNames" :: Maybe (OrganizationalUnitDistinguishedNamesList)
+  , "ServiceAccountCredentials" :: Maybe (ServiceAccountCredentials)
+  , "CreatedTime" :: Maybe (Types.Timestamp)
   }
 derive instance newtypeDirectoryConfig :: Newtype DirectoryConfig _
 derive instance repGenericDirectoryConfig :: Generic DirectoryConfig _
@@ -967,12 +966,12 @@ instance encodeDirectoryConfig :: Encode DirectoryConfig where encode = genericE
 
 -- | Constructs DirectoryConfig from required parameters
 newDirectoryConfig :: DirectoryName -> DirectoryConfig
-newDirectoryConfig _DirectoryName = DirectoryConfig { "DirectoryName": _DirectoryName, "CreatedTime": (NullOrUndefined Nothing), "OrganizationalUnitDistinguishedNames": (NullOrUndefined Nothing), "ServiceAccountCredentials": (NullOrUndefined Nothing) }
+newDirectoryConfig _DirectoryName = DirectoryConfig { "DirectoryName": _DirectoryName, "CreatedTime": Nothing, "OrganizationalUnitDistinguishedNames": Nothing, "ServiceAccountCredentials": Nothing }
 
 -- | Constructs DirectoryConfig's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDirectoryConfig' :: DirectoryName -> ( { "DirectoryName" :: (DirectoryName) , "OrganizationalUnitDistinguishedNames" :: NullOrUndefined (OrganizationalUnitDistinguishedNamesList) , "ServiceAccountCredentials" :: NullOrUndefined (ServiceAccountCredentials) , "CreatedTime" :: NullOrUndefined (Types.Timestamp) } -> {"DirectoryName" :: (DirectoryName) , "OrganizationalUnitDistinguishedNames" :: NullOrUndefined (OrganizationalUnitDistinguishedNamesList) , "ServiceAccountCredentials" :: NullOrUndefined (ServiceAccountCredentials) , "CreatedTime" :: NullOrUndefined (Types.Timestamp) } ) -> DirectoryConfig
-newDirectoryConfig' _DirectoryName customize = (DirectoryConfig <<< customize) { "DirectoryName": _DirectoryName, "CreatedTime": (NullOrUndefined Nothing), "OrganizationalUnitDistinguishedNames": (NullOrUndefined Nothing), "ServiceAccountCredentials": (NullOrUndefined Nothing) }
+newDirectoryConfig' :: DirectoryName -> ( { "DirectoryName" :: (DirectoryName) , "OrganizationalUnitDistinguishedNames" :: Maybe (OrganizationalUnitDistinguishedNamesList) , "ServiceAccountCredentials" :: Maybe (ServiceAccountCredentials) , "CreatedTime" :: Maybe (Types.Timestamp) } -> {"DirectoryName" :: (DirectoryName) , "OrganizationalUnitDistinguishedNames" :: Maybe (OrganizationalUnitDistinguishedNamesList) , "ServiceAccountCredentials" :: Maybe (ServiceAccountCredentials) , "CreatedTime" :: Maybe (Types.Timestamp) } ) -> DirectoryConfig
+newDirectoryConfig' _DirectoryName customize = (DirectoryConfig <<< customize) { "DirectoryName": _DirectoryName, "CreatedTime": Nothing, "OrganizationalUnitDistinguishedNames": Nothing, "ServiceAccountCredentials": Nothing }
 
 
 
@@ -1044,8 +1043,8 @@ instance encodeDisplayName :: Encode DisplayName where encode = genericEncode op
 
 -- | <p>Contains the information needed to join a Microsoft Active Directory domain.</p>
 newtype DomainJoinInfo = DomainJoinInfo 
-  { "DirectoryName" :: NullOrUndefined (DirectoryName)
-  , "OrganizationalUnitDistinguishedName" :: NullOrUndefined (OrganizationalUnitDistinguishedName)
+  { "DirectoryName" :: Maybe (DirectoryName)
+  , "OrganizationalUnitDistinguishedName" :: Maybe (OrganizationalUnitDistinguishedName)
   }
 derive instance newtypeDomainJoinInfo :: Newtype DomainJoinInfo _
 derive instance repGenericDomainJoinInfo :: Generic DomainJoinInfo _
@@ -1055,12 +1054,12 @@ instance encodeDomainJoinInfo :: Encode DomainJoinInfo where encode = genericEnc
 
 -- | Constructs DomainJoinInfo from required parameters
 newDomainJoinInfo :: DomainJoinInfo
-newDomainJoinInfo  = DomainJoinInfo { "DirectoryName": (NullOrUndefined Nothing), "OrganizationalUnitDistinguishedName": (NullOrUndefined Nothing) }
+newDomainJoinInfo  = DomainJoinInfo { "DirectoryName": Nothing, "OrganizationalUnitDistinguishedName": Nothing }
 
 -- | Constructs DomainJoinInfo's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDomainJoinInfo' :: ( { "DirectoryName" :: NullOrUndefined (DirectoryName) , "OrganizationalUnitDistinguishedName" :: NullOrUndefined (OrganizationalUnitDistinguishedName) } -> {"DirectoryName" :: NullOrUndefined (DirectoryName) , "OrganizationalUnitDistinguishedName" :: NullOrUndefined (OrganizationalUnitDistinguishedName) } ) -> DomainJoinInfo
-newDomainJoinInfo'  customize = (DomainJoinInfo <<< customize) { "DirectoryName": (NullOrUndefined Nothing), "OrganizationalUnitDistinguishedName": (NullOrUndefined Nothing) }
+newDomainJoinInfo' :: ( { "DirectoryName" :: Maybe (DirectoryName) , "OrganizationalUnitDistinguishedName" :: Maybe (OrganizationalUnitDistinguishedName) } -> {"DirectoryName" :: Maybe (DirectoryName) , "OrganizationalUnitDistinguishedName" :: Maybe (OrganizationalUnitDistinguishedName) } ) -> DomainJoinInfo
+newDomainJoinInfo'  customize = (DomainJoinInfo <<< customize) { "DirectoryName": Nothing, "OrganizationalUnitDistinguishedName": Nothing }
 
 
 
@@ -1107,20 +1106,20 @@ instance encodeExpireSessionResult :: Encode ExpireSessionResult where encode = 
 newtype Fleet = Fleet 
   { "Arn" :: (Arn)
   , "Name" :: (String)
-  , "DisplayName" :: NullOrUndefined (String)
-  , "Description" :: NullOrUndefined (String)
+  , "DisplayName" :: Maybe (String)
+  , "Description" :: Maybe (String)
   , "ImageName" :: (String)
   , "InstanceType" :: (String)
-  , "FleetType" :: NullOrUndefined (FleetType)
+  , "FleetType" :: Maybe (FleetType)
   , "ComputeCapacityStatus" :: (ComputeCapacityStatus)
-  , "MaxUserDurationInSeconds" :: NullOrUndefined (Int)
-  , "DisconnectTimeoutInSeconds" :: NullOrUndefined (Int)
+  , "MaxUserDurationInSeconds" :: Maybe (Int)
+  , "DisconnectTimeoutInSeconds" :: Maybe (Int)
   , "State" :: (FleetState)
-  , "VpcConfig" :: NullOrUndefined (VpcConfig)
-  , "CreatedTime" :: NullOrUndefined (Types.Timestamp)
-  , "FleetErrors" :: NullOrUndefined (FleetErrors)
-  , "EnableDefaultInternetAccess" :: NullOrUndefined (BooleanObject)
-  , "DomainJoinInfo" :: NullOrUndefined (DomainJoinInfo)
+  , "VpcConfig" :: Maybe (VpcConfig)
+  , "CreatedTime" :: Maybe (Types.Timestamp)
+  , "FleetErrors" :: Maybe (FleetErrors)
+  , "EnableDefaultInternetAccess" :: Maybe (BooleanObject)
+  , "DomainJoinInfo" :: Maybe (DomainJoinInfo)
   }
 derive instance newtypeFleet :: Newtype Fleet _
 derive instance repGenericFleet :: Generic Fleet _
@@ -1130,12 +1129,12 @@ instance encodeFleet :: Encode Fleet where encode = genericEncode options
 
 -- | Constructs Fleet from required parameters
 newFleet :: Arn -> ComputeCapacityStatus -> String -> String -> String -> FleetState -> Fleet
-newFleet _Arn _ComputeCapacityStatus _ImageName _InstanceType _Name _State = Fleet { "Arn": _Arn, "ComputeCapacityStatus": _ComputeCapacityStatus, "ImageName": _ImageName, "InstanceType": _InstanceType, "Name": _Name, "State": _State, "CreatedTime": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "DisconnectTimeoutInSeconds": (NullOrUndefined Nothing), "DisplayName": (NullOrUndefined Nothing), "DomainJoinInfo": (NullOrUndefined Nothing), "EnableDefaultInternetAccess": (NullOrUndefined Nothing), "FleetErrors": (NullOrUndefined Nothing), "FleetType": (NullOrUndefined Nothing), "MaxUserDurationInSeconds": (NullOrUndefined Nothing), "VpcConfig": (NullOrUndefined Nothing) }
+newFleet _Arn _ComputeCapacityStatus _ImageName _InstanceType _Name _State = Fleet { "Arn": _Arn, "ComputeCapacityStatus": _ComputeCapacityStatus, "ImageName": _ImageName, "InstanceType": _InstanceType, "Name": _Name, "State": _State, "CreatedTime": Nothing, "Description": Nothing, "DisconnectTimeoutInSeconds": Nothing, "DisplayName": Nothing, "DomainJoinInfo": Nothing, "EnableDefaultInternetAccess": Nothing, "FleetErrors": Nothing, "FleetType": Nothing, "MaxUserDurationInSeconds": Nothing, "VpcConfig": Nothing }
 
 -- | Constructs Fleet's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newFleet' :: Arn -> ComputeCapacityStatus -> String -> String -> String -> FleetState -> ( { "Arn" :: (Arn) , "Name" :: (String) , "DisplayName" :: NullOrUndefined (String) , "Description" :: NullOrUndefined (String) , "ImageName" :: (String) , "InstanceType" :: (String) , "FleetType" :: NullOrUndefined (FleetType) , "ComputeCapacityStatus" :: (ComputeCapacityStatus) , "MaxUserDurationInSeconds" :: NullOrUndefined (Int) , "DisconnectTimeoutInSeconds" :: NullOrUndefined (Int) , "State" :: (FleetState) , "VpcConfig" :: NullOrUndefined (VpcConfig) , "CreatedTime" :: NullOrUndefined (Types.Timestamp) , "FleetErrors" :: NullOrUndefined (FleetErrors) , "EnableDefaultInternetAccess" :: NullOrUndefined (BooleanObject) , "DomainJoinInfo" :: NullOrUndefined (DomainJoinInfo) } -> {"Arn" :: (Arn) , "Name" :: (String) , "DisplayName" :: NullOrUndefined (String) , "Description" :: NullOrUndefined (String) , "ImageName" :: (String) , "InstanceType" :: (String) , "FleetType" :: NullOrUndefined (FleetType) , "ComputeCapacityStatus" :: (ComputeCapacityStatus) , "MaxUserDurationInSeconds" :: NullOrUndefined (Int) , "DisconnectTimeoutInSeconds" :: NullOrUndefined (Int) , "State" :: (FleetState) , "VpcConfig" :: NullOrUndefined (VpcConfig) , "CreatedTime" :: NullOrUndefined (Types.Timestamp) , "FleetErrors" :: NullOrUndefined (FleetErrors) , "EnableDefaultInternetAccess" :: NullOrUndefined (BooleanObject) , "DomainJoinInfo" :: NullOrUndefined (DomainJoinInfo) } ) -> Fleet
-newFleet' _Arn _ComputeCapacityStatus _ImageName _InstanceType _Name _State customize = (Fleet <<< customize) { "Arn": _Arn, "ComputeCapacityStatus": _ComputeCapacityStatus, "ImageName": _ImageName, "InstanceType": _InstanceType, "Name": _Name, "State": _State, "CreatedTime": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "DisconnectTimeoutInSeconds": (NullOrUndefined Nothing), "DisplayName": (NullOrUndefined Nothing), "DomainJoinInfo": (NullOrUndefined Nothing), "EnableDefaultInternetAccess": (NullOrUndefined Nothing), "FleetErrors": (NullOrUndefined Nothing), "FleetType": (NullOrUndefined Nothing), "MaxUserDurationInSeconds": (NullOrUndefined Nothing), "VpcConfig": (NullOrUndefined Nothing) }
+newFleet' :: Arn -> ComputeCapacityStatus -> String -> String -> String -> FleetState -> ( { "Arn" :: (Arn) , "Name" :: (String) , "DisplayName" :: Maybe (String) , "Description" :: Maybe (String) , "ImageName" :: (String) , "InstanceType" :: (String) , "FleetType" :: Maybe (FleetType) , "ComputeCapacityStatus" :: (ComputeCapacityStatus) , "MaxUserDurationInSeconds" :: Maybe (Int) , "DisconnectTimeoutInSeconds" :: Maybe (Int) , "State" :: (FleetState) , "VpcConfig" :: Maybe (VpcConfig) , "CreatedTime" :: Maybe (Types.Timestamp) , "FleetErrors" :: Maybe (FleetErrors) , "EnableDefaultInternetAccess" :: Maybe (BooleanObject) , "DomainJoinInfo" :: Maybe (DomainJoinInfo) } -> {"Arn" :: (Arn) , "Name" :: (String) , "DisplayName" :: Maybe (String) , "Description" :: Maybe (String) , "ImageName" :: (String) , "InstanceType" :: (String) , "FleetType" :: Maybe (FleetType) , "ComputeCapacityStatus" :: (ComputeCapacityStatus) , "MaxUserDurationInSeconds" :: Maybe (Int) , "DisconnectTimeoutInSeconds" :: Maybe (Int) , "State" :: (FleetState) , "VpcConfig" :: Maybe (VpcConfig) , "CreatedTime" :: Maybe (Types.Timestamp) , "FleetErrors" :: Maybe (FleetErrors) , "EnableDefaultInternetAccess" :: Maybe (BooleanObject) , "DomainJoinInfo" :: Maybe (DomainJoinInfo) } ) -> Fleet
+newFleet' _Arn _ComputeCapacityStatus _ImageName _InstanceType _Name _State customize = (Fleet <<< customize) { "Arn": _Arn, "ComputeCapacityStatus": _ComputeCapacityStatus, "ImageName": _ImageName, "InstanceType": _InstanceType, "Name": _Name, "State": _State, "CreatedTime": Nothing, "Description": Nothing, "DisconnectTimeoutInSeconds": Nothing, "DisplayName": Nothing, "DomainJoinInfo": Nothing, "EnableDefaultInternetAccess": Nothing, "FleetErrors": Nothing, "FleetType": Nothing, "MaxUserDurationInSeconds": Nothing, "VpcConfig": Nothing }
 
 
 
@@ -1161,8 +1160,8 @@ instance encodeFleetAttributes :: Encode FleetAttributes where encode = genericE
 
 -- | <p>Describes a fleet error.</p>
 newtype FleetError = FleetError 
-  { "ErrorCode" :: NullOrUndefined (FleetErrorCode)
-  , "ErrorMessage" :: NullOrUndefined (String)
+  { "ErrorCode" :: Maybe (FleetErrorCode)
+  , "ErrorMessage" :: Maybe (String)
   }
 derive instance newtypeFleetError :: Newtype FleetError _
 derive instance repGenericFleetError :: Generic FleetError _
@@ -1172,12 +1171,12 @@ instance encodeFleetError :: Encode FleetError where encode = genericEncode opti
 
 -- | Constructs FleetError from required parameters
 newFleetError :: FleetError
-newFleetError  = FleetError { "ErrorCode": (NullOrUndefined Nothing), "ErrorMessage": (NullOrUndefined Nothing) }
+newFleetError  = FleetError { "ErrorCode": Nothing, "ErrorMessage": Nothing }
 
 -- | Constructs FleetError's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newFleetError' :: ( { "ErrorCode" :: NullOrUndefined (FleetErrorCode) , "ErrorMessage" :: NullOrUndefined (String) } -> {"ErrorCode" :: NullOrUndefined (FleetErrorCode) , "ErrorMessage" :: NullOrUndefined (String) } ) -> FleetError
-newFleetError'  customize = (FleetError <<< customize) { "ErrorCode": (NullOrUndefined Nothing), "ErrorMessage": (NullOrUndefined Nothing) }
+newFleetError' :: ( { "ErrorCode" :: Maybe (FleetErrorCode) , "ErrorMessage" :: Maybe (String) } -> {"ErrorCode" :: Maybe (FleetErrorCode) , "ErrorMessage" :: Maybe (String) } ) -> FleetError
+newFleetError'  customize = (FleetError <<< customize) { "ErrorCode": Nothing, "ErrorMessage": Nothing }
 
 
 
@@ -1230,19 +1229,19 @@ instance encodeFleetType :: Encode FleetType where encode = genericEncode option
 -- | <p>Describes an image.</p>
 newtype Image = Image 
   { "Name" :: (String)
-  , "Arn" :: NullOrUndefined (Arn)
-  , "BaseImageArn" :: NullOrUndefined (Arn)
-  , "DisplayName" :: NullOrUndefined (String)
-  , "State" :: NullOrUndefined (ImageState)
-  , "Visibility" :: NullOrUndefined (VisibilityType)
-  , "ImageBuilderSupported" :: NullOrUndefined (Boolean)
-  , "Platform" :: NullOrUndefined (PlatformType)
-  , "Description" :: NullOrUndefined (String)
-  , "StateChangeReason" :: NullOrUndefined (ImageStateChangeReason)
-  , "Applications" :: NullOrUndefined (Applications)
-  , "CreatedTime" :: NullOrUndefined (Types.Timestamp)
-  , "PublicBaseImageReleasedDate" :: NullOrUndefined (Types.Timestamp)
-  , "AppstreamAgentVersion" :: NullOrUndefined (AppstreamAgentVersion)
+  , "Arn" :: Maybe (Arn)
+  , "BaseImageArn" :: Maybe (Arn)
+  , "DisplayName" :: Maybe (String)
+  , "State" :: Maybe (ImageState)
+  , "Visibility" :: Maybe (VisibilityType)
+  , "ImageBuilderSupported" :: Maybe (Boolean)
+  , "Platform" :: Maybe (PlatformType)
+  , "Description" :: Maybe (String)
+  , "StateChangeReason" :: Maybe (ImageStateChangeReason)
+  , "Applications" :: Maybe (Applications)
+  , "CreatedTime" :: Maybe (Types.Timestamp)
+  , "PublicBaseImageReleasedDate" :: Maybe (Types.Timestamp)
+  , "AppstreamAgentVersion" :: Maybe (AppstreamAgentVersion)
   }
 derive instance newtypeImage :: Newtype Image _
 derive instance repGenericImage :: Generic Image _
@@ -1252,32 +1251,32 @@ instance encodeImage :: Encode Image where encode = genericEncode options
 
 -- | Constructs Image from required parameters
 newImage :: String -> Image
-newImage _Name = Image { "Name": _Name, "Applications": (NullOrUndefined Nothing), "AppstreamAgentVersion": (NullOrUndefined Nothing), "Arn": (NullOrUndefined Nothing), "BaseImageArn": (NullOrUndefined Nothing), "CreatedTime": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "DisplayName": (NullOrUndefined Nothing), "ImageBuilderSupported": (NullOrUndefined Nothing), "Platform": (NullOrUndefined Nothing), "PublicBaseImageReleasedDate": (NullOrUndefined Nothing), "State": (NullOrUndefined Nothing), "StateChangeReason": (NullOrUndefined Nothing), "Visibility": (NullOrUndefined Nothing) }
+newImage _Name = Image { "Name": _Name, "Applications": Nothing, "AppstreamAgentVersion": Nothing, "Arn": Nothing, "BaseImageArn": Nothing, "CreatedTime": Nothing, "Description": Nothing, "DisplayName": Nothing, "ImageBuilderSupported": Nothing, "Platform": Nothing, "PublicBaseImageReleasedDate": Nothing, "State": Nothing, "StateChangeReason": Nothing, "Visibility": Nothing }
 
 -- | Constructs Image's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newImage' :: String -> ( { "Name" :: (String) , "Arn" :: NullOrUndefined (Arn) , "BaseImageArn" :: NullOrUndefined (Arn) , "DisplayName" :: NullOrUndefined (String) , "State" :: NullOrUndefined (ImageState) , "Visibility" :: NullOrUndefined (VisibilityType) , "ImageBuilderSupported" :: NullOrUndefined (Boolean) , "Platform" :: NullOrUndefined (PlatformType) , "Description" :: NullOrUndefined (String) , "StateChangeReason" :: NullOrUndefined (ImageStateChangeReason) , "Applications" :: NullOrUndefined (Applications) , "CreatedTime" :: NullOrUndefined (Types.Timestamp) , "PublicBaseImageReleasedDate" :: NullOrUndefined (Types.Timestamp) , "AppstreamAgentVersion" :: NullOrUndefined (AppstreamAgentVersion) } -> {"Name" :: (String) , "Arn" :: NullOrUndefined (Arn) , "BaseImageArn" :: NullOrUndefined (Arn) , "DisplayName" :: NullOrUndefined (String) , "State" :: NullOrUndefined (ImageState) , "Visibility" :: NullOrUndefined (VisibilityType) , "ImageBuilderSupported" :: NullOrUndefined (Boolean) , "Platform" :: NullOrUndefined (PlatformType) , "Description" :: NullOrUndefined (String) , "StateChangeReason" :: NullOrUndefined (ImageStateChangeReason) , "Applications" :: NullOrUndefined (Applications) , "CreatedTime" :: NullOrUndefined (Types.Timestamp) , "PublicBaseImageReleasedDate" :: NullOrUndefined (Types.Timestamp) , "AppstreamAgentVersion" :: NullOrUndefined (AppstreamAgentVersion) } ) -> Image
-newImage' _Name customize = (Image <<< customize) { "Name": _Name, "Applications": (NullOrUndefined Nothing), "AppstreamAgentVersion": (NullOrUndefined Nothing), "Arn": (NullOrUndefined Nothing), "BaseImageArn": (NullOrUndefined Nothing), "CreatedTime": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "DisplayName": (NullOrUndefined Nothing), "ImageBuilderSupported": (NullOrUndefined Nothing), "Platform": (NullOrUndefined Nothing), "PublicBaseImageReleasedDate": (NullOrUndefined Nothing), "State": (NullOrUndefined Nothing), "StateChangeReason": (NullOrUndefined Nothing), "Visibility": (NullOrUndefined Nothing) }
+newImage' :: String -> ( { "Name" :: (String) , "Arn" :: Maybe (Arn) , "BaseImageArn" :: Maybe (Arn) , "DisplayName" :: Maybe (String) , "State" :: Maybe (ImageState) , "Visibility" :: Maybe (VisibilityType) , "ImageBuilderSupported" :: Maybe (Boolean) , "Platform" :: Maybe (PlatformType) , "Description" :: Maybe (String) , "StateChangeReason" :: Maybe (ImageStateChangeReason) , "Applications" :: Maybe (Applications) , "CreatedTime" :: Maybe (Types.Timestamp) , "PublicBaseImageReleasedDate" :: Maybe (Types.Timestamp) , "AppstreamAgentVersion" :: Maybe (AppstreamAgentVersion) } -> {"Name" :: (String) , "Arn" :: Maybe (Arn) , "BaseImageArn" :: Maybe (Arn) , "DisplayName" :: Maybe (String) , "State" :: Maybe (ImageState) , "Visibility" :: Maybe (VisibilityType) , "ImageBuilderSupported" :: Maybe (Boolean) , "Platform" :: Maybe (PlatformType) , "Description" :: Maybe (String) , "StateChangeReason" :: Maybe (ImageStateChangeReason) , "Applications" :: Maybe (Applications) , "CreatedTime" :: Maybe (Types.Timestamp) , "PublicBaseImageReleasedDate" :: Maybe (Types.Timestamp) , "AppstreamAgentVersion" :: Maybe (AppstreamAgentVersion) } ) -> Image
+newImage' _Name customize = (Image <<< customize) { "Name": _Name, "Applications": Nothing, "AppstreamAgentVersion": Nothing, "Arn": Nothing, "BaseImageArn": Nothing, "CreatedTime": Nothing, "Description": Nothing, "DisplayName": Nothing, "ImageBuilderSupported": Nothing, "Platform": Nothing, "PublicBaseImageReleasedDate": Nothing, "State": Nothing, "StateChangeReason": Nothing, "Visibility": Nothing }
 
 
 
 -- | <p>Describes a streaming instance used for editing an image. New images are created from a snapshot through an image builder.</p>
 newtype ImageBuilder = ImageBuilder 
   { "Name" :: (String)
-  , "Arn" :: NullOrUndefined (Arn)
-  , "ImageArn" :: NullOrUndefined (Arn)
-  , "Description" :: NullOrUndefined (String)
-  , "DisplayName" :: NullOrUndefined (String)
-  , "VpcConfig" :: NullOrUndefined (VpcConfig)
-  , "InstanceType" :: NullOrUndefined (String)
-  , "Platform" :: NullOrUndefined (PlatformType)
-  , "State" :: NullOrUndefined (ImageBuilderState)
-  , "StateChangeReason" :: NullOrUndefined (ImageBuilderStateChangeReason)
-  , "CreatedTime" :: NullOrUndefined (Types.Timestamp)
-  , "EnableDefaultInternetAccess" :: NullOrUndefined (BooleanObject)
-  , "DomainJoinInfo" :: NullOrUndefined (DomainJoinInfo)
-  , "ImageBuilderErrors" :: NullOrUndefined (ResourceErrors)
-  , "AppstreamAgentVersion" :: NullOrUndefined (AppstreamAgentVersion)
+  , "Arn" :: Maybe (Arn)
+  , "ImageArn" :: Maybe (Arn)
+  , "Description" :: Maybe (String)
+  , "DisplayName" :: Maybe (String)
+  , "VpcConfig" :: Maybe (VpcConfig)
+  , "InstanceType" :: Maybe (String)
+  , "Platform" :: Maybe (PlatformType)
+  , "State" :: Maybe (ImageBuilderState)
+  , "StateChangeReason" :: Maybe (ImageBuilderStateChangeReason)
+  , "CreatedTime" :: Maybe (Types.Timestamp)
+  , "EnableDefaultInternetAccess" :: Maybe (BooleanObject)
+  , "DomainJoinInfo" :: Maybe (DomainJoinInfo)
+  , "ImageBuilderErrors" :: Maybe (ResourceErrors)
+  , "AppstreamAgentVersion" :: Maybe (AppstreamAgentVersion)
   }
 derive instance newtypeImageBuilder :: Newtype ImageBuilder _
 derive instance repGenericImageBuilder :: Generic ImageBuilder _
@@ -1287,12 +1286,12 @@ instance encodeImageBuilder :: Encode ImageBuilder where encode = genericEncode 
 
 -- | Constructs ImageBuilder from required parameters
 newImageBuilder :: String -> ImageBuilder
-newImageBuilder _Name = ImageBuilder { "Name": _Name, "AppstreamAgentVersion": (NullOrUndefined Nothing), "Arn": (NullOrUndefined Nothing), "CreatedTime": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "DisplayName": (NullOrUndefined Nothing), "DomainJoinInfo": (NullOrUndefined Nothing), "EnableDefaultInternetAccess": (NullOrUndefined Nothing), "ImageArn": (NullOrUndefined Nothing), "ImageBuilderErrors": (NullOrUndefined Nothing), "InstanceType": (NullOrUndefined Nothing), "Platform": (NullOrUndefined Nothing), "State": (NullOrUndefined Nothing), "StateChangeReason": (NullOrUndefined Nothing), "VpcConfig": (NullOrUndefined Nothing) }
+newImageBuilder _Name = ImageBuilder { "Name": _Name, "AppstreamAgentVersion": Nothing, "Arn": Nothing, "CreatedTime": Nothing, "Description": Nothing, "DisplayName": Nothing, "DomainJoinInfo": Nothing, "EnableDefaultInternetAccess": Nothing, "ImageArn": Nothing, "ImageBuilderErrors": Nothing, "InstanceType": Nothing, "Platform": Nothing, "State": Nothing, "StateChangeReason": Nothing, "VpcConfig": Nothing }
 
 -- | Constructs ImageBuilder's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newImageBuilder' :: String -> ( { "Name" :: (String) , "Arn" :: NullOrUndefined (Arn) , "ImageArn" :: NullOrUndefined (Arn) , "Description" :: NullOrUndefined (String) , "DisplayName" :: NullOrUndefined (String) , "VpcConfig" :: NullOrUndefined (VpcConfig) , "InstanceType" :: NullOrUndefined (String) , "Platform" :: NullOrUndefined (PlatformType) , "State" :: NullOrUndefined (ImageBuilderState) , "StateChangeReason" :: NullOrUndefined (ImageBuilderStateChangeReason) , "CreatedTime" :: NullOrUndefined (Types.Timestamp) , "EnableDefaultInternetAccess" :: NullOrUndefined (BooleanObject) , "DomainJoinInfo" :: NullOrUndefined (DomainJoinInfo) , "ImageBuilderErrors" :: NullOrUndefined (ResourceErrors) , "AppstreamAgentVersion" :: NullOrUndefined (AppstreamAgentVersion) } -> {"Name" :: (String) , "Arn" :: NullOrUndefined (Arn) , "ImageArn" :: NullOrUndefined (Arn) , "Description" :: NullOrUndefined (String) , "DisplayName" :: NullOrUndefined (String) , "VpcConfig" :: NullOrUndefined (VpcConfig) , "InstanceType" :: NullOrUndefined (String) , "Platform" :: NullOrUndefined (PlatformType) , "State" :: NullOrUndefined (ImageBuilderState) , "StateChangeReason" :: NullOrUndefined (ImageBuilderStateChangeReason) , "CreatedTime" :: NullOrUndefined (Types.Timestamp) , "EnableDefaultInternetAccess" :: NullOrUndefined (BooleanObject) , "DomainJoinInfo" :: NullOrUndefined (DomainJoinInfo) , "ImageBuilderErrors" :: NullOrUndefined (ResourceErrors) , "AppstreamAgentVersion" :: NullOrUndefined (AppstreamAgentVersion) } ) -> ImageBuilder
-newImageBuilder' _Name customize = (ImageBuilder <<< customize) { "Name": _Name, "AppstreamAgentVersion": (NullOrUndefined Nothing), "Arn": (NullOrUndefined Nothing), "CreatedTime": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "DisplayName": (NullOrUndefined Nothing), "DomainJoinInfo": (NullOrUndefined Nothing), "EnableDefaultInternetAccess": (NullOrUndefined Nothing), "ImageArn": (NullOrUndefined Nothing), "ImageBuilderErrors": (NullOrUndefined Nothing), "InstanceType": (NullOrUndefined Nothing), "Platform": (NullOrUndefined Nothing), "State": (NullOrUndefined Nothing), "StateChangeReason": (NullOrUndefined Nothing), "VpcConfig": (NullOrUndefined Nothing) }
+newImageBuilder' :: String -> ( { "Name" :: (String) , "Arn" :: Maybe (Arn) , "ImageArn" :: Maybe (Arn) , "Description" :: Maybe (String) , "DisplayName" :: Maybe (String) , "VpcConfig" :: Maybe (VpcConfig) , "InstanceType" :: Maybe (String) , "Platform" :: Maybe (PlatformType) , "State" :: Maybe (ImageBuilderState) , "StateChangeReason" :: Maybe (ImageBuilderStateChangeReason) , "CreatedTime" :: Maybe (Types.Timestamp) , "EnableDefaultInternetAccess" :: Maybe (BooleanObject) , "DomainJoinInfo" :: Maybe (DomainJoinInfo) , "ImageBuilderErrors" :: Maybe (ResourceErrors) , "AppstreamAgentVersion" :: Maybe (AppstreamAgentVersion) } -> {"Name" :: (String) , "Arn" :: Maybe (Arn) , "ImageArn" :: Maybe (Arn) , "Description" :: Maybe (String) , "DisplayName" :: Maybe (String) , "VpcConfig" :: Maybe (VpcConfig) , "InstanceType" :: Maybe (String) , "Platform" :: Maybe (PlatformType) , "State" :: Maybe (ImageBuilderState) , "StateChangeReason" :: Maybe (ImageBuilderStateChangeReason) , "CreatedTime" :: Maybe (Types.Timestamp) , "EnableDefaultInternetAccess" :: Maybe (BooleanObject) , "DomainJoinInfo" :: Maybe (DomainJoinInfo) , "ImageBuilderErrors" :: Maybe (ResourceErrors) , "AppstreamAgentVersion" :: Maybe (AppstreamAgentVersion) } ) -> ImageBuilder
+newImageBuilder' _Name customize = (ImageBuilder <<< customize) { "Name": _Name, "AppstreamAgentVersion": Nothing, "Arn": Nothing, "CreatedTime": Nothing, "Description": Nothing, "DisplayName": Nothing, "DomainJoinInfo": Nothing, "EnableDefaultInternetAccess": Nothing, "ImageArn": Nothing, "ImageBuilderErrors": Nothing, "InstanceType": Nothing, "Platform": Nothing, "State": Nothing, "StateChangeReason": Nothing, "VpcConfig": Nothing }
 
 
 
@@ -1316,8 +1315,8 @@ instance encodeImageBuilderState :: Encode ImageBuilderState where encode = gene
 
 -- | <p>Describes the reason why the last image builder state change occurred.</p>
 newtype ImageBuilderStateChangeReason = ImageBuilderStateChangeReason 
-  { "Code" :: NullOrUndefined (ImageBuilderStateChangeReasonCode)
-  , "Message" :: NullOrUndefined (String)
+  { "Code" :: Maybe (ImageBuilderStateChangeReasonCode)
+  , "Message" :: Maybe (String)
   }
 derive instance newtypeImageBuilderStateChangeReason :: Newtype ImageBuilderStateChangeReason _
 derive instance repGenericImageBuilderStateChangeReason :: Generic ImageBuilderStateChangeReason _
@@ -1327,12 +1326,12 @@ instance encodeImageBuilderStateChangeReason :: Encode ImageBuilderStateChangeRe
 
 -- | Constructs ImageBuilderStateChangeReason from required parameters
 newImageBuilderStateChangeReason :: ImageBuilderStateChangeReason
-newImageBuilderStateChangeReason  = ImageBuilderStateChangeReason { "Code": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing) }
+newImageBuilderStateChangeReason  = ImageBuilderStateChangeReason { "Code": Nothing, "Message": Nothing }
 
 -- | Constructs ImageBuilderStateChangeReason's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newImageBuilderStateChangeReason' :: ( { "Code" :: NullOrUndefined (ImageBuilderStateChangeReasonCode) , "Message" :: NullOrUndefined (String) } -> {"Code" :: NullOrUndefined (ImageBuilderStateChangeReasonCode) , "Message" :: NullOrUndefined (String) } ) -> ImageBuilderStateChangeReason
-newImageBuilderStateChangeReason'  customize = (ImageBuilderStateChangeReason <<< customize) { "Code": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing) }
+newImageBuilderStateChangeReason' :: ( { "Code" :: Maybe (ImageBuilderStateChangeReasonCode) , "Message" :: Maybe (String) } -> {"Code" :: Maybe (ImageBuilderStateChangeReasonCode) , "Message" :: Maybe (String) } ) -> ImageBuilderStateChangeReason
+newImageBuilderStateChangeReason'  customize = (ImageBuilderStateChangeReason <<< customize) { "Code": Nothing, "Message": Nothing }
 
 
 
@@ -1365,8 +1364,8 @@ instance encodeImageState :: Encode ImageState where encode = genericEncode opti
 
 -- | <p>Describes the reason why the last image state change occurred.</p>
 newtype ImageStateChangeReason = ImageStateChangeReason 
-  { "Code" :: NullOrUndefined (ImageStateChangeReasonCode)
-  , "Message" :: NullOrUndefined (String)
+  { "Code" :: Maybe (ImageStateChangeReasonCode)
+  , "Message" :: Maybe (String)
   }
 derive instance newtypeImageStateChangeReason :: Newtype ImageStateChangeReason _
 derive instance repGenericImageStateChangeReason :: Generic ImageStateChangeReason _
@@ -1376,12 +1375,12 @@ instance encodeImageStateChangeReason :: Encode ImageStateChangeReason where enc
 
 -- | Constructs ImageStateChangeReason from required parameters
 newImageStateChangeReason :: ImageStateChangeReason
-newImageStateChangeReason  = ImageStateChangeReason { "Code": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing) }
+newImageStateChangeReason  = ImageStateChangeReason { "Code": Nothing, "Message": Nothing }
 
 -- | Constructs ImageStateChangeReason's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newImageStateChangeReason' :: ( { "Code" :: NullOrUndefined (ImageStateChangeReasonCode) , "Message" :: NullOrUndefined (String) } -> {"Code" :: NullOrUndefined (ImageStateChangeReasonCode) , "Message" :: NullOrUndefined (String) } ) -> ImageStateChangeReason
-newImageStateChangeReason'  customize = (ImageStateChangeReason <<< customize) { "Code": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing) }
+newImageStateChangeReason' :: ( { "Code" :: Maybe (ImageStateChangeReasonCode) , "Message" :: Maybe (String) } -> {"Code" :: Maybe (ImageStateChangeReasonCode) , "Message" :: Maybe (String) } ) -> ImageStateChangeReason
+newImageStateChangeReason'  customize = (ImageStateChangeReason <<< customize) { "Code": Nothing, "Message": Nothing }
 
 
 
@@ -1396,7 +1395,7 @@ instance encodeImageStateChangeReasonCode :: Encode ImageStateChangeReasonCode w
 
 -- | <p>The image does not support storage connectors.</p>
 newtype IncompatibleImageException = IncompatibleImageException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeIncompatibleImageException :: Newtype IncompatibleImageException _
 derive instance repGenericIncompatibleImageException :: Generic IncompatibleImageException _
@@ -1406,18 +1405,18 @@ instance encodeIncompatibleImageException :: Encode IncompatibleImageException w
 
 -- | Constructs IncompatibleImageException from required parameters
 newIncompatibleImageException :: IncompatibleImageException
-newIncompatibleImageException  = IncompatibleImageException { "Message": (NullOrUndefined Nothing) }
+newIncompatibleImageException  = IncompatibleImageException { "Message": Nothing }
 
 -- | Constructs IncompatibleImageException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newIncompatibleImageException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> IncompatibleImageException
-newIncompatibleImageException'  customize = (IncompatibleImageException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newIncompatibleImageException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> IncompatibleImageException
+newIncompatibleImageException'  customize = (IncompatibleImageException <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
 newtype InvalidParameterCombinationException = InvalidParameterCombinationException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeInvalidParameterCombinationException :: Newtype InvalidParameterCombinationException _
 derive instance repGenericInvalidParameterCombinationException :: Generic InvalidParameterCombinationException _
@@ -1427,18 +1426,18 @@ instance encodeInvalidParameterCombinationException :: Encode InvalidParameterCo
 
 -- | Constructs InvalidParameterCombinationException from required parameters
 newInvalidParameterCombinationException :: InvalidParameterCombinationException
-newInvalidParameterCombinationException  = InvalidParameterCombinationException { "Message": (NullOrUndefined Nothing) }
+newInvalidParameterCombinationException  = InvalidParameterCombinationException { "Message": Nothing }
 
 -- | Constructs InvalidParameterCombinationException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidParameterCombinationException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> InvalidParameterCombinationException
-newInvalidParameterCombinationException'  customize = (InvalidParameterCombinationException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInvalidParameterCombinationException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> InvalidParameterCombinationException
+newInvalidParameterCombinationException'  customize = (InvalidParameterCombinationException <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>The specified role is invalid.</p>
 newtype InvalidRoleException = InvalidRoleException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeInvalidRoleException :: Newtype InvalidRoleException _
 derive instance repGenericInvalidRoleException :: Generic InvalidRoleException _
@@ -1448,18 +1447,18 @@ instance encodeInvalidRoleException :: Encode InvalidRoleException where encode 
 
 -- | Constructs InvalidRoleException from required parameters
 newInvalidRoleException :: InvalidRoleException
-newInvalidRoleException  = InvalidRoleException { "Message": (NullOrUndefined Nothing) }
+newInvalidRoleException  = InvalidRoleException { "Message": Nothing }
 
 -- | Constructs InvalidRoleException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidRoleException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> InvalidRoleException
-newInvalidRoleException'  customize = (InvalidRoleException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInvalidRoleException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> InvalidRoleException
+newInvalidRoleException'  customize = (InvalidRoleException <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>The requested limit exceeds the permitted limit for an account.</p>
 newtype LimitExceededException = LimitExceededException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeLimitExceededException :: Newtype LimitExceededException _
 derive instance repGenericLimitExceededException :: Generic LimitExceededException _
@@ -1469,18 +1468,18 @@ instance encodeLimitExceededException :: Encode LimitExceededException where enc
 
 -- | Constructs LimitExceededException from required parameters
 newLimitExceededException :: LimitExceededException
-newLimitExceededException  = LimitExceededException { "Message": (NullOrUndefined Nothing) }
+newLimitExceededException  = LimitExceededException { "Message": Nothing }
 
 -- | Constructs LimitExceededException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newLimitExceededException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> LimitExceededException
-newLimitExceededException'  customize = (LimitExceededException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newLimitExceededException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> LimitExceededException
+newLimitExceededException'  customize = (LimitExceededException <<< customize) { "Message": Nothing }
 
 
 
 newtype ListAssociatedFleetsRequest = ListAssociatedFleetsRequest 
   { "StackName" :: (String)
-  , "NextToken" :: NullOrUndefined (String)
+  , "NextToken" :: Maybe (String)
   }
 derive instance newtypeListAssociatedFleetsRequest :: Newtype ListAssociatedFleetsRequest _
 derive instance repGenericListAssociatedFleetsRequest :: Generic ListAssociatedFleetsRequest _
@@ -1490,18 +1489,18 @@ instance encodeListAssociatedFleetsRequest :: Encode ListAssociatedFleetsRequest
 
 -- | Constructs ListAssociatedFleetsRequest from required parameters
 newListAssociatedFleetsRequest :: String -> ListAssociatedFleetsRequest
-newListAssociatedFleetsRequest _StackName = ListAssociatedFleetsRequest { "StackName": _StackName, "NextToken": (NullOrUndefined Nothing) }
+newListAssociatedFleetsRequest _StackName = ListAssociatedFleetsRequest { "StackName": _StackName, "NextToken": Nothing }
 
 -- | Constructs ListAssociatedFleetsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListAssociatedFleetsRequest' :: String -> ( { "StackName" :: (String) , "NextToken" :: NullOrUndefined (String) } -> {"StackName" :: (String) , "NextToken" :: NullOrUndefined (String) } ) -> ListAssociatedFleetsRequest
-newListAssociatedFleetsRequest' _StackName customize = (ListAssociatedFleetsRequest <<< customize) { "StackName": _StackName, "NextToken": (NullOrUndefined Nothing) }
+newListAssociatedFleetsRequest' :: String -> ( { "StackName" :: (String) , "NextToken" :: Maybe (String) } -> {"StackName" :: (String) , "NextToken" :: Maybe (String) } ) -> ListAssociatedFleetsRequest
+newListAssociatedFleetsRequest' _StackName customize = (ListAssociatedFleetsRequest <<< customize) { "StackName": _StackName, "NextToken": Nothing }
 
 
 
 newtype ListAssociatedFleetsResult = ListAssociatedFleetsResult 
-  { "Names" :: NullOrUndefined (StringList)
-  , "NextToken" :: NullOrUndefined (String)
+  { "Names" :: Maybe (StringList)
+  , "NextToken" :: Maybe (String)
   }
 derive instance newtypeListAssociatedFleetsResult :: Newtype ListAssociatedFleetsResult _
 derive instance repGenericListAssociatedFleetsResult :: Generic ListAssociatedFleetsResult _
@@ -1511,18 +1510,18 @@ instance encodeListAssociatedFleetsResult :: Encode ListAssociatedFleetsResult w
 
 -- | Constructs ListAssociatedFleetsResult from required parameters
 newListAssociatedFleetsResult :: ListAssociatedFleetsResult
-newListAssociatedFleetsResult  = ListAssociatedFleetsResult { "Names": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListAssociatedFleetsResult  = ListAssociatedFleetsResult { "Names": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListAssociatedFleetsResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListAssociatedFleetsResult' :: ( { "Names" :: NullOrUndefined (StringList) , "NextToken" :: NullOrUndefined (String) } -> {"Names" :: NullOrUndefined (StringList) , "NextToken" :: NullOrUndefined (String) } ) -> ListAssociatedFleetsResult
-newListAssociatedFleetsResult'  customize = (ListAssociatedFleetsResult <<< customize) { "Names": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListAssociatedFleetsResult' :: ( { "Names" :: Maybe (StringList) , "NextToken" :: Maybe (String) } -> {"Names" :: Maybe (StringList) , "NextToken" :: Maybe (String) } ) -> ListAssociatedFleetsResult
+newListAssociatedFleetsResult'  customize = (ListAssociatedFleetsResult <<< customize) { "Names": Nothing, "NextToken": Nothing }
 
 
 
 newtype ListAssociatedStacksRequest = ListAssociatedStacksRequest 
   { "FleetName" :: (String)
-  , "NextToken" :: NullOrUndefined (String)
+  , "NextToken" :: Maybe (String)
   }
 derive instance newtypeListAssociatedStacksRequest :: Newtype ListAssociatedStacksRequest _
 derive instance repGenericListAssociatedStacksRequest :: Generic ListAssociatedStacksRequest _
@@ -1532,18 +1531,18 @@ instance encodeListAssociatedStacksRequest :: Encode ListAssociatedStacksRequest
 
 -- | Constructs ListAssociatedStacksRequest from required parameters
 newListAssociatedStacksRequest :: String -> ListAssociatedStacksRequest
-newListAssociatedStacksRequest _FleetName = ListAssociatedStacksRequest { "FleetName": _FleetName, "NextToken": (NullOrUndefined Nothing) }
+newListAssociatedStacksRequest _FleetName = ListAssociatedStacksRequest { "FleetName": _FleetName, "NextToken": Nothing }
 
 -- | Constructs ListAssociatedStacksRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListAssociatedStacksRequest' :: String -> ( { "FleetName" :: (String) , "NextToken" :: NullOrUndefined (String) } -> {"FleetName" :: (String) , "NextToken" :: NullOrUndefined (String) } ) -> ListAssociatedStacksRequest
-newListAssociatedStacksRequest' _FleetName customize = (ListAssociatedStacksRequest <<< customize) { "FleetName": _FleetName, "NextToken": (NullOrUndefined Nothing) }
+newListAssociatedStacksRequest' :: String -> ( { "FleetName" :: (String) , "NextToken" :: Maybe (String) } -> {"FleetName" :: (String) , "NextToken" :: Maybe (String) } ) -> ListAssociatedStacksRequest
+newListAssociatedStacksRequest' _FleetName customize = (ListAssociatedStacksRequest <<< customize) { "FleetName": _FleetName, "NextToken": Nothing }
 
 
 
 newtype ListAssociatedStacksResult = ListAssociatedStacksResult 
-  { "Names" :: NullOrUndefined (StringList)
-  , "NextToken" :: NullOrUndefined (String)
+  { "Names" :: Maybe (StringList)
+  , "NextToken" :: Maybe (String)
   }
 derive instance newtypeListAssociatedStacksResult :: Newtype ListAssociatedStacksResult _
 derive instance repGenericListAssociatedStacksResult :: Generic ListAssociatedStacksResult _
@@ -1553,12 +1552,12 @@ instance encodeListAssociatedStacksResult :: Encode ListAssociatedStacksResult w
 
 -- | Constructs ListAssociatedStacksResult from required parameters
 newListAssociatedStacksResult :: ListAssociatedStacksResult
-newListAssociatedStacksResult  = ListAssociatedStacksResult { "Names": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListAssociatedStacksResult  = ListAssociatedStacksResult { "Names": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListAssociatedStacksResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListAssociatedStacksResult' :: ( { "Names" :: NullOrUndefined (StringList) , "NextToken" :: NullOrUndefined (String) } -> {"Names" :: NullOrUndefined (StringList) , "NextToken" :: NullOrUndefined (String) } ) -> ListAssociatedStacksResult
-newListAssociatedStacksResult'  customize = (ListAssociatedStacksResult <<< customize) { "Names": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListAssociatedStacksResult' :: ( { "Names" :: Maybe (StringList) , "NextToken" :: Maybe (String) } -> {"Names" :: Maybe (StringList) , "NextToken" :: Maybe (String) } ) -> ListAssociatedStacksResult
+newListAssociatedStacksResult'  customize = (ListAssociatedStacksResult <<< customize) { "Names": Nothing, "NextToken": Nothing }
 
 
 
@@ -1583,7 +1582,7 @@ newListTagsForResourceRequest' _ResourceArn customize = (ListTagsForResourceRequ
 
 
 newtype ListTagsForResourceResponse = ListTagsForResourceResponse 
-  { "Tags" :: NullOrUndefined (Tags)
+  { "Tags" :: Maybe (Tags)
   }
 derive instance newtypeListTagsForResourceResponse :: Newtype ListTagsForResourceResponse _
 derive instance repGenericListTagsForResourceResponse :: Generic ListTagsForResourceResponse _
@@ -1593,12 +1592,12 @@ instance encodeListTagsForResourceResponse :: Encode ListTagsForResourceResponse
 
 -- | Constructs ListTagsForResourceResponse from required parameters
 newListTagsForResourceResponse :: ListTagsForResourceResponse
-newListTagsForResourceResponse  = ListTagsForResourceResponse { "Tags": (NullOrUndefined Nothing) }
+newListTagsForResourceResponse  = ListTagsForResourceResponse { "Tags": Nothing }
 
 -- | Constructs ListTagsForResourceResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListTagsForResourceResponse' :: ( { "Tags" :: NullOrUndefined (Tags) } -> {"Tags" :: NullOrUndefined (Tags) } ) -> ListTagsForResourceResponse
-newListTagsForResourceResponse'  customize = (ListTagsForResourceResponse <<< customize) { "Tags": (NullOrUndefined Nothing) }
+newListTagsForResourceResponse' :: ( { "Tags" :: Maybe (Tags) } -> {"Tags" :: Maybe (Tags) } ) -> ListTagsForResourceResponse
+newListTagsForResourceResponse'  customize = (ListTagsForResourceResponse <<< customize) { "Tags": Nothing }
 
 
 
@@ -1622,7 +1621,7 @@ instance encodeName :: Encode Name where encode = genericEncode options
 
 -- | <p>The attempted operation is not permitted.</p>
 newtype OperationNotPermittedException = OperationNotPermittedException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeOperationNotPermittedException :: Newtype OperationNotPermittedException _
 derive instance repGenericOperationNotPermittedException :: Generic OperationNotPermittedException _
@@ -1632,12 +1631,12 @@ instance encodeOperationNotPermittedException :: Encode OperationNotPermittedExc
 
 -- | Constructs OperationNotPermittedException from required parameters
 newOperationNotPermittedException :: OperationNotPermittedException
-newOperationNotPermittedException  = OperationNotPermittedException { "Message": (NullOrUndefined Nothing) }
+newOperationNotPermittedException  = OperationNotPermittedException { "Message": Nothing }
 
 -- | Constructs OperationNotPermittedException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newOperationNotPermittedException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> OperationNotPermittedException
-newOperationNotPermittedException'  customize = (OperationNotPermittedException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newOperationNotPermittedException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> OperationNotPermittedException
+newOperationNotPermittedException'  customize = (OperationNotPermittedException <<< customize) { "Message": Nothing }
 
 
 
@@ -1688,7 +1687,7 @@ instance encodeRegionName :: Encode RegionName where encode = genericEncode opti
 
 -- | <p>The specified resource already exists.</p>
 newtype ResourceAlreadyExistsException = ResourceAlreadyExistsException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeResourceAlreadyExistsException :: Newtype ResourceAlreadyExistsException _
 derive instance repGenericResourceAlreadyExistsException :: Generic ResourceAlreadyExistsException _
@@ -1698,20 +1697,20 @@ instance encodeResourceAlreadyExistsException :: Encode ResourceAlreadyExistsExc
 
 -- | Constructs ResourceAlreadyExistsException from required parameters
 newResourceAlreadyExistsException :: ResourceAlreadyExistsException
-newResourceAlreadyExistsException  = ResourceAlreadyExistsException { "Message": (NullOrUndefined Nothing) }
+newResourceAlreadyExistsException  = ResourceAlreadyExistsException { "Message": Nothing }
 
 -- | Constructs ResourceAlreadyExistsException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResourceAlreadyExistsException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> ResourceAlreadyExistsException
-newResourceAlreadyExistsException'  customize = (ResourceAlreadyExistsException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newResourceAlreadyExistsException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> ResourceAlreadyExistsException
+newResourceAlreadyExistsException'  customize = (ResourceAlreadyExistsException <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>Describes a resource error.</p>
 newtype ResourceError = ResourceError 
-  { "ErrorCode" :: NullOrUndefined (FleetErrorCode)
-  , "ErrorMessage" :: NullOrUndefined (String)
-  , "ErrorTimestamp" :: NullOrUndefined (Types.Timestamp)
+  { "ErrorCode" :: Maybe (FleetErrorCode)
+  , "ErrorMessage" :: Maybe (String)
+  , "ErrorTimestamp" :: Maybe (Types.Timestamp)
   }
 derive instance newtypeResourceError :: Newtype ResourceError _
 derive instance repGenericResourceError :: Generic ResourceError _
@@ -1721,12 +1720,12 @@ instance encodeResourceError :: Encode ResourceError where encode = genericEncod
 
 -- | Constructs ResourceError from required parameters
 newResourceError :: ResourceError
-newResourceError  = ResourceError { "ErrorCode": (NullOrUndefined Nothing), "ErrorMessage": (NullOrUndefined Nothing), "ErrorTimestamp": (NullOrUndefined Nothing) }
+newResourceError  = ResourceError { "ErrorCode": Nothing, "ErrorMessage": Nothing, "ErrorTimestamp": Nothing }
 
 -- | Constructs ResourceError's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResourceError' :: ( { "ErrorCode" :: NullOrUndefined (FleetErrorCode) , "ErrorMessage" :: NullOrUndefined (String) , "ErrorTimestamp" :: NullOrUndefined (Types.Timestamp) } -> {"ErrorCode" :: NullOrUndefined (FleetErrorCode) , "ErrorMessage" :: NullOrUndefined (String) , "ErrorTimestamp" :: NullOrUndefined (Types.Timestamp) } ) -> ResourceError
-newResourceError'  customize = (ResourceError <<< customize) { "ErrorCode": (NullOrUndefined Nothing), "ErrorMessage": (NullOrUndefined Nothing), "ErrorTimestamp": (NullOrUndefined Nothing) }
+newResourceError' :: ( { "ErrorCode" :: Maybe (FleetErrorCode) , "ErrorMessage" :: Maybe (String) , "ErrorTimestamp" :: Maybe (Types.Timestamp) } -> {"ErrorCode" :: Maybe (FleetErrorCode) , "ErrorMessage" :: Maybe (String) , "ErrorTimestamp" :: Maybe (Types.Timestamp) } ) -> ResourceError
+newResourceError'  customize = (ResourceError <<< customize) { "ErrorCode": Nothing, "ErrorMessage": Nothing, "ErrorTimestamp": Nothing }
 
 
 
@@ -1751,7 +1750,7 @@ instance encodeResourceIdentifier :: Encode ResourceIdentifier where encode = ge
 
 -- | <p>The specified resource is in use.</p>
 newtype ResourceInUseException = ResourceInUseException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeResourceInUseException :: Newtype ResourceInUseException _
 derive instance repGenericResourceInUseException :: Generic ResourceInUseException _
@@ -1761,18 +1760,18 @@ instance encodeResourceInUseException :: Encode ResourceInUseException where enc
 
 -- | Constructs ResourceInUseException from required parameters
 newResourceInUseException :: ResourceInUseException
-newResourceInUseException  = ResourceInUseException { "Message": (NullOrUndefined Nothing) }
+newResourceInUseException  = ResourceInUseException { "Message": Nothing }
 
 -- | Constructs ResourceInUseException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResourceInUseException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> ResourceInUseException
-newResourceInUseException'  customize = (ResourceInUseException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newResourceInUseException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> ResourceInUseException
+newResourceInUseException'  customize = (ResourceInUseException <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>The specified resource exists and is not in use, but isn't available.</p>
 newtype ResourceNotAvailableException = ResourceNotAvailableException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeResourceNotAvailableException :: Newtype ResourceNotAvailableException _
 derive instance repGenericResourceNotAvailableException :: Generic ResourceNotAvailableException _
@@ -1782,18 +1781,18 @@ instance encodeResourceNotAvailableException :: Encode ResourceNotAvailableExcep
 
 -- | Constructs ResourceNotAvailableException from required parameters
 newResourceNotAvailableException :: ResourceNotAvailableException
-newResourceNotAvailableException  = ResourceNotAvailableException { "Message": (NullOrUndefined Nothing) }
+newResourceNotAvailableException  = ResourceNotAvailableException { "Message": Nothing }
 
 -- | Constructs ResourceNotAvailableException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResourceNotAvailableException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> ResourceNotAvailableException
-newResourceNotAvailableException'  customize = (ResourceNotAvailableException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newResourceNotAvailableException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> ResourceNotAvailableException
+newResourceNotAvailableException'  customize = (ResourceNotAvailableException <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>The specified resource was not found.</p>
 newtype ResourceNotFoundException = ResourceNotFoundException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeResourceNotFoundException :: Newtype ResourceNotFoundException _
 derive instance repGenericResourceNotFoundException :: Generic ResourceNotFoundException _
@@ -1803,12 +1802,12 @@ instance encodeResourceNotFoundException :: Encode ResourceNotFoundException whe
 
 -- | Constructs ResourceNotFoundException from required parameters
 newResourceNotFoundException :: ResourceNotFoundException
-newResourceNotFoundException  = ResourceNotFoundException { "Message": (NullOrUndefined Nothing) }
+newResourceNotFoundException  = ResourceNotFoundException { "Message": Nothing }
 
 -- | Constructs ResourceNotFoundException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResourceNotFoundException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> ResourceNotFoundException
-newResourceNotFoundException'  customize = (ResourceNotFoundException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newResourceNotFoundException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> ResourceNotFoundException
+newResourceNotFoundException'  customize = (ResourceNotFoundException <<< customize) { "Message": Nothing }
 
 
 
@@ -1851,7 +1850,7 @@ newtype Session = Session
   , "StackName" :: (String)
   , "FleetName" :: (String)
   , "State" :: (SessionState)
-  , "AuthenticationType" :: NullOrUndefined (AuthenticationType)
+  , "AuthenticationType" :: Maybe (AuthenticationType)
   }
 derive instance newtypeSession :: Newtype Session _
 derive instance repGenericSession :: Generic Session _
@@ -1861,12 +1860,12 @@ instance encodeSession :: Encode Session where encode = genericEncode options
 
 -- | Constructs Session from required parameters
 newSession :: String -> String -> String -> SessionState -> UserId -> Session
-newSession _FleetName _Id _StackName _State _UserId = Session { "FleetName": _FleetName, "Id": _Id, "StackName": _StackName, "State": _State, "UserId": _UserId, "AuthenticationType": (NullOrUndefined Nothing) }
+newSession _FleetName _Id _StackName _State _UserId = Session { "FleetName": _FleetName, "Id": _Id, "StackName": _StackName, "State": _State, "UserId": _UserId, "AuthenticationType": Nothing }
 
 -- | Constructs Session's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newSession' :: String -> String -> String -> SessionState -> UserId -> ( { "Id" :: (String) , "UserId" :: (UserId) , "StackName" :: (String) , "FleetName" :: (String) , "State" :: (SessionState) , "AuthenticationType" :: NullOrUndefined (AuthenticationType) } -> {"Id" :: (String) , "UserId" :: (UserId) , "StackName" :: (String) , "FleetName" :: (String) , "State" :: (SessionState) , "AuthenticationType" :: NullOrUndefined (AuthenticationType) } ) -> Session
-newSession' _FleetName _Id _StackName _State _UserId customize = (Session <<< customize) { "FleetName": _FleetName, "Id": _Id, "StackName": _StackName, "State": _State, "UserId": _UserId, "AuthenticationType": (NullOrUndefined Nothing) }
+newSession' :: String -> String -> String -> SessionState -> UserId -> ( { "Id" :: (String) , "UserId" :: (UserId) , "StackName" :: (String) , "FleetName" :: (String) , "State" :: (SessionState) , "AuthenticationType" :: Maybe (AuthenticationType) } -> {"Id" :: (String) , "UserId" :: (UserId) , "StackName" :: (String) , "FleetName" :: (String) , "State" :: (SessionState) , "AuthenticationType" :: Maybe (AuthenticationType) } ) -> Session
+newSession' _FleetName _Id _StackName _State _UserId customize = (Session <<< customize) { "FleetName": _FleetName, "Id": _Id, "StackName": _StackName, "State": _State, "UserId": _UserId, "AuthenticationType": Nothing }
 
 
 
@@ -1892,14 +1891,14 @@ instance encodeSessionState :: Encode SessionState where encode = genericEncode 
 
 -- | <p>Describes a stack.</p>
 newtype Stack = Stack 
-  { "Arn" :: NullOrUndefined (Arn)
+  { "Arn" :: Maybe (Arn)
   , "Name" :: (String)
-  , "Description" :: NullOrUndefined (String)
-  , "DisplayName" :: NullOrUndefined (String)
-  , "CreatedTime" :: NullOrUndefined (Types.Timestamp)
-  , "StorageConnectors" :: NullOrUndefined (StorageConnectorList)
-  , "RedirectURL" :: NullOrUndefined (RedirectURL)
-  , "StackErrors" :: NullOrUndefined (StackErrors)
+  , "Description" :: Maybe (String)
+  , "DisplayName" :: Maybe (String)
+  , "CreatedTime" :: Maybe (Types.Timestamp)
+  , "StorageConnectors" :: Maybe (StorageConnectorList)
+  , "RedirectURL" :: Maybe (RedirectURL)
+  , "StackErrors" :: Maybe (StackErrors)
   }
 derive instance newtypeStack :: Newtype Stack _
 derive instance repGenericStack :: Generic Stack _
@@ -1909,12 +1908,12 @@ instance encodeStack :: Encode Stack where encode = genericEncode options
 
 -- | Constructs Stack from required parameters
 newStack :: String -> Stack
-newStack _Name = Stack { "Name": _Name, "Arn": (NullOrUndefined Nothing), "CreatedTime": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "DisplayName": (NullOrUndefined Nothing), "RedirectURL": (NullOrUndefined Nothing), "StackErrors": (NullOrUndefined Nothing), "StorageConnectors": (NullOrUndefined Nothing) }
+newStack _Name = Stack { "Name": _Name, "Arn": Nothing, "CreatedTime": Nothing, "Description": Nothing, "DisplayName": Nothing, "RedirectURL": Nothing, "StackErrors": Nothing, "StorageConnectors": Nothing }
 
 -- | Constructs Stack's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStack' :: String -> ( { "Arn" :: NullOrUndefined (Arn) , "Name" :: (String) , "Description" :: NullOrUndefined (String) , "DisplayName" :: NullOrUndefined (String) , "CreatedTime" :: NullOrUndefined (Types.Timestamp) , "StorageConnectors" :: NullOrUndefined (StorageConnectorList) , "RedirectURL" :: NullOrUndefined (RedirectURL) , "StackErrors" :: NullOrUndefined (StackErrors) } -> {"Arn" :: NullOrUndefined (Arn) , "Name" :: (String) , "Description" :: NullOrUndefined (String) , "DisplayName" :: NullOrUndefined (String) , "CreatedTime" :: NullOrUndefined (Types.Timestamp) , "StorageConnectors" :: NullOrUndefined (StorageConnectorList) , "RedirectURL" :: NullOrUndefined (RedirectURL) , "StackErrors" :: NullOrUndefined (StackErrors) } ) -> Stack
-newStack' _Name customize = (Stack <<< customize) { "Name": _Name, "Arn": (NullOrUndefined Nothing), "CreatedTime": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "DisplayName": (NullOrUndefined Nothing), "RedirectURL": (NullOrUndefined Nothing), "StackErrors": (NullOrUndefined Nothing), "StorageConnectors": (NullOrUndefined Nothing) }
+newStack' :: String -> ( { "Arn" :: Maybe (Arn) , "Name" :: (String) , "Description" :: Maybe (String) , "DisplayName" :: Maybe (String) , "CreatedTime" :: Maybe (Types.Timestamp) , "StorageConnectors" :: Maybe (StorageConnectorList) , "RedirectURL" :: Maybe (RedirectURL) , "StackErrors" :: Maybe (StackErrors) } -> {"Arn" :: Maybe (Arn) , "Name" :: (String) , "Description" :: Maybe (String) , "DisplayName" :: Maybe (String) , "CreatedTime" :: Maybe (Types.Timestamp) , "StorageConnectors" :: Maybe (StorageConnectorList) , "RedirectURL" :: Maybe (RedirectURL) , "StackErrors" :: Maybe (StackErrors) } ) -> Stack
+newStack' _Name customize = (Stack <<< customize) { "Name": _Name, "Arn": Nothing, "CreatedTime": Nothing, "Description": Nothing, "DisplayName": Nothing, "RedirectURL": Nothing, "StackErrors": Nothing, "StorageConnectors": Nothing }
 
 
 
@@ -1938,8 +1937,8 @@ instance encodeStackAttributes :: Encode StackAttributes where encode = genericE
 
 -- | <p>Describes a stack error.</p>
 newtype StackError = StackError 
-  { "ErrorCode" :: NullOrUndefined (StackErrorCode)
-  , "ErrorMessage" :: NullOrUndefined (String)
+  { "ErrorCode" :: Maybe (StackErrorCode)
+  , "ErrorMessage" :: Maybe (String)
   }
 derive instance newtypeStackError :: Newtype StackError _
 derive instance repGenericStackError :: Generic StackError _
@@ -1949,12 +1948,12 @@ instance encodeStackError :: Encode StackError where encode = genericEncode opti
 
 -- | Constructs StackError from required parameters
 newStackError :: StackError
-newStackError  = StackError { "ErrorCode": (NullOrUndefined Nothing), "ErrorMessage": (NullOrUndefined Nothing) }
+newStackError  = StackError { "ErrorCode": Nothing, "ErrorMessage": Nothing }
 
 -- | Constructs StackError's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStackError' :: ( { "ErrorCode" :: NullOrUndefined (StackErrorCode) , "ErrorMessage" :: NullOrUndefined (String) } -> {"ErrorCode" :: NullOrUndefined (StackErrorCode) , "ErrorMessage" :: NullOrUndefined (String) } ) -> StackError
-newStackError'  customize = (StackError <<< customize) { "ErrorCode": (NullOrUndefined Nothing), "ErrorMessage": (NullOrUndefined Nothing) }
+newStackError' :: ( { "ErrorCode" :: Maybe (StackErrorCode) , "ErrorMessage" :: Maybe (String) } -> {"ErrorCode" :: Maybe (StackErrorCode) , "ErrorMessage" :: Maybe (String) } ) -> StackError
+newStackError'  customize = (StackError <<< customize) { "ErrorCode": Nothing, "ErrorMessage": Nothing }
 
 
 
@@ -2018,7 +2017,7 @@ instance encodeStartFleetResult :: Encode StartFleetResult where encode = generi
 
 newtype StartImageBuilderRequest = StartImageBuilderRequest 
   { "Name" :: (String)
-  , "AppstreamAgentVersion" :: NullOrUndefined (AppstreamAgentVersion)
+  , "AppstreamAgentVersion" :: Maybe (AppstreamAgentVersion)
   }
 derive instance newtypeStartImageBuilderRequest :: Newtype StartImageBuilderRequest _
 derive instance repGenericStartImageBuilderRequest :: Generic StartImageBuilderRequest _
@@ -2028,17 +2027,17 @@ instance encodeStartImageBuilderRequest :: Encode StartImageBuilderRequest where
 
 -- | Constructs StartImageBuilderRequest from required parameters
 newStartImageBuilderRequest :: String -> StartImageBuilderRequest
-newStartImageBuilderRequest _Name = StartImageBuilderRequest { "Name": _Name, "AppstreamAgentVersion": (NullOrUndefined Nothing) }
+newStartImageBuilderRequest _Name = StartImageBuilderRequest { "Name": _Name, "AppstreamAgentVersion": Nothing }
 
 -- | Constructs StartImageBuilderRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStartImageBuilderRequest' :: String -> ( { "Name" :: (String) , "AppstreamAgentVersion" :: NullOrUndefined (AppstreamAgentVersion) } -> {"Name" :: (String) , "AppstreamAgentVersion" :: NullOrUndefined (AppstreamAgentVersion) } ) -> StartImageBuilderRequest
-newStartImageBuilderRequest' _Name customize = (StartImageBuilderRequest <<< customize) { "Name": _Name, "AppstreamAgentVersion": (NullOrUndefined Nothing) }
+newStartImageBuilderRequest' :: String -> ( { "Name" :: (String) , "AppstreamAgentVersion" :: Maybe (AppstreamAgentVersion) } -> {"Name" :: (String) , "AppstreamAgentVersion" :: Maybe (AppstreamAgentVersion) } ) -> StartImageBuilderRequest
+newStartImageBuilderRequest' _Name customize = (StartImageBuilderRequest <<< customize) { "Name": _Name, "AppstreamAgentVersion": Nothing }
 
 
 
 newtype StartImageBuilderResult = StartImageBuilderResult 
-  { "ImageBuilder" :: NullOrUndefined (ImageBuilder)
+  { "ImageBuilder" :: Maybe (ImageBuilder)
   }
 derive instance newtypeStartImageBuilderResult :: Newtype StartImageBuilderResult _
 derive instance repGenericStartImageBuilderResult :: Generic StartImageBuilderResult _
@@ -2048,12 +2047,12 @@ instance encodeStartImageBuilderResult :: Encode StartImageBuilderResult where e
 
 -- | Constructs StartImageBuilderResult from required parameters
 newStartImageBuilderResult :: StartImageBuilderResult
-newStartImageBuilderResult  = StartImageBuilderResult { "ImageBuilder": (NullOrUndefined Nothing) }
+newStartImageBuilderResult  = StartImageBuilderResult { "ImageBuilder": Nothing }
 
 -- | Constructs StartImageBuilderResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStartImageBuilderResult' :: ( { "ImageBuilder" :: NullOrUndefined (ImageBuilder) } -> {"ImageBuilder" :: NullOrUndefined (ImageBuilder) } ) -> StartImageBuilderResult
-newStartImageBuilderResult'  customize = (StartImageBuilderResult <<< customize) { "ImageBuilder": (NullOrUndefined Nothing) }
+newStartImageBuilderResult' :: ( { "ImageBuilder" :: Maybe (ImageBuilder) } -> {"ImageBuilder" :: Maybe (ImageBuilder) } ) -> StartImageBuilderResult
+newStartImageBuilderResult'  customize = (StartImageBuilderResult <<< customize) { "ImageBuilder": Nothing }
 
 
 
@@ -2107,7 +2106,7 @@ newStopImageBuilderRequest' _Name customize = (StopImageBuilderRequest <<< custo
 
 
 newtype StopImageBuilderResult = StopImageBuilderResult 
-  { "ImageBuilder" :: NullOrUndefined (ImageBuilder)
+  { "ImageBuilder" :: Maybe (ImageBuilder)
   }
 derive instance newtypeStopImageBuilderResult :: Newtype StopImageBuilderResult _
 derive instance repGenericStopImageBuilderResult :: Generic StopImageBuilderResult _
@@ -2117,19 +2116,19 @@ instance encodeStopImageBuilderResult :: Encode StopImageBuilderResult where enc
 
 -- | Constructs StopImageBuilderResult from required parameters
 newStopImageBuilderResult :: StopImageBuilderResult
-newStopImageBuilderResult  = StopImageBuilderResult { "ImageBuilder": (NullOrUndefined Nothing) }
+newStopImageBuilderResult  = StopImageBuilderResult { "ImageBuilder": Nothing }
 
 -- | Constructs StopImageBuilderResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStopImageBuilderResult' :: ( { "ImageBuilder" :: NullOrUndefined (ImageBuilder) } -> {"ImageBuilder" :: NullOrUndefined (ImageBuilder) } ) -> StopImageBuilderResult
-newStopImageBuilderResult'  customize = (StopImageBuilderResult <<< customize) { "ImageBuilder": (NullOrUndefined Nothing) }
+newStopImageBuilderResult' :: ( { "ImageBuilder" :: Maybe (ImageBuilder) } -> {"ImageBuilder" :: Maybe (ImageBuilder) } ) -> StopImageBuilderResult
+newStopImageBuilderResult'  customize = (StopImageBuilderResult <<< customize) { "ImageBuilder": Nothing }
 
 
 
 -- | <p>Describes a storage connector.</p>
 newtype StorageConnector = StorageConnector 
   { "ConnectorType" :: (StorageConnectorType)
-  , "ResourceIdentifier" :: NullOrUndefined (ResourceIdentifier)
+  , "ResourceIdentifier" :: Maybe (ResourceIdentifier)
   }
 derive instance newtypeStorageConnector :: Newtype StorageConnector _
 derive instance repGenericStorageConnector :: Generic StorageConnector _
@@ -2139,12 +2138,12 @@ instance encodeStorageConnector :: Encode StorageConnector where encode = generi
 
 -- | Constructs StorageConnector from required parameters
 newStorageConnector :: StorageConnectorType -> StorageConnector
-newStorageConnector _ConnectorType = StorageConnector { "ConnectorType": _ConnectorType, "ResourceIdentifier": (NullOrUndefined Nothing) }
+newStorageConnector _ConnectorType = StorageConnector { "ConnectorType": _ConnectorType, "ResourceIdentifier": Nothing }
 
 -- | Constructs StorageConnector's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStorageConnector' :: StorageConnectorType -> ( { "ConnectorType" :: (StorageConnectorType) , "ResourceIdentifier" :: NullOrUndefined (ResourceIdentifier) } -> {"ConnectorType" :: (StorageConnectorType) , "ResourceIdentifier" :: NullOrUndefined (ResourceIdentifier) } ) -> StorageConnector
-newStorageConnector' _ConnectorType customize = (StorageConnector <<< customize) { "ConnectorType": _ConnectorType, "ResourceIdentifier": (NullOrUndefined Nothing) }
+newStorageConnector' :: StorageConnectorType -> ( { "ConnectorType" :: (StorageConnectorType) , "ResourceIdentifier" :: Maybe (ResourceIdentifier) } -> {"ConnectorType" :: (StorageConnectorType) , "ResourceIdentifier" :: Maybe (ResourceIdentifier) } ) -> StorageConnector
+newStorageConnector' _ConnectorType customize = (StorageConnector <<< customize) { "ConnectorType": _ConnectorType, "ResourceIdentifier": Nothing }
 
 
 
@@ -2294,8 +2293,8 @@ instance encodeUntagResourceResponse :: Encode UntagResourceResponse where encod
 
 newtype UpdateDirectoryConfigRequest = UpdateDirectoryConfigRequest 
   { "DirectoryName" :: (DirectoryName)
-  , "OrganizationalUnitDistinguishedNames" :: NullOrUndefined (OrganizationalUnitDistinguishedNamesList)
-  , "ServiceAccountCredentials" :: NullOrUndefined (ServiceAccountCredentials)
+  , "OrganizationalUnitDistinguishedNames" :: Maybe (OrganizationalUnitDistinguishedNamesList)
+  , "ServiceAccountCredentials" :: Maybe (ServiceAccountCredentials)
   }
 derive instance newtypeUpdateDirectoryConfigRequest :: Newtype UpdateDirectoryConfigRequest _
 derive instance repGenericUpdateDirectoryConfigRequest :: Generic UpdateDirectoryConfigRequest _
@@ -2305,17 +2304,17 @@ instance encodeUpdateDirectoryConfigRequest :: Encode UpdateDirectoryConfigReque
 
 -- | Constructs UpdateDirectoryConfigRequest from required parameters
 newUpdateDirectoryConfigRequest :: DirectoryName -> UpdateDirectoryConfigRequest
-newUpdateDirectoryConfigRequest _DirectoryName = UpdateDirectoryConfigRequest { "DirectoryName": _DirectoryName, "OrganizationalUnitDistinguishedNames": (NullOrUndefined Nothing), "ServiceAccountCredentials": (NullOrUndefined Nothing) }
+newUpdateDirectoryConfigRequest _DirectoryName = UpdateDirectoryConfigRequest { "DirectoryName": _DirectoryName, "OrganizationalUnitDistinguishedNames": Nothing, "ServiceAccountCredentials": Nothing }
 
 -- | Constructs UpdateDirectoryConfigRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateDirectoryConfigRequest' :: DirectoryName -> ( { "DirectoryName" :: (DirectoryName) , "OrganizationalUnitDistinguishedNames" :: NullOrUndefined (OrganizationalUnitDistinguishedNamesList) , "ServiceAccountCredentials" :: NullOrUndefined (ServiceAccountCredentials) } -> {"DirectoryName" :: (DirectoryName) , "OrganizationalUnitDistinguishedNames" :: NullOrUndefined (OrganizationalUnitDistinguishedNamesList) , "ServiceAccountCredentials" :: NullOrUndefined (ServiceAccountCredentials) } ) -> UpdateDirectoryConfigRequest
-newUpdateDirectoryConfigRequest' _DirectoryName customize = (UpdateDirectoryConfigRequest <<< customize) { "DirectoryName": _DirectoryName, "OrganizationalUnitDistinguishedNames": (NullOrUndefined Nothing), "ServiceAccountCredentials": (NullOrUndefined Nothing) }
+newUpdateDirectoryConfigRequest' :: DirectoryName -> ( { "DirectoryName" :: (DirectoryName) , "OrganizationalUnitDistinguishedNames" :: Maybe (OrganizationalUnitDistinguishedNamesList) , "ServiceAccountCredentials" :: Maybe (ServiceAccountCredentials) } -> {"DirectoryName" :: (DirectoryName) , "OrganizationalUnitDistinguishedNames" :: Maybe (OrganizationalUnitDistinguishedNamesList) , "ServiceAccountCredentials" :: Maybe (ServiceAccountCredentials) } ) -> UpdateDirectoryConfigRequest
+newUpdateDirectoryConfigRequest' _DirectoryName customize = (UpdateDirectoryConfigRequest <<< customize) { "DirectoryName": _DirectoryName, "OrganizationalUnitDistinguishedNames": Nothing, "ServiceAccountCredentials": Nothing }
 
 
 
 newtype UpdateDirectoryConfigResult = UpdateDirectoryConfigResult 
-  { "DirectoryConfig" :: NullOrUndefined (DirectoryConfig)
+  { "DirectoryConfig" :: Maybe (DirectoryConfig)
   }
 derive instance newtypeUpdateDirectoryConfigResult :: Newtype UpdateDirectoryConfigResult _
 derive instance repGenericUpdateDirectoryConfigResult :: Generic UpdateDirectoryConfigResult _
@@ -2325,29 +2324,29 @@ instance encodeUpdateDirectoryConfigResult :: Encode UpdateDirectoryConfigResult
 
 -- | Constructs UpdateDirectoryConfigResult from required parameters
 newUpdateDirectoryConfigResult :: UpdateDirectoryConfigResult
-newUpdateDirectoryConfigResult  = UpdateDirectoryConfigResult { "DirectoryConfig": (NullOrUndefined Nothing) }
+newUpdateDirectoryConfigResult  = UpdateDirectoryConfigResult { "DirectoryConfig": Nothing }
 
 -- | Constructs UpdateDirectoryConfigResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateDirectoryConfigResult' :: ( { "DirectoryConfig" :: NullOrUndefined (DirectoryConfig) } -> {"DirectoryConfig" :: NullOrUndefined (DirectoryConfig) } ) -> UpdateDirectoryConfigResult
-newUpdateDirectoryConfigResult'  customize = (UpdateDirectoryConfigResult <<< customize) { "DirectoryConfig": (NullOrUndefined Nothing) }
+newUpdateDirectoryConfigResult' :: ( { "DirectoryConfig" :: Maybe (DirectoryConfig) } -> {"DirectoryConfig" :: Maybe (DirectoryConfig) } ) -> UpdateDirectoryConfigResult
+newUpdateDirectoryConfigResult'  customize = (UpdateDirectoryConfigResult <<< customize) { "DirectoryConfig": Nothing }
 
 
 
 newtype UpdateFleetRequest = UpdateFleetRequest 
-  { "ImageName" :: NullOrUndefined (String)
+  { "ImageName" :: Maybe (String)
   , "Name" :: (String)
-  , "InstanceType" :: NullOrUndefined (String)
-  , "ComputeCapacity" :: NullOrUndefined (ComputeCapacity)
-  , "VpcConfig" :: NullOrUndefined (VpcConfig)
-  , "MaxUserDurationInSeconds" :: NullOrUndefined (Int)
-  , "DisconnectTimeoutInSeconds" :: NullOrUndefined (Int)
-  , "DeleteVpcConfig" :: NullOrUndefined (Boolean)
-  , "Description" :: NullOrUndefined (Description)
-  , "DisplayName" :: NullOrUndefined (DisplayName)
-  , "EnableDefaultInternetAccess" :: NullOrUndefined (BooleanObject)
-  , "DomainJoinInfo" :: NullOrUndefined (DomainJoinInfo)
-  , "AttributesToDelete" :: NullOrUndefined (FleetAttributes)
+  , "InstanceType" :: Maybe (String)
+  , "ComputeCapacity" :: Maybe (ComputeCapacity)
+  , "VpcConfig" :: Maybe (VpcConfig)
+  , "MaxUserDurationInSeconds" :: Maybe (Int)
+  , "DisconnectTimeoutInSeconds" :: Maybe (Int)
+  , "DeleteVpcConfig" :: Maybe (Boolean)
+  , "Description" :: Maybe (Description)
+  , "DisplayName" :: Maybe (DisplayName)
+  , "EnableDefaultInternetAccess" :: Maybe (BooleanObject)
+  , "DomainJoinInfo" :: Maybe (DomainJoinInfo)
+  , "AttributesToDelete" :: Maybe (FleetAttributes)
   }
 derive instance newtypeUpdateFleetRequest :: Newtype UpdateFleetRequest _
 derive instance repGenericUpdateFleetRequest :: Generic UpdateFleetRequest _
@@ -2357,17 +2356,17 @@ instance encodeUpdateFleetRequest :: Encode UpdateFleetRequest where encode = ge
 
 -- | Constructs UpdateFleetRequest from required parameters
 newUpdateFleetRequest :: String -> UpdateFleetRequest
-newUpdateFleetRequest _Name = UpdateFleetRequest { "Name": _Name, "AttributesToDelete": (NullOrUndefined Nothing), "ComputeCapacity": (NullOrUndefined Nothing), "DeleteVpcConfig": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "DisconnectTimeoutInSeconds": (NullOrUndefined Nothing), "DisplayName": (NullOrUndefined Nothing), "DomainJoinInfo": (NullOrUndefined Nothing), "EnableDefaultInternetAccess": (NullOrUndefined Nothing), "ImageName": (NullOrUndefined Nothing), "InstanceType": (NullOrUndefined Nothing), "MaxUserDurationInSeconds": (NullOrUndefined Nothing), "VpcConfig": (NullOrUndefined Nothing) }
+newUpdateFleetRequest _Name = UpdateFleetRequest { "Name": _Name, "AttributesToDelete": Nothing, "ComputeCapacity": Nothing, "DeleteVpcConfig": Nothing, "Description": Nothing, "DisconnectTimeoutInSeconds": Nothing, "DisplayName": Nothing, "DomainJoinInfo": Nothing, "EnableDefaultInternetAccess": Nothing, "ImageName": Nothing, "InstanceType": Nothing, "MaxUserDurationInSeconds": Nothing, "VpcConfig": Nothing }
 
 -- | Constructs UpdateFleetRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateFleetRequest' :: String -> ( { "ImageName" :: NullOrUndefined (String) , "Name" :: (String) , "InstanceType" :: NullOrUndefined (String) , "ComputeCapacity" :: NullOrUndefined (ComputeCapacity) , "VpcConfig" :: NullOrUndefined (VpcConfig) , "MaxUserDurationInSeconds" :: NullOrUndefined (Int) , "DisconnectTimeoutInSeconds" :: NullOrUndefined (Int) , "DeleteVpcConfig" :: NullOrUndefined (Boolean) , "Description" :: NullOrUndefined (Description) , "DisplayName" :: NullOrUndefined (DisplayName) , "EnableDefaultInternetAccess" :: NullOrUndefined (BooleanObject) , "DomainJoinInfo" :: NullOrUndefined (DomainJoinInfo) , "AttributesToDelete" :: NullOrUndefined (FleetAttributes) } -> {"ImageName" :: NullOrUndefined (String) , "Name" :: (String) , "InstanceType" :: NullOrUndefined (String) , "ComputeCapacity" :: NullOrUndefined (ComputeCapacity) , "VpcConfig" :: NullOrUndefined (VpcConfig) , "MaxUserDurationInSeconds" :: NullOrUndefined (Int) , "DisconnectTimeoutInSeconds" :: NullOrUndefined (Int) , "DeleteVpcConfig" :: NullOrUndefined (Boolean) , "Description" :: NullOrUndefined (Description) , "DisplayName" :: NullOrUndefined (DisplayName) , "EnableDefaultInternetAccess" :: NullOrUndefined (BooleanObject) , "DomainJoinInfo" :: NullOrUndefined (DomainJoinInfo) , "AttributesToDelete" :: NullOrUndefined (FleetAttributes) } ) -> UpdateFleetRequest
-newUpdateFleetRequest' _Name customize = (UpdateFleetRequest <<< customize) { "Name": _Name, "AttributesToDelete": (NullOrUndefined Nothing), "ComputeCapacity": (NullOrUndefined Nothing), "DeleteVpcConfig": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "DisconnectTimeoutInSeconds": (NullOrUndefined Nothing), "DisplayName": (NullOrUndefined Nothing), "DomainJoinInfo": (NullOrUndefined Nothing), "EnableDefaultInternetAccess": (NullOrUndefined Nothing), "ImageName": (NullOrUndefined Nothing), "InstanceType": (NullOrUndefined Nothing), "MaxUserDurationInSeconds": (NullOrUndefined Nothing), "VpcConfig": (NullOrUndefined Nothing) }
+newUpdateFleetRequest' :: String -> ( { "ImageName" :: Maybe (String) , "Name" :: (String) , "InstanceType" :: Maybe (String) , "ComputeCapacity" :: Maybe (ComputeCapacity) , "VpcConfig" :: Maybe (VpcConfig) , "MaxUserDurationInSeconds" :: Maybe (Int) , "DisconnectTimeoutInSeconds" :: Maybe (Int) , "DeleteVpcConfig" :: Maybe (Boolean) , "Description" :: Maybe (Description) , "DisplayName" :: Maybe (DisplayName) , "EnableDefaultInternetAccess" :: Maybe (BooleanObject) , "DomainJoinInfo" :: Maybe (DomainJoinInfo) , "AttributesToDelete" :: Maybe (FleetAttributes) } -> {"ImageName" :: Maybe (String) , "Name" :: (String) , "InstanceType" :: Maybe (String) , "ComputeCapacity" :: Maybe (ComputeCapacity) , "VpcConfig" :: Maybe (VpcConfig) , "MaxUserDurationInSeconds" :: Maybe (Int) , "DisconnectTimeoutInSeconds" :: Maybe (Int) , "DeleteVpcConfig" :: Maybe (Boolean) , "Description" :: Maybe (Description) , "DisplayName" :: Maybe (DisplayName) , "EnableDefaultInternetAccess" :: Maybe (BooleanObject) , "DomainJoinInfo" :: Maybe (DomainJoinInfo) , "AttributesToDelete" :: Maybe (FleetAttributes) } ) -> UpdateFleetRequest
+newUpdateFleetRequest' _Name customize = (UpdateFleetRequest <<< customize) { "Name": _Name, "AttributesToDelete": Nothing, "ComputeCapacity": Nothing, "DeleteVpcConfig": Nothing, "Description": Nothing, "DisconnectTimeoutInSeconds": Nothing, "DisplayName": Nothing, "DomainJoinInfo": Nothing, "EnableDefaultInternetAccess": Nothing, "ImageName": Nothing, "InstanceType": Nothing, "MaxUserDurationInSeconds": Nothing, "VpcConfig": Nothing }
 
 
 
 newtype UpdateFleetResult = UpdateFleetResult 
-  { "Fleet" :: NullOrUndefined (Fleet)
+  { "Fleet" :: Maybe (Fleet)
   }
 derive instance newtypeUpdateFleetResult :: Newtype UpdateFleetResult _
 derive instance repGenericUpdateFleetResult :: Generic UpdateFleetResult _
@@ -2377,23 +2376,23 @@ instance encodeUpdateFleetResult :: Encode UpdateFleetResult where encode = gene
 
 -- | Constructs UpdateFleetResult from required parameters
 newUpdateFleetResult :: UpdateFleetResult
-newUpdateFleetResult  = UpdateFleetResult { "Fleet": (NullOrUndefined Nothing) }
+newUpdateFleetResult  = UpdateFleetResult { "Fleet": Nothing }
 
 -- | Constructs UpdateFleetResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateFleetResult' :: ( { "Fleet" :: NullOrUndefined (Fleet) } -> {"Fleet" :: NullOrUndefined (Fleet) } ) -> UpdateFleetResult
-newUpdateFleetResult'  customize = (UpdateFleetResult <<< customize) { "Fleet": (NullOrUndefined Nothing) }
+newUpdateFleetResult' :: ( { "Fleet" :: Maybe (Fleet) } -> {"Fleet" :: Maybe (Fleet) } ) -> UpdateFleetResult
+newUpdateFleetResult'  customize = (UpdateFleetResult <<< customize) { "Fleet": Nothing }
 
 
 
 newtype UpdateStackRequest = UpdateStackRequest 
-  { "DisplayName" :: NullOrUndefined (DisplayName)
-  , "Description" :: NullOrUndefined (Description)
+  { "DisplayName" :: Maybe (DisplayName)
+  , "Description" :: Maybe (Description)
   , "Name" :: (String)
-  , "StorageConnectors" :: NullOrUndefined (StorageConnectorList)
-  , "DeleteStorageConnectors" :: NullOrUndefined (Boolean)
-  , "RedirectURL" :: NullOrUndefined (RedirectURL)
-  , "AttributesToDelete" :: NullOrUndefined (StackAttributes)
+  , "StorageConnectors" :: Maybe (StorageConnectorList)
+  , "DeleteStorageConnectors" :: Maybe (Boolean)
+  , "RedirectURL" :: Maybe (RedirectURL)
+  , "AttributesToDelete" :: Maybe (StackAttributes)
   }
 derive instance newtypeUpdateStackRequest :: Newtype UpdateStackRequest _
 derive instance repGenericUpdateStackRequest :: Generic UpdateStackRequest _
@@ -2403,17 +2402,17 @@ instance encodeUpdateStackRequest :: Encode UpdateStackRequest where encode = ge
 
 -- | Constructs UpdateStackRequest from required parameters
 newUpdateStackRequest :: String -> UpdateStackRequest
-newUpdateStackRequest _Name = UpdateStackRequest { "Name": _Name, "AttributesToDelete": (NullOrUndefined Nothing), "DeleteStorageConnectors": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "DisplayName": (NullOrUndefined Nothing), "RedirectURL": (NullOrUndefined Nothing), "StorageConnectors": (NullOrUndefined Nothing) }
+newUpdateStackRequest _Name = UpdateStackRequest { "Name": _Name, "AttributesToDelete": Nothing, "DeleteStorageConnectors": Nothing, "Description": Nothing, "DisplayName": Nothing, "RedirectURL": Nothing, "StorageConnectors": Nothing }
 
 -- | Constructs UpdateStackRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateStackRequest' :: String -> ( { "DisplayName" :: NullOrUndefined (DisplayName) , "Description" :: NullOrUndefined (Description) , "Name" :: (String) , "StorageConnectors" :: NullOrUndefined (StorageConnectorList) , "DeleteStorageConnectors" :: NullOrUndefined (Boolean) , "RedirectURL" :: NullOrUndefined (RedirectURL) , "AttributesToDelete" :: NullOrUndefined (StackAttributes) } -> {"DisplayName" :: NullOrUndefined (DisplayName) , "Description" :: NullOrUndefined (Description) , "Name" :: (String) , "StorageConnectors" :: NullOrUndefined (StorageConnectorList) , "DeleteStorageConnectors" :: NullOrUndefined (Boolean) , "RedirectURL" :: NullOrUndefined (RedirectURL) , "AttributesToDelete" :: NullOrUndefined (StackAttributes) } ) -> UpdateStackRequest
-newUpdateStackRequest' _Name customize = (UpdateStackRequest <<< customize) { "Name": _Name, "AttributesToDelete": (NullOrUndefined Nothing), "DeleteStorageConnectors": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "DisplayName": (NullOrUndefined Nothing), "RedirectURL": (NullOrUndefined Nothing), "StorageConnectors": (NullOrUndefined Nothing) }
+newUpdateStackRequest' :: String -> ( { "DisplayName" :: Maybe (DisplayName) , "Description" :: Maybe (Description) , "Name" :: (String) , "StorageConnectors" :: Maybe (StorageConnectorList) , "DeleteStorageConnectors" :: Maybe (Boolean) , "RedirectURL" :: Maybe (RedirectURL) , "AttributesToDelete" :: Maybe (StackAttributes) } -> {"DisplayName" :: Maybe (DisplayName) , "Description" :: Maybe (Description) , "Name" :: (String) , "StorageConnectors" :: Maybe (StorageConnectorList) , "DeleteStorageConnectors" :: Maybe (Boolean) , "RedirectURL" :: Maybe (RedirectURL) , "AttributesToDelete" :: Maybe (StackAttributes) } ) -> UpdateStackRequest
+newUpdateStackRequest' _Name customize = (UpdateStackRequest <<< customize) { "Name": _Name, "AttributesToDelete": Nothing, "DeleteStorageConnectors": Nothing, "Description": Nothing, "DisplayName": Nothing, "RedirectURL": Nothing, "StorageConnectors": Nothing }
 
 
 
 newtype UpdateStackResult = UpdateStackResult 
-  { "Stack" :: NullOrUndefined (Stack)
+  { "Stack" :: Maybe (Stack)
   }
 derive instance newtypeUpdateStackResult :: Newtype UpdateStackResult _
 derive instance repGenericUpdateStackResult :: Generic UpdateStackResult _
@@ -2423,12 +2422,12 @@ instance encodeUpdateStackResult :: Encode UpdateStackResult where encode = gene
 
 -- | Constructs UpdateStackResult from required parameters
 newUpdateStackResult :: UpdateStackResult
-newUpdateStackResult  = UpdateStackResult { "Stack": (NullOrUndefined Nothing) }
+newUpdateStackResult  = UpdateStackResult { "Stack": Nothing }
 
 -- | Constructs UpdateStackResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateStackResult' :: ( { "Stack" :: NullOrUndefined (Stack) } -> {"Stack" :: NullOrUndefined (Stack) } ) -> UpdateStackResult
-newUpdateStackResult'  customize = (UpdateStackResult <<< customize) { "Stack": (NullOrUndefined Nothing) }
+newUpdateStackResult' :: ( { "Stack" :: Maybe (Stack) } -> {"Stack" :: Maybe (Stack) } ) -> UpdateStackResult
+newUpdateStackResult'  customize = (UpdateStackResult <<< customize) { "Stack": Nothing }
 
 
 
@@ -2452,8 +2451,8 @@ instance encodeVisibilityType :: Encode VisibilityType where encode = genericEnc
 
 -- | <p>Describes VPC configuration information.</p>
 newtype VpcConfig = VpcConfig 
-  { "SubnetIds" :: NullOrUndefined (SubnetIdList)
-  , "SecurityGroupIds" :: NullOrUndefined (SecurityGroupIdList)
+  { "SubnetIds" :: Maybe (SubnetIdList)
+  , "SecurityGroupIds" :: Maybe (SecurityGroupIdList)
   }
 derive instance newtypeVpcConfig :: Newtype VpcConfig _
 derive instance repGenericVpcConfig :: Generic VpcConfig _
@@ -2463,10 +2462,10 @@ instance encodeVpcConfig :: Encode VpcConfig where encode = genericEncode option
 
 -- | Constructs VpcConfig from required parameters
 newVpcConfig :: VpcConfig
-newVpcConfig  = VpcConfig { "SecurityGroupIds": (NullOrUndefined Nothing), "SubnetIds": (NullOrUndefined Nothing) }
+newVpcConfig  = VpcConfig { "SecurityGroupIds": Nothing, "SubnetIds": Nothing }
 
 -- | Constructs VpcConfig's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newVpcConfig' :: ( { "SubnetIds" :: NullOrUndefined (SubnetIdList) , "SecurityGroupIds" :: NullOrUndefined (SecurityGroupIdList) } -> {"SubnetIds" :: NullOrUndefined (SubnetIdList) , "SecurityGroupIds" :: NullOrUndefined (SecurityGroupIdList) } ) -> VpcConfig
-newVpcConfig'  customize = (VpcConfig <<< customize) { "SecurityGroupIds": (NullOrUndefined Nothing), "SubnetIds": (NullOrUndefined Nothing) }
+newVpcConfig' :: ( { "SubnetIds" :: Maybe (SubnetIdList) , "SecurityGroupIds" :: Maybe (SecurityGroupIdList) } -> {"SubnetIds" :: Maybe (SubnetIdList) , "SecurityGroupIds" :: Maybe (SecurityGroupIdList) } ) -> VpcConfig
+newVpcConfig'  customize = (VpcConfig <<< customize) { "SecurityGroupIds": Nothing, "SubnetIds": Nothing }
 
